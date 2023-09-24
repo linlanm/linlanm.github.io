@@ -104,4 +104,4 @@ theme: fluid
 deploy: 
   type:git 
   repo:https://github.com/linlanm/linlanm.github.io.git
-  branch:main
+  branch:gh-pages
