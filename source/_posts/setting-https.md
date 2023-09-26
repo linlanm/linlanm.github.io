@@ -2,6 +2,10 @@
 title: 使用Let’s Encrypt配置HTTPS
 date: 2023-09-26 17:40:09
 tags:
+- Nginx
+- Linux
+categories:
+- Linux
 ---
 注意：教程使用Ubuntu18.04+Nginx
 

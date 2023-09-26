@@ -3,8 +3,10 @@ title: KMS命令激活Windows/Office
 date: 2023-09-26 17:42:03
 tags: 
 - Windows
+- Office
 categories: 
 - Windows
+- Office
 ---
 **注意**：以下所有命令均以管理员权限运行
 

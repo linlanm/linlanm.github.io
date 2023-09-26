@@ -2,6 +2,9 @@
 title: Debian10缺少iwlwifi固件无法使用无线网络解决办法
 date: 2023-09-26 17:49:32
 tags:
+- Linux
+categories:
+- Linux
 ---
 **解决过程：**
 

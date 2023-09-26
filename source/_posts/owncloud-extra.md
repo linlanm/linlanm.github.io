@@ -2,6 +2,10 @@
 title: owncloud安装后常见配置问题
 date: 2023-09-26 17:47:03
 tags:
+- Nginx
+- Linux
+categories:
+- Hexo
 ---
 1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\\”PATH\\”) 测试时仅返回空结果。
 

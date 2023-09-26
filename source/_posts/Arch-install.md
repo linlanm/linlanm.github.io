@@ -2,6 +2,10 @@
 title: ArchLinux安装教程
 date: 2023-09-26 17:45:01
 tags:
+- 系统安装
+- Linux
+categories:
+- Linux
 ---
 **一、准备工作**
 

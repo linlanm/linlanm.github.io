@@ -2,6 +2,9 @@
 title: Manjaro安装后基本配置
 date: 2023-09-26 17:52:50
 tags:
+- Linux
+categories:
+- Linux
 ---
 **1.设置官方镜像源**  
 `$ sudo pacman-mirrors -i -c China -m rank`  

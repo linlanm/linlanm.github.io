@@ -2,6 +2,10 @@
 title: nginx反向代理及设置访问站点密码
 date: 2023-09-26 17:50:48
 tags:
+- Nginx
+- Linux
+categories:
+- Linux
 ---
 1.在/etc/nginx/conf.d目录下修改站点配置文件,修改完成后重启服务
 
