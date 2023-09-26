@@ -101,7 +101,7 @@ theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy: 
-  type: git 
-  repo: https://github.com/linlanm/linlanm.github.io.git
-  branch: gh-pages
+#deploy: 
+#  type: git 
+#  repo: https://github.com/linlanm/linlanm.github.io.git
+#  branch: gh-pages
