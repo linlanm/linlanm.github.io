@@ -4,6 +4,135 @@
   
   
   <entry>
+    <title>hexo-分类&amp;标签应用</title>
+    <link href="/2023/09/26/hexo-extra/"/>
+    <url>/2023/09/26/hexo-extra/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>指令解析</p></blockquote><p>根据scaffolds模板下的page文件创建相应的分类或者标签概念</p><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haxe">hexo <span class="hljs-keyword">new</span> <span class="hljs-type">page</span> xxx<br></code></pre></td></tr></table></figure><p>该指令执行完成会在source下相应生成一个xxx文件夹（内有一个index.md文件）</p><h2 id="1-分类-标签创建"><a href="#1-分类-标签创建" class="headerlink" title="1.分类&amp;标签创建"></a>1.分类&amp;标签创建</h2><h3 id="分类创建"><a href="#分类创建" class="headerlink" title="分类创建"></a>分类创建</h3><blockquote><p>创建分类页面</p></blockquote><p>执行命令创建分类</p><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haxe">hexo <span class="hljs-keyword">new</span> <span class="hljs-type">page</span> categories<br></code></pre></td></tr></table></figure><p>构建完成：categories&#x2F;index.md对应内容</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">title:</span> categories<br><span class="hljs-symbol">date:</span> xxxx-xx-xx xx:xx:xx<br></code></pre></td></tr></table></figure><p>修改index.md文件，将页面类型设置为 categories ，主题将自动为这个页面显示所有分类（可根据自身需求配置相关内容）</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">title:</span> categories<br><span class="hljs-symbol">date:</span> xxxx-xx-xx xx:xx:xx<br><span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;categories&quot;</span><br></code></pre></td></tr></table></figure><h3 id="标签创建"><a href="#标签创建" class="headerlink" title="标签创建"></a>标签创建</h3><blockquote><p>创建标签页面</p></blockquote><p>执行命令创建标签</p><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haxe">hexo <span class="hljs-keyword">new</span> <span class="hljs-type">page</span> tags<br></code></pre></td></tr></table></figure><p>构建完成：tags&#x2F;index.md对应内容</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">title:</span> tags<br><span class="hljs-symbol">date:</span> xxxx-xx-xx xx:xx:xx<br></code></pre></td></tr></table></figure><p>改index.md文件，将页面类型设置为 tags，主题将自动为这个页面显示所有标签（可根据自身需求配置相关内容）</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">title:</span> tags<br><span class="hljs-symbol">date:</span> xxxx-xx-xx xx:xx:xx<br><span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;tags&quot;</span><br></code></pre></td></tr></table></figure><h2 id="2-分类-标签应用"><a href="#2-分类-标签应用" class="headerlink" title="2.分类&amp;标签应用"></a>2.分类&amp;标签应用</h2><h4 id="在文章中配置分类和标签"><a href="#在文章中配置分类和标签" class="headerlink" title="在文章中配置分类和标签"></a>在文章中配置分类和标签</h4><p>​创建一个文章，编辑front-matter，设定相应的分类和标签信息，注意区分分类、标签的层次关系<br>​只有文章支持分类和标签，可以在 Front-matter 中设置。在其他系统中，分类和标签听起来很接近，但是在 Hexo 中两者有着明显的差别：分类具有顺序性和层次性；而标签没有顺序和层次。</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs subunit">title: 个人博客<br>categories: <br>    - java-note<br>    - base<br><span class="hljs-keyword">tags:</span> <br>    - java<br>    - database<br>date: xxx-xx-xx xx:xx:xx<br>updated: xxx-xx-xx xx:xx:xx<br></code></pre></td></tr></table></figure><p>​ 预览文章内容，显示信息。</p><h4 id="多级分类构建"><a href="#多级分类构建" class="headerlink" title="多级分类构建"></a>多级分类构建</h4><blockquote><p>多级分类构建</p></blockquote><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">categories</span><span class="hljs-punctuation">:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">[java-note, base]</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">[java-note, database]</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">[vue-note]</span><br></code></pre></td></tr></table></figure><p>上述分类为：java-note下有base、database两个子分类，而vue-note没有子分类。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Manjaro安装后基本配置</title>
+    <link href="/2023/09/26/Manjaro-settings/"/>
+    <url>/2023/09/26/Manjaro-settings/</url>
+    
+    <content type="html"><![CDATA[<p><strong>1.设置官方镜像源</strong><br><code>$ sudo pacman-mirrors -i -c China -m rank</code><br>输入以上命令后会有弹出框，选择一个国内镜像(推荐中国科技大学的镜像源<a href="https://mirrors.ustc.edu.cn/">https://mirrors.ustc.edu.cn</a>)</p><p><strong>2.升级系统及编辑器</strong><br><code>$ sudo pacman -Syyu &amp;&amp; sudo pacman -S vim</code></p><p><strong>3.添加archlinuxcn源</strong><br><code>$ sudo vim /etc/pacman.conf</code><br>文件底部添加以下几行</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[archlinuxcn]</span><br><span class="hljs-attr">SigLevel</span> = Optional TrustedOnly  <br><span class="hljs-attr">Server</span> = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="hljs-variable">$arch</span><br></code></pre></td></tr></table></figure><p>修改文件后，执行以下命令<br><code>$ sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring</code></p><p><strong>4.安装输入法</strong>(基于 fcitx 的搜狗输入法)<br><code>$ sudo pacman -S fcitx-im fcitx-configtool fcitx-sogoupinyin</code><br>添加输入法配置文件<br><code>$ vim ~/.xprofile</code></p><figure class="highlight plaintext"><figcaption><span>GTK\_IM\_MODULE</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs export">export QT\_IM\_MODULE=fcitx<br>export XMODIFIERS=&quot;@im=fcitx&quot;<br></code></pre></td></tr></table></figure><p>重启即可正常使用输入法</p><p>5.安装常用软件<br><code>$ sudo pacman -S deepin.com.qq.office deepin.com.qq.im netease-cloud-music wps-office ttf-wps-fonts yay google-chrome</code><br><code>$ yay -S deepin-wine-wechat</code></p><p>deepin.com.qq.office [QQ]<br>deepin.com.qq.im [TIM]<br>netease-cloud-music [网易云音乐]<br>wps-office [WPS]<br>ttf-wps-fonts [WPS字体]<br>yay [AUR工具]<br>google-chrome [谷歌浏览器]<br>deepin-wine-wechat [微信]</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>nginx反向代理及设置访问站点密码</title>
+    <link href="/2023/09/26/nginx-settings/"/>
+    <url>/2023/09/26/nginx-settings/</url>
+    
+    <content type="html"><![CDATA[<p>1.在&#x2F;etc&#x2F;nginx&#x2F;conf.d目录下修改站点配置文件,修改完成后重启服务</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">server</span> &#123;<br>        <span class="hljs-keyword">listen</span> <span class="hljs-number">80</span>;<br>        server_name <span class="hljs-keyword">admin</span>.service.com;<br>        <span class="hljs-keyword">location</span> / &#123;<br>               proxy_pass http://<span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.123</span>:<span class="hljs-number">8090</span>;<br>               <span class="hljs-keyword">index</span> <span class="hljs-keyword">index</span>.jsp <span class="hljs-keyword">index</span>.html <span class="hljs-keyword">index</span>.htm;<br>        &#125;<br>    &#125;<br><br></code></pre></td></tr></table></figure><p>2.安装访问验证工具</p><p>Ubuntu: <code># apt install apache2-utils</code></p><p>CentOS: <code># yum install httpd-tools</code></p><p>3.设置验证用户名及密码</p><p><code># mkdir -p /usr/local/src/nginx/</code></p><p><code># htpasswd -c /usr/local/src/nginx/passwd admis</code><br>passwd为密码文件，admis为用户名</p><p>4.修改nginx站点配置文件,修改完成后重启nginx服务</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs awk">server &#123;  <br>     listen <span class="hljs-number">80</span>;  <br>     server_name  localhost;  <br>     …….  <br>     <span class="hljs-comment">#新增下面两行  </span><br>     auth_basic <span class="hljs-string">&quot;Please input password&quot;</span>; <span class="hljs-comment">#这里是验证时的提示信息  </span><br>     auth_basic_user_file <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/src/</span>nginx/passwd;  <br>     location /&#123;  <br>     …….  <br> &#125;<br> &#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Nginx</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Debian10缺少iwlwifi固件无法使用无线网络解决办法</title>
+    <link href="/2023/09/26/debian-extra/"/>
+    <url>/2023/09/26/debian-extra/</url>
+    
+    <content type="html"><![CDATA[<p><strong>解决过程：</strong></p><p>1.使用有线网络连接到互联网;</p><p>2.编辑Debian10的软件源配置文件</p><p><code>$ sudo vim /etc/apt/sources.list</code></p><p>将<code>non-free</code>添加到源的后面</p><p>3.更新源</p><p><code>$ sudo apt update</code></p><p>4.安装firmware-iwlwifi包</p><p><code>$ sudo apt install firmware-iwlwifi</code></p><p>5.加载模块</p><p><code>$ sudo modprobe -r iwlwifi</code></p><p><code>$ sudo modprobe iwlwifi</code></p><p><strong>说明：</strong>Debian是一个开源操作系统。因此，在安装Debian的时候，默认只安装自由软件，而非自由软件（non-free）则不会被默认安装。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>owncloud安装后常见配置问题</title>
+    <link href="/2023/09/26/owncloud-extra/"/>
+    <url>/2023/09/26/owncloud-extra/</url>
+    
+    <content type="html"><![CDATA[<p>1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\”PATH\”) 测试时仅返回空结果。</p><p>编辑<code>/etc/php/7.3/fpm/php-fpm.conf</code>配置文件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">env[<span class="hljs-variable constant_">PATH</span>] = <span class="hljs-regexp">/usr/local</span><span class="hljs-regexp">/bin:/usr</span><span class="hljs-regexp">/bin:/bin</span><span class="hljs-symbol">:/usr/local/php/bin</span><br></code></pre></td></tr></table></figure><p>将上面的代码粘贴到配置文件的最后一行，重启php7.3-fpm</p><p>2.HTTP 严格传输安全（Strict-Transport-Security）报头未配置到至少“15552000”秒。处于增强安全性考虑，我们推荐按照安全提示启用 HSTS。</p><p>编辑网站的配置文件“vhost.conf”文件找到对应网站的433端口段添加下面代码（保存后重启nginx）</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">add_header <span class="hljs-keyword">Strict</span>-Transport-<span class="hljs-keyword">Security</span> &quot;max-age=63072000; includeSubdomains; preload&quot;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Nginx</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ArchLinux安装教程</title>
     <link href="/2023/09/26/Arch-install/"/>
     <url>/2023/09/26/Arch-install/</url>
@@ -11,6 +140,20 @@
     <content type="html"><![CDATA[<p><strong>一、准备工作</strong></p><p>1.下载arch最新安装镜像;</p><p>2.烧录镜像至U盘（4G或8G）</p><p>Linux:</p><p><code>$ sudo dd bs=4M if=archlinux-2020.01.01-x86_64.iso of=/dev/sdc</code> </p><p>Windows:<br>使用rufus,模式选择dd</p><p><strong>二、启动到live环境</strong></p><p><strong>1.进入装机环境</strong></p><p><strong>2.验证启动模式</strong><br><code># ls /sys/firmware/efi/efivars</code><br>如果目录不为空，说明当前系统是以UEFI模式启动的，如果目录不存在，系统可能以 BIOS或 CSM 模式启动</p><p><strong>3.连接到互联网</strong><br>a.启动dhcp服务<br><code># systemctl start dhcpcd</code><br>b.查看网络连接<br><code># ip a</code><br>c.检查网络连通性<br><code># ping -c 3 www.baidu.com</code></p><p><strong>4.更新系统时间</strong><br><code># timedatectl set-ntp true</code></p><p><strong>5.硬盘分区</strong></p><p><strong>查看硬盘信息</strong><br><code># lsblk</code></p><p><strong>分区示例</strong>(磁盘以sda为例)</p><p><strong>BIOS和MBR</strong></p><table><thead><tr><th>挂载点</th><th>分区</th><th>分区类型</th><th>建议大小</th></tr></thead><tbody><tr><td>&#x2F;mnt</td><td>&#x2F;dev&#x2F;sda1</td><td>Linux</td><td>剩余空间</td></tr><tr><td>[SWAP]</td><td>&#x2F;dev&#x2F;sda2</td><td>Linux swap (交换空间)</td><td>大于 512 MiB</td></tr></tbody></table><p><strong>UEFI with GPT</strong></p><table><thead><tr><th>挂载点</th><th>分区</th><th>分区类型</th><th>建议大小</th></tr></thead><tbody><tr><td>&#x2F;mnt&#x2F;boot&#x2F;efi</td><td>&#x2F;dev&#x2F;sda1</td><td>EFI 系统分区</td><td>260–512 MiB</td></tr><tr><td>&#x2F;mnt</td><td>&#x2F;dev&#x2F;sda2</td><td>Linux x86-64 根目录 (&#x2F;)</td><td>剩余空间</td></tr><tr><td>[SWAP]</td><td>&#x2F;dev&#x2F;sda3</td><td>Linux swap (交换空间)</td><td>大于 512 MiB</td></tr></tbody></table><ul><li>请使用 cfdisk 或 parted 修改分区表，例如 <code># cfdisk /dev/sda</code></li><li>如果文件系统支持，交换空间也可以设在交换文件上。</li></ul><p><strong>6.格式化分区</strong>(磁盘以sda为例)<br>当分区建立好了，这些分区都需要使用适当的文件系统进行格式化。举例,如果根分区在 &#x2F;dev&#x2F;sda2 上并且会使用 <em>ext4</em> 文件系统，efi分区在&#x2F;dev&#x2F;sda1上，运行：<br><code># mkfs.fat -F32 /dev/sda1</code> efi分区<br><code># mkfs.*ext4* /dev/sda2</code> &#x2F;分区<br>如果您创建了交换分区（例如 &#x2F;dev&#x2F;sda3），使用 mkswap 将其初始化：<br><code># mkswap /dev/sda3</code><br><code># swapon /dev/sda3</code></p><p><strong>7.挂载分区</strong>(磁盘以sda为例)<br>将根分区挂载到 <code>/mnt</code>，例如：<br><code># mount /dev/sda2 /mnt</code><br>创建其他剩余的挂载点（比如 <code>/mnt/boot/efi</code>）并挂载其相应的分区。<br><code># mkdir /mnt/boot/efi -p   # mount /dev/sda1 /mnt/boot/efi</code><br>接下来 genfstab 将会自动检测挂载的文件系统和交换空间。</p><p><strong>三、安装系统</strong></p><p><strong>1.选择镜像</strong><br>文件 <code>/etc/pacman.d/mirrorlist</code> 定义了软件包会从哪个镜像源下载。在 LiveCD 启动的系统上，所有的镜像都被启用，并且在镜像被制作时，我们已经通过他们的同步情况和速度排序。<br>在列表中越前的镜像在下载软件包时有越高的优先权。你可以相应的修改文件 <code>/etc/pacman.d/mirrorlist</code>，并<strong>将地理位置最近的镜像源挪到文件的头部</strong>，同时你也应该考虑一些其他标准。<br>这个文件接下来还会被 <em>pacstrap</em> 拷贝到新系统里，所以请确保设置正确。<br>例：<br><code># vim /etc/pacman.d/mirrorlist</code>  </p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">Server = https:<span class="hljs-regexp">//mi</span>rrors.ustc.edu.cn<span class="hljs-regexp">/archlinux/</span><span class="hljs-variable">$repo</span><span class="hljs-regexp">/os/</span><span class="hljs-variable">$arch</span><br></code></pre></td></tr></table></figure><p><strong>2.安装必须的软件包</strong><br><code># pacstrap /mnt base base-devel linux linux-firmware vim</code></p><p><strong>四、配置系统</strong></p><p><strong>1.Fstab</strong><br>用以下命令生成fstab文件 (用 <code>-U</code> 或 <code>-L</code> 选项设置UUID 或卷标)：<br><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code><br><strong>强烈建议</strong> 在执行完以上命令后，后检查一下生成的 <code>/mnt/etc/fstab</code> 文件是否正确。</p><p><strong>2.Chroot</strong><br>Change root 到新安装的系统：<br><code># arch-chroot /mnt</code></p><p><strong>3.设置时区</strong><br><code># ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code><br><code># hwclock --systohc --localtime</code></p><p><strong>4.本地化</strong><br>本地化的程序与库若要本地化文本，都依赖 Locale，后者明确规定地域、货币、时区日期的格式、字符排列方式和其他本地化标准等等。在下面两个文件设置：<code>locale.gen</code> 与 <code>locale.conf</code>。<br><code>/etc/locale.gen</code> 是一个仅包含注释文档的文本文件。指定您需要的本地化类型，只需移除对应行前面的注释符号（<code>＃</code>）即可，建议选择带 <code>UTF-8</code> 的项：<br><code># vim /etc/locale.gen</code>  </p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">en_US</span>.UTF-<span class="hljs-number">8</span> UTF-<span class="hljs-number">8</span>  <br><span class="hljs-attribute">zh_CN</span>.UTF-<span class="hljs-number">8</span> UTF-<span class="hljs-number">8</span>  <br><span class="hljs-attribute">zh_TW</span>.UTF-<span class="hljs-number">8</span> UTF-<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure><p>接着执行 <code>locale-gen</code> 以生成 locale 信息：<br><code># locale-gen</code></p><p><code>/etc/locale.gen</code> 会生成指定的本地化文件。<br>创建 <code>locale.conf</code> 并编辑 <code>LANG</code> 这一变量,比如将系统 locale 设置为 <code>en_US.UTF-8</code>，系统的 Log 就会用英文显示，这样更容易问题的判断和处理。<br><code># echo LANG=en_US.UTF8 &gt; /etc/locale.conf</code><br><strong>警告:</strong> 不推荐在此设置任何中文 locale，会导致 TTY 乱码。</p><p><strong>5.设置网络</strong><br>a.创建 hostname 文件<br><code># vim /etc/hostname</code>  </p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">myhostname</span><br></code></pre></td></tr></table></figure><p>b.添加对应的信息到 hosts:<br><code># vim /etc/hosts</code>  </p><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs accesslog"><span class="hljs-number">127.0.0.1</span> localhost  <br>::<span class="hljs-number">1</span> localhost  <br><span class="hljs-number">127.0.1.1</span> myhostname.localdomain myhostname<br></code></pre></td></tr></table></figure><p><strong>6.用户配置</strong><br>a.修改root密码<br><code># passwd root</code><br>b.创建新用户(merlin是新建的用户名)<br><code># useradd -m -G wheel merlin</code><br>c.修改用户密码<br><code># passwd merlin</code><br>d.修改sudo权限<br><code># visudo</code><br>去掉<code># %wheel ALL=(ALL) ALL</code> 前面的注释</p><p><strong>7.其它配置</strong><br>a.<em>有线连接</em><br><code># systemctl enable dhcpcd</code>   开机自动启动dhcp服务<br>如果上述命令执行提示错误，执行<code># pacman -S dhcpcd</code><br>b***.***无线连接<br><code># pacman -S iw wpa_supplicant dialog</code></p><p><strong>8.按照系统引导</strong>(sda修改为实际安装磁盘)</p><p><em><strong>BIOS+BMR分区方案引导系统启动</strong></em>  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">pacman -S grub</span>   <br><span class="hljs-meta prompt_"># </span><span class="language-bash">grub-install --target=i386-pc /dev/sda</span>   <br><span class="hljs-meta prompt_"># </span><span class="language-bash">grub-mkconfig -o /boot/grub/grub.cfg</span><br></code></pre></td></tr></table></figure><p><strong>UEFI+<em>GPT分区方案引导系统启动</em></strong>  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">pacman -S grub efibootmgr</span>   <br><span class="hljs-meta prompt_"># </span><span class="language-bash">grub-install --target=x86_64-efi /dev/sda</span>    <br><span class="hljs-meta prompt_"># </span><span class="language-bash">grub-mkconfig -o /boot/grub/grub.cfg</span><br></code></pre></td></tr></table></figure><p><strong>五、重启</strong></p><p>输入 <code>exit</code> 或按 <code>Ctrl+d</code> 退出 chroot 环境。<br>可选用 <code>umount -R /mnt</code> 手动卸载被挂载的分区：这有助于发现任何「繁忙」的分区，并通过 <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/fuser.1">fuser(1)</a> 查找原因。<br>最后，通过执行 <code>reboot</code> 重启系统，<em>systemd</em> 将自动卸载仍然挂载的任何分区。不要忘记移除安装介质，然后使用 root 帐户登录到新系统。</p><p><strong>注意</strong>：本文章基于Arch Wiki修改，<a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">原文链接</a></p>]]></content>
     
     
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>系统安装</tag>
+      
+      <tag>Linux</tag>
+      
+    </tags>
     
   </entry>
   
@@ -28,6 +171,8 @@
       
       <category>Windows</category>
       
+      <category>Office</category>
+      
     </categories>
     
     
@@ -35,59 +180,9 @@
       
       <tag>Windows</tag>
       
+      <tag>Office</tag>
+      
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Manjaro安装后基本配置</title>
-    <link href="/2023/09/26/Manjaro-settings/"/>
-    <url>/2023/09/26/Manjaro-settings/</url>
-    
-    <content type="html"><![CDATA[<p><strong>1.设置官方镜像源</strong><br><code>$ sudo pacman-mirrors -i -c China -m rank</code><br>输入以上命令后会有弹出框，选择一个国内镜像(推荐中国科技大学的镜像源<a href="https://mirrors.ustc.edu.cn/">https://mirrors.ustc.edu.cn</a>)</p><p><strong>2.升级系统及编辑器</strong><br><code>$ sudo pacman -Syyu &amp;&amp; sudo pacman -S vim</code></p><p><strong>3.添加archlinuxcn源</strong><br><code>$ sudo vim /etc/pacman.conf</code><br>文件底部添加以下几行</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[archlinuxcn]</span><br><span class="hljs-attr">SigLevel</span> = Optional TrustedOnly  <br><span class="hljs-attr">Server</span> = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="hljs-variable">$arch</span><br></code></pre></td></tr></table></figure><p>修改文件后，执行以下命令<br><code>$ sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring</code></p><p><strong>4.安装输入法</strong>(基于 fcitx 的搜狗输入法)<br><code>$ sudo pacman -S fcitx-im fcitx-configtool fcitx-sogoupinyin</code><br>添加输入法配置文件<br><code>$ vim ~/.xprofile</code></p><figure class="highlight plaintext"><figcaption><span>GTK\_IM\_MODULE</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs export">export QT\_IM\_MODULE=fcitx<br>export XMODIFIERS=&quot;@im=fcitx&quot;<br></code></pre></td></tr></table></figure><p>重启即可正常使用输入法</p><p>5.安装常用软件<br><code>$ sudo pacman -S deepin.com.qq.office deepin.com.qq.im netease-cloud-music wps-office ttf-wps-fonts yay google-chrome</code><br><code>$ yay -S deepin-wine-wechat</code></p><p>deepin.com.qq.office [QQ]<br>deepin.com.qq.im [TIM]<br>netease-cloud-music [网易云音乐]<br>wps-office [WPS]<br>ttf-wps-fonts [WPS字体]<br>yay [AUR工具]<br>google-chrome [谷歌浏览器]<br>deepin-wine-wechat [微信]</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>nginx反向代理及设置访问站点密码</title>
-    <link href="/2023/09/26/nginx-settings/"/>
-    <url>/2023/09/26/nginx-settings/</url>
-    
-    <content type="html"><![CDATA[<p>1.在&#x2F;etc&#x2F;nginx&#x2F;conf.d目录下修改站点配置文件,修改完成后重启服务</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">server</span> &#123;<br>        <span class="hljs-keyword">listen</span> <span class="hljs-number">80</span>;<br>        server_name <span class="hljs-keyword">admin</span>.service.com;<br>        <span class="hljs-keyword">location</span> / &#123;<br>               proxy_pass http://<span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.123</span>:<span class="hljs-number">8090</span>;<br>               <span class="hljs-keyword">index</span> <span class="hljs-keyword">index</span>.jsp <span class="hljs-keyword">index</span>.html <span class="hljs-keyword">index</span>.htm;<br>        &#125;<br>    &#125;<br><br></code></pre></td></tr></table></figure><p>2.安装访问验证工具</p><p>Ubuntu: <code># apt install apache2-utils</code></p><p>CentOS: <code># yum install httpd-tools</code></p><p>3.设置验证用户名及密码</p><p><code># mkdir -p /usr/local/src/nginx/</code></p><p><code># htpasswd -c /usr/local/src/nginx/passwd admis</code><br>passwd为密码文件，admis为用户名</p><p>4.修改nginx站点配置文件,修改完成后重启nginx服务</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs awk">server &#123;  <br>     listen <span class="hljs-number">80</span>;  <br>     server_name  localhost;  <br>     …….  <br>     <span class="hljs-comment">#新增下面两行  </span><br>     auth_basic <span class="hljs-string">&quot;Please input password&quot;</span>; <span class="hljs-comment">#这里是验证时的提示信息  </span><br>     auth_basic_user_file <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/src/</span>nginx/passwd;  <br>     location /&#123;  <br>     …….  <br> &#125;<br> &#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Debian10缺少iwlwifi固件无法使用无线网络解决办法</title>
-    <link href="/2023/09/26/debian-extra/"/>
-    <url>/2023/09/26/debian-extra/</url>
-    
-    <content type="html"><![CDATA[<p><strong>解决过程：</strong></p><p>1.使用有线网络连接到互联网;</p><p>2.编辑Debian10的软件源配置文件</p><p><code>$ sudo vim /etc/apt/sources.list</code></p><p>将<code>non-free</code>添加到源的后面</p><p>3.更新源</p><p><code>$ sudo apt update</code></p><p>4.安装firmware-iwlwifi包</p><p><code>$ sudo apt install firmware-iwlwifi</code></p><p>5.加载模块</p><p><code>$ sudo modprobe -r iwlwifi</code></p><p><code>$ sudo modprobe iwlwifi</code></p><p><strong>说明：</strong>Debian是一个开源操作系统。因此，在安装Debian的时候，默认只安装自由软件，而非自由软件（non-free）则不会被默认安装。</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>owncloud安装后常见配置问题</title>
-    <link href="/2023/09/26/owncloud-extra/"/>
-    <url>/2023/09/26/owncloud-extra/</url>
-    
-    <content type="html"><![CDATA[<p>1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\”PATH\”) 测试时仅返回空结果。</p><p>编辑<code>/etc/php/7.3/fpm/php-fpm.conf</code>配置文件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">env[<span class="hljs-variable constant_">PATH</span>] = <span class="hljs-regexp">/usr/local</span><span class="hljs-regexp">/bin:/usr</span><span class="hljs-regexp">/bin:/bin</span><span class="hljs-symbol">:/usr/local/php/bin</span><br></code></pre></td></tr></table></figure><p>将上面的代码粘贴到配置文件的最后一行，重启php7.3-fpm</p><p>2.HTTP 严格传输安全（Strict-Transport-Security）报头未配置到至少“15552000”秒。处于增强安全性考虑，我们推荐按照安全提示启用 HSTS。</p><p>编辑网站的配置文件“vhost.conf”文件找到对应网站的433端口段添加下面代码（保存后重启nginx）</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">add_header <span class="hljs-keyword">Strict</span>-Transport-<span class="hljs-keyword">Security</span> &quot;max-age=63072000; includeSubdomains; preload&quot;;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
     
   </entry>
   
@@ -101,6 +196,20 @@
     <content type="html"><![CDATA[<p>注意：教程使用Ubuntu18.04+Nginx</p><p><strong>一、安装Certbot</strong></p><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs smali">$ sudo<span class="hljs-built_in"> add-apt-repository </span>ppa:certbot/certbot<br>$ sudo apt-get update<br>$ sudo apt-get install certbot  python-certbot-nginx<br></code></pre></td></tr></table></figure><p>如果在执行上述命令时提示命令不存在，可能是没有安装add-apt-repository，请按以下命令安装</p><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">$ sudo apt-<span class="hljs-built_in">get</span> install python-software-<span class="hljs-built_in">properties</span> software-<span class="hljs-built_in">properties</span>-common <br></code></pre></td></tr></table></figure><p><strong>二、生成证书</strong></p><p>执行以下命令，然后按照提示一步一步操作</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">$ sudo certbot <span class="hljs-comment">--nginx</span><br></code></pre></td></tr></table></figure><p><strong>备注：</strong><br>privkey.pem 这是私匙，对应Nginx的ssl_certificate_key选项。<br>cert.pem 服务器证书，对应SSLCertificateFile选项。<br>chain.pem 除服务器证书之外的所有证书，Nginx对应ssl_trusted_certificate选项。<br>fullchain.pem 包括上面的服务器证书和其他证书，Nginx对应ssl_certificate选项。</p><p><strong>三、更新证书</strong></p><p>Let’s Encrypt的证书权威且安全，就是有效期只有90天。过期前需要续时间。运行命令<code>sudo certbot renew</code>即可续时间，如果还没到过期时间，运行命令也不会有大碍。当然你可以使用命令测试<code>sudo certbot renew --dry-run</code>。可以根据需要自己写一个脚本或者cron定时更新证书。</p>]]></content>
     
     
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Nginx</tag>
+      
+    </tags>
     
   </entry>
   

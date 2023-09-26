@@ -224,6 +224,315 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2023/09/26/hexo-extra/" target="_self">
+          hexo-分类&amp;标签应用
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/hexo-extra/" target="_self">
+        <div>
+          指令解析  根据scaffolds模板下的page文件创建相应的分类或者标签概念 1hexo new page xxx 该指令执行完成会在source下相应生成一个xxx文件夹（内有一个index.md文件） 1.分类&amp;标签创建分类创建 创建分类页面  执行命令创建分类 1hexo new page categories  构建完成：categories&#x2F;index.md对应内
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-26 18:42" pubdate>
+              2023-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Hexo/" class="category-chain-item">Hexo</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Hexo/">#Hexo</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/09/26/Manjaro-settings/" target="_self">
+          Manjaro安装后基本配置
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/Manjaro-settings/" target="_self">
+        <div>
+          1.设置官方镜像源$ sudo pacman-mirrors -i -c China -m rank输入以上命令后会有弹出框，选择一个国内镜像(推荐中国科技大学的镜像源https://mirrors.ustc.edu.cn) 2.升级系统及编辑器$ sudo pacman -Syyu &amp;&amp; sudo pacman -S vim 3.添加archlinuxcn源$ sudo vim
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-26 17:52" pubdate>
+              2023-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/09/26/nginx-settings/" target="_self">
+          nginx反向代理及设置访问站点密码
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/nginx-settings/" target="_self">
+        <div>
+          1.在&#x2F;etc&#x2F;nginx&#x2F;conf.d目录下修改站点配置文件,修改完成后重启服务 123456789server &#123;        listen 80;        server_name admin.service.com;        location / &#123;               proxy_pass http://192.168
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-26 17:50" pubdate>
+              2023-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+              <a href="/tags/Nginx/">#Nginx</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/09/26/debian-extra/" target="_self">
+          Debian10缺少iwlwifi固件无法使用无线网络解决办法
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/debian-extra/" target="_self">
+        <div>
+          解决过程： 1.使用有线网络连接到互联网; 2.编辑Debian10的软件源配置文件 $ sudo vim /etc/apt/sources.list 将non-free添加到源的后面 3.更新源 $ sudo apt update 4.安装firmware-iwlwifi包 $ sudo apt install firmware-iwlwifi 5.加载模块 $ sudo modprobe -r
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-26 17:49" pubdate>
+              2023-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/09/26/owncloud-extra/" target="_self">
+          owncloud安装后常见配置问题
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/owncloud-extra/" target="_self">
+        <div>
+          1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\”PATH\”) 测试时仅返回空结果。 编辑/etc/php/7.3/fpm/php-fpm.conf配置文件 1env[PATH] = /usr/local/bin:/usr/bin:/bin:/usr/local/php/bin  将上面的代码粘贴到配置文件的最后一行，重启php7.3-fpm 2.HTTP 严格传输
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-26 17:47" pubdate>
+              2023-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Hexo/" class="category-chain-item">Hexo</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+              <a href="/tags/Nginx/">#Nginx</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2023/09/26/Arch-install/" target="_self">
           ArchLinux安装教程
         </a>
@@ -246,6 +555,36 @@
           </div>
         
         
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/">#系统安装</a>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+          </div>
         
       </div>
     </article>
@@ -292,6 +631,13 @@
   <a href="/categories/Windows/" class="category-chain-item">Windows</a>
   
   
+    <span>></span>
+    
+  <a href="/categories/Windows/Office/" class="category-chain-item">Office</a>
+  
+  
+
+  
 
       </span>
     
@@ -306,139 +652,9 @@
             
               <a href="/tags/Windows/">#Windows</a>
             
+              <a href="/tags/Office/">#Office</a>
+            
           </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/09/26/Manjaro-settings/" target="_self">
-          Manjaro安装后基本配置
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/Manjaro-settings/" target="_self">
-        <div>
-          1.设置官方镜像源$ sudo pacman-mirrors -i -c China -m rank输入以上命令后会有弹出框，选择一个国内镜像(推荐中国科技大学的镜像源https://mirrors.ustc.edu.cn) 2.升级系统及编辑器$ sudo pacman -Syyu &amp;&amp; sudo pacman -S vim 3.添加archlinuxcn源$ sudo vim
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-26 09:52" pubdate>
-              2023-09-26
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/09/26/nginx-settings/" target="_self">
-          nginx反向代理及设置访问站点密码
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/nginx-settings/" target="_self">
-        <div>
-          1.在&#x2F;etc&#x2F;nginx&#x2F;conf.d目录下修改站点配置文件,修改完成后重启服务 123456789server &#123;        listen 80;        server_name admin.service.com;        location / &#123;               proxy_pass http://192.168
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-26 09:50" pubdate>
-              2023-09-26
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/09/26/debian-extra/" target="_self">
-          Debian10缺少iwlwifi固件无法使用无线网络解决办法
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/debian-extra/" target="_self">
-        <div>
-          解决过程： 1.使用有线网络连接到互联网; 2.编辑Debian10的软件源配置文件 $ sudo vim /etc/apt/sources.list 将non-free添加到源的后面 3.更新源 $ sudo apt update 4.安装firmware-iwlwifi包 $ sudo apt install firmware-iwlwifi 5.加载模块 $ sudo modprobe -r
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-26 09:49" pubdate>
-              2023-09-26
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/09/26/owncloud-extra/" target="_self">
-          owncloud安装后常见配置问题
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/owncloud-extra/" target="_self">
-        <div>
-          1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\”PATH\”) 测试时仅返回空结果。 编辑/etc/php/7.3/fpm/php-fpm.conf配置文件 1env[PATH] = /usr/local/bin:/usr/bin:/bin:/usr/local/php/bin  将上面的代码粘贴到配置文件的最后一行，重启php7.3-fpm 2.HTTP 严格传输
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-26 09:47" pubdate>
-              2023-09-26
-            </time>
-          </div>
-        
-        
         
       </div>
     </article>
@@ -466,12 +682,42 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-26 09:40" pubdate>
+            <time datetime="2023-09-26 17:40" pubdate>
               2023-09-26
             </time>
           </div>
         
         
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+              <a href="/tags/Nginx/">#Nginx</a>
+            
+          </div>
         
       </div>
     </article>
