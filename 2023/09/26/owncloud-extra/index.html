@@ -16,21 +16,21 @@
   <meta name="author" content="Lan Lin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Redirect HTTP to HTTPSserver {    listen 80;    listen [::]:80;    server_name Your_Domain_Name;    return 301 https:&#x2F;&#x2F;$host$request_uri;} server {    listen 443 ssl http2;    listen [::]:44">
+    <meta name="description" content="1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\”PATH\”) 测试时仅返回空结果。 编辑&#x2F;etc&#x2F;php&#x2F;7.3&#x2F;fpm&#x2F;php-fpm.conf配置文件 1env[PATH] &#x3D; &#x2F;usr&#x2F;local&#x2F;bin:&#x2F;usr&#x2F;bin:&#x2F;bin:&#x2F;usr&#x2F;local&#x2F;php&#x2F;bin  将上面的代码粘贴到配置文件的最后一行，重启php7.3-fpm 2.HTTP 严格传输">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设置https">
-<meta property="og:url" content="http://linlanm.github.io/2023/09/25/setting_https/index.html">
+<meta property="og:title" content="owncloud安装后常见配置问题">
+<meta property="og:url" content="http://linlanm.github.io/2023/09/26/owncloud-extra/index.html">
 <meta property="og:site_name" content="一束阳光">
-<meta property="og:description" content="Redirect HTTP to HTTPSserver {    listen 80;    listen [::]:80;    server_name Your_Domain_Name;    return 301 https:&#x2F;&#x2F;$host$request_uri;} server {    listen 443 ssl http2;    listen [::]:44">
+<meta property="og:description" content="1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\”PATH\”) 测试时仅返回空结果。 编辑&#x2F;etc&#x2F;php&#x2F;7.3&#x2F;fpm&#x2F;php-fpm.conf配置文件 1env[PATH] &#x3D; &#x2F;usr&#x2F;local&#x2F;bin:&#x2F;usr&#x2F;bin:&#x2F;bin:&#x2F;usr&#x2F;local&#x2F;php&#x2F;bin  将上面的代码粘贴到配置文件的最后一行，重启php7.3-fpm 2.HTTP 严格传输">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-25T10:45:38.000Z">
-<meta property="article:modified_time" content="2023-09-25T05:21:06.464Z">
+<meta property="article:published_time" content="2023-09-26T09:47:03.000Z">
+<meta property="article:modified_time" content="2023-09-26T09:47:49.939Z">
 <meta property="article:author" content="Lan Lin">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>设置https - 一束阳光</title>
+  <title>owncloud安装后常见配置问题 - 一束阳光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="设置https"></span>
+            <span id="subtitle" data-typed-text="owncloud安装后常见配置问题"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-25 10:45" pubdate>
-          2023年9月25日 上午
+        <time datetime="2023-09-26 09:47" pubdate>
+          2023年9月26日 上午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          557 字
+          408 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          5 分钟
+          4 分钟
         
       </span>
     
@@ -267,19 +267,19 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">设置https</h1>
+            <h1 id="seo-header">owncloud安装后常见配置问题</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Redirect-HTTP-to-HTTPS"><a href="#Redirect-HTTP-to-HTTPS" class="headerlink" title="Redirect HTTP to HTTPS"></a>Redirect HTTP to HTTPS</h1><p>server {<br>    listen 80;<br>    listen [::]:80;<br>    server_name Your_Domain_Name;<br>    return 301 https:&#x2F;&#x2F;$host$request_uri;<br>}</p>
-<p>server {<br>    listen 443 ssl http2;<br>    listen [::]:443 ssl http2;<br>    server_name Your_Domain_Name;</p>
-<p>location &#x2F; {<br>    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>    proxy_set_header X-Forwarded-Proto $scheme;<br>    proxy_set_header Host $http_host;<br>    proxy_set_header X-Real-IP $remote_addr;<br>    proxy_set_header Range $http_range;<br>    proxy_set_header If-Range $http_if_range;<br>    proxy_redirect off;<br>    proxy_pass <a target="_blank" rel="noopener" href="http://127.0.0.1:8080/">http://127.0.0.1:8080</a>;</p>
-<h1 id="the-max-size-of-file-to-upload"><a href="#the-max-size-of-file-to-upload" class="headerlink" title="the max size of file to upload"></a>the max size of file to upload</h1><pre><code class="hljs">client_max_body_size 20000m;
-</code></pre>
-<p>}</p>
-<p>}</p>
+                <p>1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\”PATH\”) 测试时仅返回空结果。</p>
+<p>编辑<code>/etc/php/7.3/fpm/php-fpm.conf</code>配置文件</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">env[<span class="hljs-variable constant_">PATH</span>] = <span class="hljs-regexp">/usr/local</span><span class="hljs-regexp">/bin:/usr</span><span class="hljs-regexp">/bin:/bin</span><span class="hljs-symbol">:/usr/local/php/bin</span><br></code></pre></td></tr></table></figure>
 
+<p>将上面的代码粘贴到配置文件的最后一行，重启php7.3-fpm</p>
+<p>2.HTTP 严格传输安全（Strict-Transport-Security）报头未配置到至少“15552000”秒。处于增强安全性考虑，我们推荐按照安全提示启用 HSTS。</p>
+<p>编辑网站的配置文件“vhost.conf”文件找到对应网站的433端口段添加下面代码（保存后重启nginx）</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">add_header <span class="hljs-keyword">Strict</span>-Transport-<span class="hljs-keyword">Security</span> &quot;max-age=63072000; includeSubdomains; preload&quot;;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -296,8 +296,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>设置https</div>
-      <div>http://linlanm.github.io/2023/09/25/setting_https/</div>
+      <div>owncloud安装后常见配置问题</div>
+      <div>http://linlanm.github.io/2023/09/26/owncloud-extra/</div>
     </div>
     <div class="license-meta">
       
@@ -309,7 +309,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月25日</div>
+          <div>2023年9月26日</div>
         </div>
       
       
@@ -341,12 +341,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2023/09/26/debian-extra/" title="Debian10缺少iwlwifi固件无法使用无线网络解决办法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Debian10缺少iwlwifi固件无法使用无线网络解决办法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/24/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2023/09/26/active-office/" title="KMS命令激活Windows/Office">
+                        <span class="hidden-mobile">KMS命令激活Windows/Office</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
