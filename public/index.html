@@ -224,15 +224,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/09/25/hello-world/" target="_self">
-          Hello World
+        <a href="/2023/09/26/Manjaro-settings/" target="_self">
+          Manjaro安装后基本配置
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/25/hello-world/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/Manjaro-settings/" target="_self">
         <div>
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick
+          1.设置官方镜像源$ sudo pacman-mirrors -i -c China -m rank输入以上命令后会有弹出框，选择一个国内镜像(推荐中国科技大学的镜像源https://mirrors.ustc.edu.cn) 2.升级系统及编辑器$ sudo pacman -Syyu &amp;&amp; sudo pacman -S vim 3.添加archlinuxcn源$ sudo vim
         </div>
       </a>
 
@@ -240,8 +240,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-25 00:24" pubdate>
-              2023-09-25
+            <time datetime="2023-09-26 17:52" pubdate>
+              2023-09-26
             </time>
           </div>
         
@@ -257,15 +257,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/03/08/setting_https/" target="_self">
-          
+        <a href="/2023/09/26/nginx-settings/" target="_self">
+          nginx反向代理及设置访问站点密码
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/08/setting_https/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/nginx-settings/" target="_self">
         <div>
-          Redirect HTTP to HTTPSserver {    listen 80;    listen [::]:80;    server_name Your_Domain_Name;    return 301 https:&#x2F;&#x2F;$host$request_uri;} server {    listen 443 ssl http2;    listen [::]:44
+          1.在&#x2F;etc&#x2F;nginx&#x2F;conf.d目录下修改站点配置文件,修改完成后重启服务 123456789server &#123;        listen 80;        server_name admin.service.com;        location / &#123;               proxy_pass http://192.168
         </div>
       </a>
 
@@ -273,8 +273,173 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-08 16:48" pubdate>
-              2023-03-08
+            <time datetime="2023-09-26 17:50" pubdate>
+              2023-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/09/26/debian-extra/" target="_self">
+          Debian10缺少iwlwifi固件无法使用无线网络解决办法
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/debian-extra/" target="_self">
+        <div>
+          解决过程： 1.使用有线网络连接到互联网; 2.编辑Debian10的软件源配置文件 $ sudo vim /etc/apt/sources.list 将non-free添加到源的后面 3.更新源 $ sudo apt update 4.安装firmware-iwlwifi包 $ sudo apt install firmware-iwlwifi 5.加载模块 $ sudo modprobe -r
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-26 17:49" pubdate>
+              2023-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/09/26/owncloud-extra/" target="_self">
+          owncloud安装后常见配置问题
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/owncloud-extra/" target="_self">
+        <div>
+          1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\”PATH\”) 测试时仅返回空结果。 编辑/etc/php/7.3/fpm/php-fpm.conf配置文件 1env[PATH] = /usr/local/bin:/usr/bin:/bin:/usr/local/php/bin  将上面的代码粘贴到配置文件的最后一行，重启php7.3-fpm 2.HTTP 严格传输
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-26 17:47" pubdate>
+              2023-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/09/26/Arch-install/" target="_self">
+          ArchLinux安装教程
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/Arch-install/" target="_self">
+        <div>
+          一、准备工作 1.下载arch最新安装镜像; 2.烧录镜像至U盘（4G或8G） Linux: $ sudo dd bs=4M if=archlinux-2020.01.01-x86_64.iso of=/dev/sdc  Windows:使用rufus,模式选择dd 二、启动到live环境 1.进入装机环境 2.验证启动模式# ls /sys/firmware/efi/efivars如果目录不为空
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-26 17:45" pubdate>
+              2023-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/09/26/active-office/" target="_self">
+          KMS命令激活Windows/Office
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/active-office/" target="_self">
+        <div>
+          注意：以下所有命令均以管理员权限运行 Windows激活 1.安装秘钥slmgr.vbs -ipk xxxx-xxxx-xxxx-xxxx 2.设置KMS服务器slmgr.vbs -skms xxx.xxx.xxx 3.激活Windowsslmgr.vbs -ato 4.查看激活信息slmgr.vbs -xpr Office激活(VL版本) 1.CMD切换到Office安装位置默认安装位置 C:\
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-26 17:42" pubdate>
+              2023-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/09/26/setting-https/" target="_self">
+          使用Let’s Encrypt配置HTTPS
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/setting-https/" target="_self">
+        <div>
+          注意：教程使用Ubuntu18.04+Nginx 一、安装Certbot 123$ sudo add-apt-repository ppa:certbot/certbot$ sudo apt-get update$ sudo apt-get install certbot  python-certbot-nginx  如果在执行上述命令时提示命令不存在，可能是没有安装add-apt-reposit
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-26 17:40" pubdate>
+              2023-09-26
             </time>
           </div>
         
