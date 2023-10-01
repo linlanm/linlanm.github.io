@@ -112,6 +112,35 @@
   
   
   <entry>
+    <title>KMS命令激活Windows/Office</title>
+    <link href="/2023/09/26/active-office/"/>
+    <url>/2023/09/26/active-office/</url>
+    
+    <content type="html"><![CDATA[<p><strong>注意</strong>：以下所有命令均以管理员权限运行</p><p><strong>Windows激活</strong></p><p>1.安装秘钥<br><code>slmgr.vbs -ipk xxxx-xxxx-xxxx-xxxx</code></p><p>2.设置KMS服务器<br><code>slmgr.vbs -skms xxx.xxx.xxx</code></p><p>3.激活Windows<br><code>slmgr.vbs -ato</code></p><p>4.查看激活信息<br><code>slmgr.vbs -xpr</code></p><p><strong>Office激活</strong>(VL版本)</p><p><strong>1.CMD切换到Office安装位置</strong><br>默认安装位置 C:\Program Files\Microsoft Office\Office14<br>office16是office2016<br>office15是office2013<br>office14是office2010<br><code>cd &quot;C:\Program Files\Microsoft Office\Office14&quot;</code></p><p><strong>2.设置KMS服务器</strong><br><code>cscript ospp.vbs /sethst:xxx.xxx.xxx</code></p><p><strong>3.安装Office秘钥</strong><br><code>cscript ospp.vbs /inpkey:xxxxx</code></p><p><strong>4.激活Office</strong><br><code>cscript ospp.vbs /act</code></p><p><strong>可能会用到的ospp.vbs其它命令</strong></p><p><strong>1.卸载秘钥</strong>(xxxxx为秘钥后5位)<br><code>cscript ospp.vbs /unpkey:xxxxx</code><br><strong>2.显示许可证信息</strong><br><code>cscript ospp.vbs /dstatus</code></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Office</category>
+      
+      <category>Windows</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Windows</tag>
+      
+      <tag>Office</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>hexo-分类&amp;标签应用</title>
     <link href="/2023/09/26/hexo-extra/"/>
     <url>/2023/09/26/hexo-extra/</url>
@@ -233,35 +262,6 @@
       <tag>系统安装</tag>
       
       <tag>Linux</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>KMS命令激活Windows/Office</title>
-    <link href="/2023/09/26/active-office/"/>
-    <url>/2023/09/26/active-office/</url>
-    
-    <content type="html"><![CDATA[<p><strong>注意</strong>：以下所有命令均以管理员权限运行</p><p><strong>Windows激活</strong></p><p>1.安装秘钥<br><code>slmgr.vbs -ipk xxxx-xxxx-xxxx-xxxx</code></p><p>2.设置KMS服务器<br><code>slmgr.vbs -skms xxx.xxx.xxx</code></p><p>3.激活Windows<br><code>slmgr.vbs -ato</code></p><p>4.查看激活信息<br><code>slmgr.vbs -xpr</code></p><p><strong>Office激活</strong>(VL版本)</p><p><strong>1.CMD切换到Office安装位置</strong><br>默认安装位置 C:\Program Files\Microsoft Office\Office14<br>office16是office2016<br>office15是office2013<br>office14是office2010<br><code>cd &quot;C:\Program Files\Microsoft Office\Office14&quot;</code></p><p><strong>2.设置KMS服务器</strong><br><code>cscript ospp.vbs /sethst:xxx.xxx.xxx</code></p><p><strong>3.安装Office秘钥</strong><br><code>cscript ospp.vbs /inpkey:xxxxx</code></p><p><strong>4.激活Office</strong><br><code>cscript ospp.vbs /act</code></p><p><strong>可能会用到的ospp.vbs其它命令</strong></p><p><strong>1.卸载秘钥</strong>(xxxxx为秘钥后5位)<br><code>cscript ospp.vbs /unpkey:xxxxx</code><br><strong>2.显示许可证信息</strong><br><code>cscript ospp.vbs /dstatus</code></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Windows</category>
-      
-      <category>Office</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Windows</tag>
-      
-      <tag>Office</tag>
       
     </tags>
     
