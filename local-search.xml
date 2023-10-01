@@ -83,6 +83,35 @@
   
   
   <entry>
+    <title>owncloud安装后常见配置问题</title>
+    <link href="/2023/09/26/owncloud-extra/"/>
+    <url>/2023/09/26/owncloud-extra/</url>
+    
+    <content type="html"><![CDATA[<p>1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\”PATH\”) 测试时仅返回空结果。</p><p>编辑<code>/etc/php/7.3/fpm/php-fpm.conf</code>配置文件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">env[<span class="hljs-variable constant_">PATH</span>] = <span class="hljs-regexp">/usr/local</span><span class="hljs-regexp">/bin:/usr</span><span class="hljs-regexp">/bin:/bin</span><span class="hljs-symbol">:/usr/local/php/bin</span><br></code></pre></td></tr></table></figure><p>将上面的代码粘贴到配置文件的最后一行，重启php7.3-fpm</p><p>2.HTTP 严格传输安全（Strict-Transport-Security）报头未配置到至少“15552000”秒。处于增强安全性考虑，我们推荐按照安全提示启用 HSTS。</p><p>编辑网站的配置文件“vhost.conf”文件找到对应网站的433端口段添加下面代码（保存后重启nginx）</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">add_header <span class="hljs-keyword">Strict</span>-Transport-<span class="hljs-keyword">Security</span> &quot;max-age=63072000; includeSubdomains; preload&quot;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Nginx</category>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Nginx</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>hexo-分类&amp;标签应用</title>
     <link href="/2023/09/26/hexo-extra/"/>
     <url>/2023/09/26/hexo-extra/</url>
@@ -177,33 +206,6 @@
     <tags>
       
       <tag>Linux</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>owncloud安装后常见配置问题</title>
-    <link href="/2023/09/26/owncloud-extra/"/>
-    <url>/2023/09/26/owncloud-extra/</url>
-    
-    <content type="html"><![CDATA[<p>1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\”PATH\”) 测试时仅返回空结果。</p><p>编辑<code>/etc/php/7.3/fpm/php-fpm.conf</code>配置文件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">env[<span class="hljs-variable constant_">PATH</span>] = <span class="hljs-regexp">/usr/local</span><span class="hljs-regexp">/bin:/usr</span><span class="hljs-regexp">/bin:/bin</span><span class="hljs-symbol">:/usr/local/php/bin</span><br></code></pre></td></tr></table></figure><p>将上面的代码粘贴到配置文件的最后一行，重启php7.3-fpm</p><p>2.HTTP 严格传输安全（Strict-Transport-Security）报头未配置到至少“15552000”秒。处于增强安全性考虑，我们推荐按照安全提示启用 HSTS。</p><p>编辑网站的配置文件“vhost.conf”文件找到对应网站的433端口段添加下面代码（保存后重启nginx）</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">add_header <span class="hljs-keyword">Strict</span>-Transport-<span class="hljs-keyword">Security</span> &quot;max-age=63072000; includeSubdomains; preload&quot;;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>Hexo</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux</tag>
-      
-      <tag>Nginx</tag>
       
     </tags>
     
