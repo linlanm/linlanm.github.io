@@ -5,7 +5,8 @@ tags:
 - Nginx
 - Linux
 categories:
-- Hexo
+- Nginx
+- Linux
 ---
 1.PHP 的设置似乎有问题, 无法获取系统环境变量. 使用 getenv(\\”PATH\\”) 测试时仅返回空结果。
 
