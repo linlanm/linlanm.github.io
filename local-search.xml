@@ -4,6 +4,85 @@
   
   
   <entry>
+    <title>常用装机软件下载</title>
+    <link href="/2023/10/01/application/"/>
+    <url>/2023/10/01/application/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a><strong>Windows</strong></h3><h4 id="聊天软件"><a href="#聊天软件" class="headerlink" title="聊天软件"></a>聊天软件</h4><table><thead><tr><th align="center"><a href="https://im.qq.com/index/#downloadAnchor">QQ</a></th><th align="center"><a href="https://weixin.qq.com/">微信</a></th><th align="center"><a href="https://im.qq.com/index/#downloadAnchor">TIM</a></th></tr></thead></table><h4 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h4><p><a href=""></a><a href=""></a><a href=""></a><a href=""></a></p><table><thead><tr><th align="center"><a href="https://www.google.cn/chrome/index.html">Google</a></th><th align="center"><a href="https://www.mozilla.org/">Firefox</a></th><th align="center"><a href="https://www.microsoft.com/zh-cn/edge/welcome?exp=e155&form=MT00A8">Edge</a></th><th align="center"><a href="https://browser.360.cn/ee/index.html?from=mac">360极速浏览器</a></th></tr></thead></table><h4 id="其它软件"><a href="#其它软件" class="headerlink" title="其它软件"></a>其它软件</h4><table><thead><tr><th align="center"><a href="https://www.wps.cn/">WPS</a></th><th align="center"><a href="https://www.huorong.cn/">火绒安全</a></th><th align="center"><a href="https://7-zip.org/">7-Zip</a></th><th align="center"><a href="https://www.360totalsecurity.com/360zip/">360压缩-国际版</a></th><th align="center"><a href="https://qq.pinyin.cn/">QQ输入法</a></th></tr></thead><tbody><tr><td align="center"><a href="https://dl.xunlei.com/">迅雷</a></td><td align="center"><a href="https://github.com/kkkgo/LTSC-Add-MicrosoftStore/archive/refs/tags/2019.zip">LTSC-Add-MicrosoftStore</a></td><td align="center"><a href="https://www.voidtools.com/zh-cn/">Everything</a></td><td align="center"><a href="https://zh.snipaste.com/">Snipaste</a></td><td align="center"><a href="https://www.chuyu.me/">Dism++</a></td></tr><tr><td align="center"><a href="https://geekuninstaller.com/">Geek Uninstaller</a></td><td align="center"><a href="http://www.uderzo.it/main_products/space_sniffer/">SpaceSniffer</a></td><td align="center"><a href="https://www.videolan.org/vlc/">VLC</a></td><td align="center"><a href="https://pan.baidu.com/">百度网盘</a></td><td align="center"><a href="https://www.aliyundrive.com/">阿里云盘</a></td></tr><tr><td align="center"><a href="https://learn.microsoft.com/zh-cn/windows/powertoys/">PowerToys</a></td><td align="center"><a href="https://gitee.com/cxasm/notepad--/releases/tag/v2.8">notepad–</a></td><td align="center"><a href="https://anytxt.net/">AnyTXT Searcher</a></td><td align="center"><a href="https://easinote.seewo.com/">希沃白板</a></td><td align="center"><a href="https://www.microsoft.com/zh-cn/bing/bing-wallpaper">必应壁纸</a></td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>Application</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Application</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>常用PE下载</title>
+    <link href="/2023/10/01/PE-ISO/"/>
+    <url>/2023/10/01/PE-ISO/</url>
+    
+    <content type="html"><![CDATA[<p>WEPE</p><p>版本：V2.3<br>下载链接：<a href="https://mirrors.sdu.edu.cn/software/Windows/WePE/WePE_64_V2.3.exe">64位下载–山东大学镜像站</a></p><p>FirPE</p><p>版本：V1.8.2<br>下载链接：<a href="https://www.aliyundrive.com/s/PrQGSRVkeHf">阿里云盘</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+      <category>ISO</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Windows</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>常用Windows操作系统镜像下载地址</title>
+    <link href="/2023/10/01/Windows-ISO/"/>
+    <url>/2023/10/01/Windows-ISO/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Windows 11</strong></p><hr><p>版本：Windows 11 (business editions), version 22H2 (updated Sep 2023) (x64) - DVD (Chinese-Simplified)</p><p>校验信息：</p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gcode">文件：zh-c<span class="hljs-symbol">n_windows_11</span>_busi<span class="hljs-symbol">ness_editions_version_22</span>h<span class="hljs-number">2</span>_updated_sep_<span class="hljs-number">2023</span>_x<span class="hljs-number">64</span>_dvd_<span class="hljs-number">6</span>e<span class="hljs-number">779</span>ec<span class="hljs-number">7.</span>iso<br>大小：<span class="hljs-number">5.69</span>GB<br>MD<span class="hljs-number">5</span>：F<span class="hljs-number">2</span>CC<span class="hljs-number">265</span>A<span class="hljs-number">742209</span>A<span class="hljs-number">6</span>D<span class="hljs-number">736</span>FCD<span class="hljs-number">622</span>EF<span class="hljs-number">40</span>A<span class="hljs-number">5</span><br>SHA<span class="hljs-number">1</span>：<span class="hljs-number">56</span>BAFF<span class="hljs-number">06</span>E<span class="hljs-number">93</span>B<span class="hljs-number">5</span>AB<span class="hljs-number">38</span>C<span class="hljs-number">0</span>EC<span class="hljs-number">90</span>B<span class="hljs-number">187727540</span>FAA<span class="hljs-number">0</span>D<span class="hljs-number">1</span>A<br>SHA<span class="hljs-number">256</span>：C<span class="hljs-number">8</span>DB<span class="hljs-number">333</span>A<span class="hljs-number">430</span>A<span class="hljs-number">26634</span>BC<span class="hljs-number">9</span>FF<span class="hljs-number">87</span>A<span class="hljs-number">235</span>E<span class="hljs-number">7371</span>BF<span class="hljs-number">81</span>DB<span class="hljs-number">8</span>EF<span class="hljs-number">0</span>A<span class="hljs-number">0</span>E<span class="hljs-number">7</span>EA<span class="hljs-number">0</span>C<span class="hljs-number">94</span>CD<span class="hljs-number">40</span>AC<span class="hljs-number">1</span>D<span class="hljs-number">246</span><br></code></pre></td></tr></table></figure><p>下载链接：<a href="ed2k://%7Cfile%7Czh-cn_windows_11_business_editions_version_22h2_updated_sep_2023_x64_dvd_6e779ec7.iso%7C6105026560%7CE40A081905041B55452A047F43E39AF0%7C/">ed2k</a></p><hr><p><strong>Windows 10</strong></p><hr><p>版本：Windows 10 Enterprise LTSC 2021 (x64) - DVD (Chinese-Simplified)</p><p>校验信息：</p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gcode">文件：SW_DVD<span class="hljs-number">9</span>_WI<span class="hljs-symbol">N_ENT_LTSC_2021</span>_<span class="hljs-number">64</span>BIT_Ch<span class="hljs-symbol">nSimp_MLF_X22</span><span class="hljs-number">-84402.</span>ISO<br>大小：<span class="hljs-number">4.7</span>GB<br>MD<span class="hljs-number">5</span>：<span class="hljs-number">2579</span>B<span class="hljs-number">3865</span>C<span class="hljs-number">0591</span>EAD<span class="hljs-number">3</span>A<span class="hljs-number">2</span>B<span class="hljs-number">45</span>AF<span class="hljs-number">3</span>CABEEE<br>SHA<span class="hljs-number">1</span>：C<span class="hljs-number">19</span>D<span class="hljs-number">7</span>DAFBAFEB<span class="hljs-number">26</span>C<span class="hljs-number">36</span>E<span class="hljs-number">31</span>D<span class="hljs-number">97</span>C<span class="hljs-number">465</span>E<span class="hljs-number">87</span>C<span class="hljs-number">7</span>A<span class="hljs-number">6</span>E<span class="hljs-number">8</span>A<span class="hljs-number">4</span>C<br>SHA<span class="hljs-number">256</span>：C<span class="hljs-number">117</span>C<span class="hljs-number">5</span>DDBC<span class="hljs-number">51</span>F<span class="hljs-number">315</span>C<span class="hljs-number">739</span>F<span class="hljs-number">9321</span>D<span class="hljs-number">4907</span>FA<span class="hljs-number">50090</span>BA<span class="hljs-number">7</span>B<span class="hljs-number">48</span>E<span class="hljs-number">7</span>E<span class="hljs-number">9</span>A<span class="hljs-number">2</span>D<span class="hljs-number">173</span>D<span class="hljs-number">49</span>EF<span class="hljs-number">2</span>F<span class="hljs-number">73</span>A<span class="hljs-number">3</span><br></code></pre></td></tr></table></figure><p>下载链接：<a href="ed2k://%7Cfile%7CSW_DVD9_WIN_ENT_LTSC_2021_64BIT_ChnSimp_MLF_X22-84402.ISO%7C5044211712%7C1555B7DCA052B5958EE68DB58A42408D%7C/">ed2k</a> <a href="magnet:?xt=urn:btih:366ADAA52FB3639B17D73718DD5F9E3EE9477B40&dn=SW_DVD9_WIN_ENT_LTSC_2021_64BIT_ChnSimp_MLF_X22-84402.ISO&xl=5044211712">bt</a></p><hr><p>版本：Windows 10 Enterprise LTSC 2019 (x64) - DVD (Chinese-Simplified)</p><p>校验信息：</p><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs llvm">文件：cn_windows_<span class="hljs-number">10</span>_enterprise_ltsc_<span class="hljs-number">2019</span>_x<span class="hljs-number">64</span>_dvd_<span class="hljs-number">9</span><span class="hljs-keyword">c</span><span class="hljs-number">09</span>ff<span class="hljs-number">24</span>.iso<br>大小：<span class="hljs-number">4.17</span>GB<br>SHA<span class="hljs-number">1</span>：<span class="hljs-number">24</span>b<span class="hljs-number">59706</span>d<span class="hljs-number">5</span>eded<span class="hljs-number">392423936</span><span class="hljs-keyword">c</span><span class="hljs-number">82</span>ba<span class="hljs-number">5</span>a<span class="hljs-number">83596</span>b<span class="hljs-number">50</span><span class="hljs-keyword">cc</span><br></code></pre></td></tr></table></figure><p>下载链接：<a href="ed2k://%7Cfile%7Ccn_windows_10_enterprise_ltsc_2019_x64_dvd_9c09ff24.iso%7C4478906368%7CE7C526499308841A4A6D116C857DB669%7C/">ed2k</a></p><hr><p><strong>Windows 7</strong></p><hr><p>版本：Windows 7 Ultimate with Service Pack 1 (x64) - DVD (Chinese-Simplified)</p><p>校验信息：</p><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dns">文件：cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso<br>大小：<span class="hljs-number">3</span>.<span class="hljs-number">19</span>GB<br>SHA1：<span class="hljs-number">2</span>CE0B2DB34D76ED3F697CE148CB75<span class="hljs-number">94432405E23</span><br></code></pre></td></tr></table></figure><p>下载链接：<a href="ed2k://%7Cfile%7Ccn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso%7C3420557312%7CB58548681854236C7939003B583A8078%7C/">ed2k</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+      <category>ISO</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Windows</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>hexo-分类&amp;标签应用</title>
     <link href="/2023/09/26/hexo-extra/"/>
     <url>/2023/09/26/hexo-extra/</url>
