@@ -5,9 +5,8 @@ tags:
 - Windows
 - Office
 categories: 
-- Office
 - Windows
-
+- Office
 ---
 **注意**：以下所有命令均以管理员权限运行
 
