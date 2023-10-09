@@ -16,23 +16,22 @@
   <meta name="author" content="Lan Lin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.在&#x2F;etc&#x2F;nginx&#x2F;conf.d目录下修改站点配置文件,修改完成后重启服务 123456789server &amp;#123;        listen 80;        server_name admin.service.com;        location &#x2F; &amp;#123;               proxy_pass http:&#x2F;&#x2F;192.168">
+    <meta name="description" content="未来的夫人，最近还好吗？&amp;emsp;&amp;emsp;见字如晤，恰逢中秋佳节，归乡一趟，所见所闻，颇有感慨。乡音未改，却道物是人非。虽未能见汝，但心中甚是惦念。时常在梦中与你相会，谈笑风生，互诉衷肠。与卿相识，实为三生有幸。然每逢深夜，辗转反侧，感慨良多，观吾过往，悠悠二十五载，几近无为。&amp;emsp;&amp;emsp;青春如白驹过隙，二十岁以后的生活仿佛按了加速键，白天好似一具躯壳，夜晚只剩孤独的灵魂独自承受">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx反向代理及设置访问站点密码">
-<meta property="og:url" content="http://linlanm.github.io/2023/09/26/nginx-settings/index.html">
+<meta property="og:title" content="平行时空遇见你">
+<meta property="og:url" content="http://linlanm.github.io/2023/10/09/letter/index.html">
 <meta property="og:site_name" content="一束阳光">
-<meta property="og:description" content="1.在&#x2F;etc&#x2F;nginx&#x2F;conf.d目录下修改站点配置文件,修改完成后重启服务 123456789server &amp;#123;        listen 80;        server_name admin.service.com;        location &#x2F; &amp;#123;               proxy_pass http:&#x2F;&#x2F;192.168">
+<meta property="og:description" content="未来的夫人，最近还好吗？&amp;emsp;&amp;emsp;见字如晤，恰逢中秋佳节，归乡一趟，所见所闻，颇有感慨。乡音未改，却道物是人非。虽未能见汝，但心中甚是惦念。时常在梦中与你相会，谈笑风生，互诉衷肠。与卿相识，实为三生有幸。然每逢深夜，辗转反侧，感慨良多，观吾过往，悠悠二十五载，几近无为。&amp;emsp;&amp;emsp;青春如白驹过隙，二十岁以后的生活仿佛按了加速键，白天好似一具躯壳，夜晚只剩孤独的灵魂独自承受">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-26T17:50:48.000Z">
+<meta property="article:published_time" content="2023-10-09T19:09:37.000Z">
 <meta property="article:modified_time" content="2023-10-09T11:27:29.934Z">
 <meta property="article:author" content="Lan Lin">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Nginx">
+<meta property="article:tag" content="letter">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>nginx反向代理及设置访问站点密码 - 一束阳光</title>
+  <title>平行时空遇见你 - 一束阳光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="nginx反向代理及设置访问站点密码"></span>
+            <span id="subtitle" data-typed-text="平行时空遇见你"></span>
           
         </div>
 
@@ -209,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-26 17:50" pubdate>
-          2023年9月26日 下午
+        <time datetime="2023-10-09 19:09" pubdate>
+          2023年10月9日 晚上
         </time>
       </span>
     
@@ -221,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          614 字
+          542 字
         
       </span>
     
@@ -232,7 +231,7 @@
         
         
         
-          6 分钟
+          5 分钟
         
       </span>
     
@@ -269,21 +268,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">nginx反向代理及设置访问站点密码</h1>
+            <h1 id="seo-header">平行时空遇见你</h1>
             
             
               <div class="markdown-body">
                 
-                <p>1.在&#x2F;etc&#x2F;nginx&#x2F;conf.d目录下修改站点配置文件,修改完成后重启服务</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">server</span> &#123;<br>        <span class="hljs-keyword">listen</span> <span class="hljs-number">80</span>;<br>        server_name <span class="hljs-keyword">admin</span>.service.com;<br>        <span class="hljs-keyword">location</span> / &#123;<br>               proxy_pass http://<span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.123</span>:<span class="hljs-number">8090</span>;<br>               <span class="hljs-keyword">index</span> <span class="hljs-keyword">index</span>.jsp <span class="hljs-keyword">index</span>.html <span class="hljs-keyword">index</span>.htm;<br>        &#125;<br>    &#125;<br><br></code></pre></td></tr></table></figure>
-<p>2.安装访问验证工具</p>
-<p>Ubuntu: <code># apt install apache2-utils</code></p>
-<p>CentOS: <code># yum install httpd-tools</code></p>
-<p>3.设置验证用户名及密码</p>
-<p><code># mkdir -p /usr/local/src/nginx/</code></p>
-<p><code># htpasswd -c /usr/local/src/nginx/passwd admis</code><br>passwd为密码文件，admis为用户名</p>
-<p>4.修改nginx站点配置文件,修改完成后重启nginx服务</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs awk">server &#123;  <br>     listen <span class="hljs-number">80</span>;  <br>     server_name  localhost;  <br>     …….  <br>     <span class="hljs-comment">#新增下面两行  </span><br>     auth_basic <span class="hljs-string">&quot;Please input password&quot;</span>; <span class="hljs-comment">#这里是验证时的提示信息  </span><br>     auth_basic_user_file <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/src/</span>nginx/passwd;  <br>     location /&#123;  <br>     …….  <br> &#125;<br> &#125;<br></code></pre></td></tr></table></figure>
+                <p>未来的夫人，最近还好吗？<br>&emsp;&emsp;见字如晤，恰逢中秋佳节，归乡一趟，所见所闻，颇有感慨。乡音未改，却道物是人非。虽未能见汝，但心中甚是惦念。时常在梦中与你相会，谈笑风生，互诉衷肠。与卿相识，实为三生有幸。然每逢深夜，辗转反侧，感慨良多，观吾过往，悠悠二十五载，几近无为。<br>&emsp;&emsp;青春如白驹过隙，二十岁以后的生活仿佛按了加速键，白天好似一具躯壳，夜晚只剩孤独的灵魂独自承受噬心之痛。也终变成了不说，无人可说。<br>&emsp;&emsp;好想与你相见，看看故事的最终答案是什么。至2023年，已然到了结婚的年纪。身边好友同事都陆续结婚生子，父母的皱纹也平添了许多，每一缕青丝白发似乎都在告诉我而立之年将至。想想自己所经历的这几年，每一件事都历历在目。可往往事与愿违，身体状态不如之前，感情之路颇为不顺。快餐式的爱情我为之不屑，三观一致臭味相投才是良配。或许我也期盼有人的突然出现，但又怕那人的突然出现。怕自己的不完美，也怕伤害到别人，这大抵就是我的心事。也望在我正青春时，倾尽所有，与人相爱，共守一生。<br>&emsp;&emsp;好了，夜深了。今天杂乱无章的信就写到这里，很想真正依偎在你怀里，吐露心声，如果未来的你收到，那也算与你共度了此刻，这便是我最幸福的时刻。</p>
+
                 
               </div>
             
@@ -301,7 +292,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/%E9%9A%8F%E8%AE%B0/" class="category-chain-item">随记</a>
   
   
 
@@ -316,9 +307,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
-      
-        <a href="/tags/Nginx/" class="print-no-link">#Nginx</a>
+        <a href="/tags/letter/" class="print-no-link">#letter</a>
       
     </div>
   
@@ -330,8 +319,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>nginx反向代理及设置访问站点密码</div>
-      <div>http://linlanm.github.io/2023/09/26/nginx-settings/</div>
+      <div>平行时空遇见你</div>
+      <div>http://linlanm.github.io/2023/10/09/letter/</div>
     </div>
     <div class="license-meta">
       
@@ -343,7 +332,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月26日</div>
+          <div>2023年10月9日</div>
         </div>
       
       
@@ -375,18 +364,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/26/Manjaro-settings/" title="Manjaro安装后基本配置">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Manjaro安装后基本配置</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/26/debian-extra/" title="Debian10缺少iwlwifi固件无法使用无线网络解决办法">
-                        <span class="hidden-mobile">Debian10缺少iwlwifi固件无法使用无线网络解决办法</span>
+                      <a href="/2023/10/01/application/" title="常用装机软件下载">
+                        <span class="hidden-mobile">常用装机软件下载</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
