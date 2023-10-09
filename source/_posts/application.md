@@ -25,7 +25,7 @@ categories:
 |:----:|:-----------------------:|:-----:|:--------------:|:--------:|
 | [迅雷](https://dl.xunlei.com/) | [LTSC-Add-MicrosoftStore](https://github.com/kkkgo/LTSC-Add-MicrosoftStore/archive/refs/tags/2019.zip) | [Everything](https://www.voidtools.com/zh-cn/)     | [Snipaste](https://zh.snipaste.com/)              | [Dism++](https://www.chuyu.me/)        |
 |[Geek Uninstaller](https://geekuninstaller.com/)|[SpaceSniffer](http://www.uderzo.it/main_products/space_sniffer/)|[VLC](https://www.videolan.org/vlc/)|[百度网盘](https://pan.baidu.com/)|[阿里云盘](https://www.aliyundrive.com/)|
-|[PowerToys](https://learn.microsoft.com/zh-cn/windows/powertoys/)|[notepad--](https://gitee.com/cxasm/notepad--/releases/tag/v2.8)|[AnyTXT Searcher](https://anytxt.net/)|[希沃白板](https://easinote.seewo.com/)|[必应壁纸](https://www.microsoft.com/zh-cn/bing/bing-wallpaper)|
+|[PowerToys](https://learn.microsoft.com/zh-cn/windows/powertoys/)|[notepad---](https://gitee.com/cxasm/notepad--/releases/tag/v2.8)|[AnyTXT Searcher](https://anytxt.net/)|[希沃白板](https://easinote.seewo.com/)|[必应壁纸](https://www.microsoft.com/zh-cn/bing/bing-wallpaper)|
 
 
 
