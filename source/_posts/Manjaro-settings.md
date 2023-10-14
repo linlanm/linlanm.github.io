@@ -32,14 +32,15 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 添加输入法配置文件  
 `$ vim ~/.xprofile`
 
-```export GTK\_IM\_MODULE=fcitx
-export QT\_IM\_MODULE=fcitx
+```
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 ```
 
 重启即可正常使用输入法
 
-5.安装常用软件  
+5.安装常用软件(按需安装)  
 `$ sudo pacman -S deepin.com.qq.office deepin.com.qq.im netease-cloud-music wps-office ttf-wps-fonts yay google-chrome`  
 `$ yay -S deepin-wine-wechat`
 
