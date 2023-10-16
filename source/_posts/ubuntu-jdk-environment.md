@@ -3,10 +3,8 @@ title: Linux JDK环境配置
 date: 2023-10-16 20:33:01
 tags:
 - Linux
-- Application
 categories:
 - Linux
-- Application
 ---
 
 1.在/etc/profile文件最后添加以下内容
