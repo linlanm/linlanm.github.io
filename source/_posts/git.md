@@ -18,7 +18,8 @@ $ git init [project-name]
 # 在指定目录创建一个空的 Git 仓库。运行这个命令会创建一个名为 directory，只包含 .git 子目录的空目录。
 $ git init --bare <directory>
 
-# 下载一个项目和它的整个代码历史# 这个命令就是将一个版本库拷贝到另一个目录中，同时也将分支都拷贝到新的版本库中。这样就可以在新的版本库中提交到远程分支
+# 下载一个项目和它的整个代码历史
+# 这个命令就是将一个版本库拷贝到另一个目录中，同时也将分支都拷贝到新的版本库中。这样就可以在新的版本库中提交到远程分支
 $ git clone [url]
 ```
 
@@ -90,7 +91,8 @@ $ git log -S [keyword]
 # 显示某个commit之后的所有变动，每个commit占据一行
 $ git log [tag] HEAD --pretty=format:%s
 
-# 显示某个commit之后的所有变动，其"提交说明"必须符合搜索条件$ git log [tag] HEAD --grep feature
+# 显示某个commit之后的所有变动，其"提交说明"必须符合搜索条件
+$ git log [tag] HEAD --grep feature
 
 # 显示某个文件的版本历史，包括文件改名
 $ git log --follow [file]$ git whatchanged [file]
@@ -329,7 +331,9 @@ $ git remote set-url origin git@ github.com:xxx/xxx.git
 # 删除远程仓库
 $ git remote rm <repository>
 
-# 上传本地指定分支到远程仓库# 把本地的分支更新到远端origin的master分支上# git push <远端> <分支>
+# 上传本地指定分支到远程仓库
+# 把本地的分支更新到远端origin的master分支上
+# git push <远端> <分支>
 # git push 相于 git push origin master
 $ git push [remote] [branch]
 
@@ -361,7 +365,8 @@ $ git reset --hard
 # 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
 $ git reset [commit]
 
-# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致$ git reset --hard [commit]
+# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
+$ git reset --hard [commit]
 
 # 重置当前HEAD为指定commit，但保持暂存区和工作区不变
 $ git reset --keep [commit]
@@ -442,7 +447,8 @@ $ git config --global alias.g "grep --break --heading --line-number"
 ```
 
 ```
-# 在所有的java中查找variableName$ git grep 'variableName' -- '*.java'# 搜索包含 "arrayListName" 和, "add" 或 "remove" 的所有行
+# 在所有的java中查找variableName$ git grep 'variableName' -- '*.java'
+# 搜索包含 "arrayListName" 和, "add" 或 "remove" 的所有行
 $ git grep -e 'arrayListName' --and \( -e add -e remove \)
 ```
 
@@ -562,7 +568,8 @@ $ git ci --amend
 将一个分支上所有的提交历史都应用到另一个分支上*不要在一个已经公开的远端分支上使用 rebase*.
 
 ```
-# 将experimentBranch应用到master上面# git rebase <basebranch> <topicbranch>
+# 将experimentBranch应用到master上面
+# git rebase <basebranch> <topicbranch>
 $ git rebase master experimentBranch
 ```
 
