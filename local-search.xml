@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Linux JDK环境配置</title>
+    <link href="/2023/10/16/ubuntu-jdk-environment/"/>
+    <url>/2023/10/16/ubuntu-jdk-environment/</url>
+    
+    <content type="html"><![CDATA[<p>1.在&#x2F;etc&#x2F;profile文件最后添加以下内容</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment">#set oracle jdk environment</span><br><span class="hljs-built_in">export</span> <span class="hljs-attribute">JAVA_HOME</span>=/opt/jdk/jdk1.8.0_171/<br><span class="hljs-built_in">export</span> <span class="hljs-attribute">JRE_HOME</span>=<span class="hljs-variable">$&#123;JAVA_HOME&#125;</span>/jre  <br><span class="hljs-built_in">export</span> <span class="hljs-attribute">CLASSPATH</span>=.:$&#123;JAVA_HOME&#125;/lib:<span class="hljs-variable">$&#123;JRE_HOME&#125;</span>/lib  <br><span class="hljs-built_in">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$&#123;JAVA_HOME&#125;</span>/bin:$PATH <br></code></pre></td></tr></table></figure><p>JAVA_HOME设置为JDK解压目录<br>2.执行<code>source /etc/profile</code> 重新加载配置</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>Application</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Application</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>下载旧版本JDK</title>
     <link href="/2023/10/16/jdk-oldversion/"/>
     <url>/2023/10/16/jdk-oldversion/</url>
