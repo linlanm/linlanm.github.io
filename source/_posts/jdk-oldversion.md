@@ -4,7 +4,7 @@ date: 2023-10-16 19:42:58
 tags:
 ---
 
-一、打开Oracle[官网](https://www.oracle.com/cn/java/technologies/downloads/)
+一、打开Oracle Java下载[链接](https://www.oracle.com/cn/java/technologies/downloads/)
 二、选择“Java archive”
 ![](https://pic.imgdb.cn/item/652d2a04c458853aefd77564.jpg)
 三、网页下移，找到需要的版本，例如jdk8
