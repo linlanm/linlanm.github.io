@@ -3,7 +3,7 @@ title: Cloudflare WARP packages
 date: 2023-10-27 13:52:57
 tags:
 - Internet
-categories： 
+categories: 
 - Internet
 ---
 Cloudflare's client-side software can be installed on Linux with package managers APT or YUM by following these instructions. However, keep in mind that not all packages may support all operating systems or architectures and that you can check a specific package's page (linked from the homepage) to see what's available. We generally support modern versions of the following distributions:
