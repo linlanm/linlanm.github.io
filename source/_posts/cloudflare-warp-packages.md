@@ -6,9 +6,10 @@ tags:
 categories: 
 - Internet
 ---
+
 Cloudflare's client-side software can be installed on Linux with package managers APT or YUM by following these instructions. However, keep in mind that not all packages may support all operating systems or architectures and that you can check a specific package's page (linked from the homepage) to see what's available. We generally support modern versions of the following distributions:
 
-Ubuntu
+## Ubuntu
 The supported releases are:
 Jammy (22.04)
 Focal (20.04)
