@@ -9,7 +9,7 @@ categories:
 ---
 
 **1.前期准备**
-软件安装：docker Nginx
+软件安装：docker nginx certbot
 
 **2.docker镜像拉取**
 ```
