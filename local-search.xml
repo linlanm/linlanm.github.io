@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>SSH免密登录配置</title>
+    <link href="/2023/11/13/ssh-settings/"/>
+    <url>/2023/11/13/ssh-settings/</url>
+    
+    <content type="html"><![CDATA[<p><strong>1.生成密钥</strong><br>在终端执行下列命令<code>ssh-keygen -t rsa -C &quot;备注信息&quot;</code>，按提示进行操作</p><p><strong>2.将生成的公钥文件复制到服务器上</strong></p><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs rust">cd .ssh<br>touch authorized_keys               <span class="hljs-punctuation">-&gt;</span>如果ssh中存在此文件则省略此步骤<br>cat id_rsa.<span class="hljs-keyword">pub</span> &gt;&gt; authorized_keys   <span class="hljs-punctuation">-&gt;</span> 将id_rsa.<span class="hljs-keyword">pub</span>的内容追加到authorized_keys<br></code></pre></td></tr></table></figure><p><strong>3.修改配置文件</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/ssh/sshd_config<br><br>RSAAuthentication <span class="hljs-built_in">yes</span><br>PubkeyAuthentication <span class="hljs-built_in">yes</span><br><span class="hljs-comment"># The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2</span><br><span class="hljs-comment"># but this is overridden so installations will only check .ssh/authorized_keys</span><br>AuthorizedKeysFile      .ssh/authorized_keys<br></code></pre></td></tr></table></figure><p>这里有一点很重要，在你配置密钥登录成功之前，千万不要太自信将PasswordAuthentication 设置no，否则你密钥登录不了，然后又禁止密码登录，就悲剧了。在密钥登录设置成功之后，可以将PasswordAuthentication 设置为no，禁用密码登录了，比较安全。</p><p><strong>4.登录测试</strong><br>完成上述步骤后，就能够登录到远程主机而不会被提示输入密码，测试口令如下：<code>ssh remote_username@server_ip_address</code></p><p><a href="https://www.cnblogs.com/niunafei/p/12635233.html">原文链接</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Cloudflare WARP packages</title>
     <link href="/2023/10/27/cloudflare-warp-packages/"/>
     <url>/2023/10/27/cloudflare-warp-packages/</url>

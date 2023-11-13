@@ -16,25 +16,24 @@
   <meta name="author" content="Lan Lin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="注意：教程使用Ubuntu18.04+Nginx 一、安装Certbot 123$ sudo add-apt-repository ppa:certbot&#x2F;certbot$ sudo apt-get update$ sudo apt-get install certbot  python-certbot-nginx  如果在执行上述命令时提示命令不存在，可能是没有安装add-apt-reposit">
+    <meta name="description" content="1.生成密钥在终端执行下列命令ssh-keygen -t rsa -C &quot;备注信息&quot;，按提示进行操作 2.将生成的公钥文件复制到服务器上 123cd .sshtouch authorized_keys               -&gt;如果ssh中存在此文件则省略此步骤cat id_rsa.pub &gt;&gt; authorized_keys   -&gt; 将id_r">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Let’s Encrypt配置HTTPS">
-<meta property="og:url" content="http://blog.iworkce.com/2023/09/26/setting-https/index.html">
+<meta property="og:title" content="SSH免密登录配置">
+<meta property="og:url" content="http://blog.iworkce.com/2023/11/13/ssh-settings/index.html">
 <meta property="og:site_name" content="一束阳光">
-<meta property="og:description" content="注意：教程使用Ubuntu18.04+Nginx 一、安装Certbot 123$ sudo add-apt-repository ppa:certbot&#x2F;certbot$ sudo apt-get update$ sudo apt-get install certbot  python-certbot-nginx  如果在执行上述命令时提示命令不存在，可能是没有安装add-apt-reposit">
+<meta property="og:description" content="1.生成密钥在终端执行下列命令ssh-keygen -t rsa -C &quot;备注信息&quot;，按提示进行操作 2.将生成的公钥文件复制到服务器上 123cd .sshtouch authorized_keys               -&gt;如果ssh中存在此文件则省略此步骤cat id_rsa.pub &gt;&gt; authorized_keys   -&gt; 将id_r">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-26T17:40:09.000Z">
+<meta property="article:published_time" content="2023-11-13T20:55:11.000Z">
 <meta property="article:modified_time" content="2023-11-13T13:13:42.941Z">
 <meta property="article:author" content="Lan Lin">
 <meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Nginx">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>使用Let’s Encrypt配置HTTPS - 一束阳光</title>
+  <title>SSH免密登录配置 - 一束阳光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="使用Let’s Encrypt配置HTTPS"></span>
+            <span id="subtitle" data-typed-text="SSH免密登录配置"></span>
           
         </div>
 
@@ -211,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-26 17:40" pubdate>
-          2023年9月26日 下午
+        <time datetime="2023-11-13 20:55" pubdate>
+          2023年11月13日 晚上
         </time>
       </span>
     
@@ -223,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          666 字
+          672 字
         
       </span>
     
@@ -279,25 +278,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">使用Let’s Encrypt配置HTTPS</h1>
+            <h1 id="seo-header">SSH免密登录配置</h1>
             
             
               <div class="markdown-body">
                 
-                <p>注意：教程使用Ubuntu18.04+Nginx</p>
-<p><strong>一、安装Certbot</strong></p>
-<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs smali">$ sudo<span class="hljs-built_in"> add-apt-repository </span>ppa:certbot/certbot<br>$ sudo apt-get update<br>$ sudo apt-get install certbot  python-certbot-nginx<br></code></pre></td></tr></table></figure>
+                <p><strong>1.生成密钥</strong><br>在终端执行下列命令<code>ssh-keygen -t rsa -C &quot;备注信息&quot;</code>，按提示进行操作</p>
+<p><strong>2.将生成的公钥文件复制到服务器上</strong></p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs rust">cd .ssh<br>touch authorized_keys               <span class="hljs-punctuation">-&gt;</span>如果ssh中存在此文件则省略此步骤<br>cat id_rsa.<span class="hljs-keyword">pub</span> &gt;&gt; authorized_keys   <span class="hljs-punctuation">-&gt;</span> 将id_rsa.<span class="hljs-keyword">pub</span>的内容追加到authorized_keys<br></code></pre></td></tr></table></figure>
 
-<p>如果在执行上述命令时提示命令不存在，可能是没有安装add-apt-repository，请按以下命令安装</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">$ sudo apt-<span class="hljs-built_in">get</span> install python-software-<span class="hljs-built_in">properties</span> software-<span class="hljs-built_in">properties</span>-common <br></code></pre></td></tr></table></figure>
-
-<p><strong>二、生成证书</strong></p>
-<p>执行以下命令，然后按照提示一步一步操作</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">$ sudo certbot <span class="hljs-comment">--nginx</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>备注：</strong><br>privkey.pem 这是私匙，对应Nginx的ssl_certificate_key选项。<br>cert.pem 服务器证书，对应SSLCertificateFile选项。<br>chain.pem 除服务器证书之外的所有证书，Nginx对应ssl_trusted_certificate选项。<br>fullchain.pem 包括上面的服务器证书和其他证书，Nginx对应ssl_certificate选项。</p>
-<p><strong>三、更新证书</strong></p>
-<p>Let’s Encrypt的证书权威且安全，就是有效期只有90天。过期前需要续时间。运行命令<code>sudo certbot renew</code>即可续时间，如果还没到过期时间，运行命令也不会有大碍。当然你可以使用命令测试<code>sudo certbot renew --dry-run</code>。可以根据需要自己写一个脚本或者cron定时更新证书。</p>
+<p><strong>3.修改配置文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/ssh/sshd_config<br><br>RSAAuthentication <span class="hljs-built_in">yes</span><br>PubkeyAuthentication <span class="hljs-built_in">yes</span><br><span class="hljs-comment"># The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2</span><br><span class="hljs-comment"># but this is overridden so installations will only check .ssh/authorized_keys</span><br>AuthorizedKeysFile      .ssh/authorized_keys<br></code></pre></td></tr></table></figure>
+<p>这里有一点很重要，在你配置密钥登录成功之前，千万不要太自信将PasswordAuthentication 设置no，否则你密钥登录不了，然后又禁止密码登录，就悲剧了。在密钥登录设置成功之后，可以将PasswordAuthentication 设置为no，禁用密码登录了，比较安全。</p>
+<p><strong>4.登录测试</strong><br>完成上述步骤后，就能够登录到远程主机而不会被提示输入密码，测试口令如下：<code>ssh remote_username@server_ip_address</code></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/niunafei/p/12635233.html">原文链接</a></p>
 
                 
               </div>
@@ -333,8 +327,6 @@
       
         <a href="/tags/Linux/" class="print-no-link">#Linux</a>
       
-        <a href="/tags/Nginx/" class="print-no-link">#Nginx</a>
-      
     </div>
   
 </div>
@@ -345,8 +337,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>使用Let’s Encrypt配置HTTPS</div>
-      <div>http://blog.iworkce.com/2023/09/26/setting-https/</div>
+      <div>SSH免密登录配置</div>
+      <div>http://blog.iworkce.com/2023/11/13/ssh-settings/</div>
     </div>
     <div class="license-meta">
       
@@ -358,7 +350,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月26日</div>
+          <div>2023年11月13日</div>
         </div>
       
       
@@ -390,18 +382,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/26/active-office/" title="KMS命令激活Windows/Office">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">KMS命令激活Windows/Office</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/22/xsqg/" title="先生，千古">
-                        <span class="hidden-mobile">先生，千古</span>
+                      <a href="/2023/10/27/cloudflare-warp-packages/" title="Cloudflare WARP packages">
+                        <span class="hidden-mobile">Cloudflare WARP packages</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
