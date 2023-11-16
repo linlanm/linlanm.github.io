@@ -16,25 +16,24 @@
   <meta name="author" content="Lan Lin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一、准备工作 1.下载arch最新安装镜像; 2.烧录镜像至U盘（4G或8G） Linux: $ sudo dd bs&#x3D;4M if&#x3D;archlinux-2020.01.01-x86_64.iso of&#x3D;&#x2F;dev&#x2F;sdc  Windows:使用rufus,模式选择dd 二、启动到live环境 1.进入装机环境 2.验证启动模式# ls &#x2F;sys&#x2F;firmware&#x2F;efi&#x2F;efivars如果目录不为空">
+    <meta name="description" content="Docker 是一个开源的容器化平台，它允许你构建，测试，并且作为可移动的容器去部署应用，这些容器可以在任何地方运行。一个容器表示一个应用的运行环境，并且包含软件运行所需要的所有依赖软件。Docker 是现代软件开发，持续集成，持续交付的一部分。这篇教程将会涉及如何在 Ubuntu 上安装 Docker。Docker 在标准的 Ubuntu 20.04 软件源中可用，但是可能不是最新的版本。这将会">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ArchLinux安装教程">
-<meta property="og:url" content="http://blog.iworkce.com/2023/09/26/Arch-install/index.html">
+<meta property="og:title" content="Docker安装及配置">
+<meta property="og:url" content="http://blog.iworkce.com/2023/11/16/docker/index.html">
 <meta property="og:site_name" content="一束阳光">
-<meta property="og:description" content="一、准备工作 1.下载arch最新安装镜像; 2.烧录镜像至U盘（4G或8G） Linux: $ sudo dd bs&#x3D;4M if&#x3D;archlinux-2020.01.01-x86_64.iso of&#x3D;&#x2F;dev&#x2F;sdc  Windows:使用rufus,模式选择dd 二、启动到live环境 1.进入装机环境 2.验证启动模式# ls &#x2F;sys&#x2F;firmware&#x2F;efi&#x2F;efivars如果目录不为空">
+<meta property="og:description" content="Docker 是一个开源的容器化平台，它允许你构建，测试，并且作为可移动的容器去部署应用，这些容器可以在任何地方运行。一个容器表示一个应用的运行环境，并且包含软件运行所需要的所有依赖软件。Docker 是现代软件开发，持续集成，持续交付的一部分。这篇教程将会涉及如何在 Ubuntu 上安装 Docker。Docker 在标准的 Ubuntu 20.04 软件源中可用，但是可能不是最新的版本。这将会">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-26T17:45:01.000Z">
+<meta property="article:published_time" content="2023-11-16T16:08:39.000Z">
 <meta property="article:modified_time" content="2023-11-16T09:12:50.718Z">
 <meta property="article:author" content="Lan Lin">
-<meta property="article:tag" content="系统安装">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="容器">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>ArchLinux安装教程 - 一束阳光</title>
+  <title>Docker安装及配置 - 一束阳光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ArchLinux安装教程"></span>
+            <span id="subtitle" data-typed-text="Docker安装及配置"></span>
           
         </div>
 
@@ -211,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-26 17:45" pubdate>
-          2023年9月26日 下午
+        <time datetime="2023-11-16 16:08" pubdate>
+          2023年11月16日 下午
         </time>
       </span>
     
@@ -223,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          2.3k 字
         
       </span>
     
@@ -234,7 +233,7 @@
         
         
         
-          26 分钟
+          20 分钟
         
       </span>
     
@@ -279,112 +278,60 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">ArchLinux安装教程</h1>
+            <h1 id="seo-header">Docker安装及配置</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>一、准备工作</strong></p>
-<p>1.下载arch最新安装镜像;</p>
-<p>2.烧录镜像至U盘（4G或8G）</p>
-<p>Linux:</p>
-<p><code>$ sudo dd bs=4M if=archlinux-2020.01.01-x86_64.iso of=/dev/sdc</code> </p>
-<p>Windows:<br>使用rufus,模式选择dd</p>
-<p><strong>二、启动到live环境</strong></p>
-<p><strong>1.进入装机环境</strong></p>
-<p><strong>2.验证启动模式</strong><br><code># ls /sys/firmware/efi/efivars</code><br>如果目录不为空，说明当前系统是以UEFI模式启动的，如果目录不存在，系统可能以 BIOS或 CSM 模式启动</p>
-<p><strong>3.连接到互联网</strong><br>a.启动dhcp服务<br><code># systemctl start dhcpcd</code><br>b.查看网络连接<br><code># ip a</code><br>c.检查网络连通性<br><code># ping -c 3 www.baidu.com</code></p>
-<p><strong>4.更新系统时间</strong><br><code># timedatectl set-ntp true</code></p>
-<p><strong>5.硬盘分区</strong></p>
-<p><strong>查看硬盘信息</strong><br><code># lsblk</code></p>
-<p><strong>分区示例</strong>(磁盘以sda为例)</p>
-<p><strong>BIOS和MBR</strong></p>
-<table>
-<thead>
-<tr>
-<th>挂载点</th>
-<th>分区</th>
-<th>分区类型</th>
-<th>建议大小</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>&#x2F;mnt</td>
-<td>&#x2F;dev&#x2F;sda1</td>
-<td>Linux</td>
-<td>剩余空间</td>
-</tr>
-<tr>
-<td>[SWAP]</td>
-<td>&#x2F;dev&#x2F;sda2</td>
-<td>Linux swap (交换空间)</td>
-<td>大于 512 MiB</td>
-</tr>
-</tbody></table>
-<p><strong>UEFI with GPT</strong></p>
-<table>
-<thead>
-<tr>
-<th>挂载点</th>
-<th>分区</th>
-<th>分区类型</th>
-<th>建议大小</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>&#x2F;mnt&#x2F;boot&#x2F;efi</td>
-<td>&#x2F;dev&#x2F;sda1</td>
-<td>EFI 系统分区</td>
-<td>260–512 MiB</td>
-</tr>
-<tr>
-<td>&#x2F;mnt</td>
-<td>&#x2F;dev&#x2F;sda2</td>
-<td>Linux x86-64 根目录 (&#x2F;)</td>
-<td>剩余空间</td>
-</tr>
-<tr>
-<td>[SWAP]</td>
-<td>&#x2F;dev&#x2F;sda3</td>
-<td>Linux swap (交换空间)</td>
-<td>大于 512 MiB</td>
-</tr>
-</tbody></table>
+                <p>Docker 是一个开源的容器化平台，它允许你构建，测试，并且作为可移动的容器去部署应用，这些容器可以在任何地方运行。一个容器表示一个应用的运行环境，并且包含软件运行所需要的所有依赖软件。<br>Docker 是现代软件开发，持续集成，持续交付的一部分。<br>这篇教程将会涉及如何在 Ubuntu 上安装 Docker。<br>Docker 在标准的 Ubuntu 20.04 软件源中可用，但是可能不是最新的版本。这将会从 Docker 的官方软件源中安装最新的 Docker 软件包。</p>
+<h2 id="一、在-Ubuntu-20-04-上安装-Docker"><a href="#一、在-Ubuntu-20-04-上安装-Docker" class="headerlink" title="一、在 Ubuntu 20.04 上安装 Docker"></a>一、在 Ubuntu 20.04 上安装 Docker</h2><p>在 Ubuntu 上安装 Docker 非常直接。通过启用 Docker 软件源，导入 GPG key，并且安装软件包。<br>首先，更新软件包索引，并且安装必要的依赖软件，来添加一个新的 HTTPS 软件源：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">sudo apt update<br>sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common<br></code></pre></td></tr></table></figure>
+
+<p>使用下面的 <code>curl</code> 导入源仓库的 GPG key：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -<br></code></pre></td></tr></table></figure>
+
+<p>将 Docker APT 软件源添加到你的系统：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;<br></code></pre></td></tr></table></figure>
+
+<p>现在，Docker 软件源被启用了，你可以安装软件源中任何可用的 Docker 版本。</p>
+<p>01.想要安装 Docker 最新版本，运行下面的命令。如果你想安装指定版本，跳过这个步骤，并且跳到下一步。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">sudo apt update<br>sudo apt install docker-ce docker-ce-cli containerd.io<br></code></pre></td></tr></table></figure>
+
+<p>02.想要安装指定版本，首先列出 Docker 软件源中所有可用的版本：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">sudo apt update<br>apt list -a docker-ce<br></code></pre></td></tr></table></figure>
+
+<p>可用的 Docker 版本将会在第二列显示。在写作这篇文章的时候，在官方 Docker 软件源中只有一个 Docker 版本（<code>5:19.03.9~3-0~ubuntu-focal</code>）可用：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">docker-ce/focal 5:19.03.9~3-0~ubuntu-focal amd64<br></code></pre></td></tr></table></figure>
+
+<p>通过在软件包名后面添加版本<code>=&lt;VERSION&gt;</code>来安装指定版本：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">sudo apt install docker-ce=&lt;VERSION&gt; docker-ce-cli=&lt;VERSION&gt; containerd.io<br></code></pre></td></tr></table></figure>
+
+<p>一旦安装完成，Docker 服务将会自动启动。你可以输入下面的命令，验证它：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">sudo systemctl status docker<br></code></pre></td></tr></table></figure>
+
+<p>输出将会类似下面这样：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">● docker.service - Docker Application Container Engine<br>     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)<br>     Active: active (running) since Thu 2020-05-21 14:47:34 UTC; 42s ago<br>...<br></code></pre></td></tr></table></figure>
+
+<p>当一个新的 Docker 发布时，你可以使用标准的<code>sudo apt update &amp;&amp; sudo apt upgrade</code>流程来升级 Docker 软件包。</p>
+<p>如果你想阻止 Docker 自动更新，锁住它的版本：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">sudo apt-mark hold docker-ce<br></code></pre></td></tr></table></figure>
+
+<h2 id="二、配置Docker镜像"><a href="#二、配置Docker镜像" class="headerlink" title="二、配置Docker镜像"></a>二、配置Docker镜像</h2><p>国内从 DockerHub 拉取镜像有时会遇到困难，此时可以配置镜像加速器。Docker 官方和国内很多云服务商都提供了国内加速器服务，例如：</p>
 <ul>
-<li>请使用 cfdisk 或 parted 修改分区表，例如 <code># cfdisk /dev/sda</code></li>
-<li>如果文件系统支持，交换空间也可以设在交换文件上。</li>
+<li>科大镜像：<a target="_blank" rel="noopener" href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a></li>
+<li>网易：<a target="_blank" rel="noopener" href="https://hub-mirror.c.163.com/">https://hub-mirror.c.163.com</a></li>
+<li>阿里云：https:&#x2F;&#x2F;&lt;你的ID&gt;.mirror.aliyuncs.com</li>
+<li>七牛云加速器：<a target="_blank" rel="noopener" href="https://reg-mirror.qiniu.com/">https://reg-mirror.qiniu.com</a></li>
 </ul>
-<p><strong>6.格式化分区</strong>(磁盘以sda为例)<br>当分区建立好了，这些分区都需要使用适当的文件系统进行格式化。举例,如果根分区在 &#x2F;dev&#x2F;sda2 上并且会使用 <em>ext4</em> 文件系统，efi分区在&#x2F;dev&#x2F;sda1上，运行：<br><code># mkfs.fat -F32 /dev/sda1</code> efi分区<br><code># mkfs.*ext4* /dev/sda2</code> &#x2F;分区<br>如果您创建了交换分区（例如 &#x2F;dev&#x2F;sda3），使用 mkswap 将其初始化：<br><code># mkswap /dev/sda3</code><br><code># swapon /dev/sda3</code></p>
-<p><strong>7.挂载分区</strong>(磁盘以sda为例)<br>将根分区挂载到 <code>/mnt</code>，例如：<br><code># mount /dev/sda2 /mnt</code><br>创建其他剩余的挂载点（比如 <code>/mnt/boot/efi</code>）并挂载其相应的分区。<br><code># mkdir /mnt/boot/efi -p   # mount /dev/sda1 /mnt/boot/efi</code><br>接下来 genfstab 将会自动检测挂载的文件系统和交换空间。</p>
-<p><strong>三、安装系统</strong></p>
-<p><strong>1.选择镜像</strong><br>文件 <code>/etc/pacman.d/mirrorlist</code> 定义了软件包会从哪个镜像源下载。在 LiveCD 启动的系统上，所有的镜像都被启用，并且在镜像被制作时，我们已经通过他们的同步情况和速度排序。<br>在列表中越前的镜像在下载软件包时有越高的优先权。你可以相应的修改文件 <code>/etc/pacman.d/mirrorlist</code>，并<strong>将地理位置最近的镜像源挪到文件的头部</strong>，同时你也应该考虑一些其他标准。<br>这个文件接下来还会被 <em>pacstrap</em> 拷贝到新系统里，所以请确保设置正确。<br>例：<br><code># vim /etc/pacman.d/mirrorlist</code>  </p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">Server = https:<span class="hljs-regexp">//mi</span>rrors.ustc.edu.cn<span class="hljs-regexp">/archlinux/</span><span class="hljs-variable">$repo</span><span class="hljs-regexp">/os/</span><span class="hljs-variable">$arch</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>2.安装必须的软件包</strong><br><code># pacstrap /mnt base base-devel linux linux-firmware vim</code></p>
-<p><strong>四、配置系统</strong></p>
-<p><strong>1.Fstab</strong><br>用以下命令生成fstab文件 (用 <code>-U</code> 或 <code>-L</code> 选项设置UUID 或卷标)：<br><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code><br><strong>强烈建议</strong> 在执行完以上命令后，后检查一下生成的 <code>/mnt/etc/fstab</code> 文件是否正确。</p>
-<p><strong>2.Chroot</strong><br>Change root 到新安装的系统：<br><code># arch-chroot /mnt</code></p>
-<p><strong>3.设置时区</strong><br><code># ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code><br><code># hwclock --systohc --localtime</code></p>
-<p><strong>4.本地化</strong><br>本地化的程序要本地化文本，都依赖 Locale，后者明确规定地域、货币、时区日期的格式、字符排列方式和其他本地化标准等等。在下面两个文件设置：<code>locale.gen</code> 与 <code>locale.conf</code>。<br><code>/etc/locale.gen</code> 是一个仅包含注释文档的文本文件。指定您需要的本地化类型，只需移除对应行前面的注释符号（<code>＃</code>）即可，建议选择带 <code>UTF-8</code> 的项：<br><code># vim /etc/locale.gen</code>  </p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">en_US</span>.UTF-<span class="hljs-number">8</span> UTF-<span class="hljs-number">8</span>  <br><span class="hljs-attribute">zh_CN</span>.UTF-<span class="hljs-number">8</span> UTF-<span class="hljs-number">8</span>  <br><span class="hljs-attribute">zh_TW</span>.UTF-<span class="hljs-number">8</span> UTF-<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
-<p>接着执行 <code>locale-gen</code> 以生成 locale 信息：<br><code># locale-gen</code></p>
-<p><code>/etc/locale.gen</code> 会生成指定的本地化文件。<br>创建 <code>locale.conf</code> 并编辑 <code>LANG</code> 这一变量,比如将系统 locale 设置为 <code>en_US.UTF-8</code>，系统的 Log 就会用英文显示，这样更容易问题的判断和处理。<br><code># echo LANG=en_US.UTF8 &gt; /etc/locale.conf</code><br><strong>警告:</strong> 不推荐在此设置任何中文 locale，会导致 TTY 乱码。</p>
-<p><strong>5.设置网络</strong><br>a.创建 hostname 文件<br><code># vim /etc/hostname</code>  </p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">myhostname</span><br></code></pre></td></tr></table></figure>
-
-<p>b.添加对应的信息到 hosts:<br><code># vim /etc/hosts</code>  </p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs accesslog"><span class="hljs-number">127.0.0.1</span> localhost  <br>::<span class="hljs-number">1</span> localhost  <br><span class="hljs-number">127.0.1.1</span> myhostname.localdomain myhostname<br></code></pre></td></tr></table></figure>
-<p><strong>6.用户配置</strong><br>a.修改root密码<br><code># passwd root</code><br>b.创建新用户(merlin是新建的用户名)<br><code># useradd -m -G wheel merlin</code><br>c.修改用户密码<br><code># passwd merlin</code><br>d.修改sudo权限<br><code># visudo</code><br>去掉<code># %wheel ALL=(ALL) ALL</code> 前面的注释</p>
-<p><strong>7.其它配置</strong><br>a.<em>有线连接</em><br><code># systemctl enable dhcpcd</code>   开机自动启动dhcp服务<br>如果上述命令执行提示错误，执行<code># pacman -S dhcpcd</code><br>b***.***无线连接<br><code># pacman -S iw wpa_supplicant dialog</code></p>
-<p><strong>8.按照系统引导</strong>(sda修改为实际安装磁盘)</p>
-<p><em><strong>BIOS+BMR分区方案引导系统启动</strong></em>  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">pacman -S grub</span>   <br><span class="hljs-meta prompt_"># </span><span class="language-bash">grub-install --target=i386-pc /dev/sda</span>   <br><span class="hljs-meta prompt_"># </span><span class="language-bash">grub-mkconfig -o /boot/grub/grub.cfg</span><br></code></pre></td></tr></table></figure>
-<p><strong>UEFI+<em>GPT分区方案引导系统启动</em></strong>  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">pacman -S grub efibootmgr</span>   <br><span class="hljs-meta prompt_"># </span><span class="language-bash">grub-install --target=x86_64-efi /dev/sda</span>    <br><span class="hljs-meta prompt_"># </span><span class="language-bash">grub-mkconfig -o /boot/grub/grub.cfg</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>五、重启</strong></p>
-<p>输入 <code>exit</code> 或按 <code>Ctrl+d</code> 退出 chroot 环境。<br>可选用 <code>umount -R /mnt</code> 手动卸载被挂载的分区：这有助于发现任何「繁忙」的分区，并通过 <a target="_blank" rel="noopener" href="https://jlk.fjfi.cvut.cz/arch/manpages/man/fuser.1">fuser(1)</a> 查找原因。<br>最后，通过执行 <code>reboot</code> 重启系统，<em>systemd</em> 将自动卸载仍然挂载的任何分区。不要忘记移除安装介质，然后使用 root 帐户登录到新系统。</p>
-<p><strong>注意</strong>：本文章基于Arch Wiki修改，<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">原文链接</a></p>
+<p>1.新建或编辑daemon.json</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">vim <span class="hljs-regexp">/etc/</span>docker/daemon.json<br></code></pre></td></tr></table></figure>
+<p>2.daemon.json中编辑如下</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs prolog">&#123;<br>    <span class="hljs-string">&quot;registry-mirrors&quot;</span>: [<br>        <span class="hljs-string">&quot;http://hub-mirror.c.163.com&quot;</span>,<br>        <span class="hljs-string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span>,<br>        <span class="hljs-string">&quot;https://registry.docker-cn.com&quot;</span><br>    ]<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>3.重启docker</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart docker</span><br></code></pre></td></tr></table></figure>
+<p>4.执行<code>docker info</code>查看是否修改成功</p>
+<p>当配置某一个加速器地址之后，若发现拉取不到镜像，请切换到另一个加速器地址。国内各大云服务商均提供了 Docker 镜像加速服务，建议根据运行 Docker 的云平台选择对应的镜像加速服务。<br>阿里云镜像<a href="cr.console.aliyun.com">获取地址</a>，登陆后，左侧菜单选择“镜像加速器”就可以看到你的专属地址了。之前还有Docker官方加速器<a target="_blank" rel="noopener" href="https://registry.docker-cn.com,现在好像已经不能使用了,可以多添加几个国内的镜像,如果有不能使用的,会切换到可以使用的镜像来拉取./">https://registry.docker-cn.com，现在好像已经不能使用了，可以多添加几个国内的镜像，如果有不能使用的，会切换到可以使用的镜像来拉取。</a></p>
+<p>原文链接 1.<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/143156163?utm_id=0">Docker安装</a> 2.<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-mirror-acceleration.html">Docker镜像配置</a>3.<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1294592">Docker镜像配置2</a></p>
 
                 
               </div>
@@ -403,7 +350,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/%E5%AE%B9%E5%99%A8/" class="category-chain-item">容器</a>
   
   
 
@@ -418,9 +365,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" class="print-no-link">#系统安装</a>
-      
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+        <a href="/tags/%E5%AE%B9%E5%99%A8/" class="print-no-link">#容器</a>
       
     </div>
   
@@ -432,8 +377,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ArchLinux安装教程</div>
-      <div>http://blog.iworkce.com/2023/09/26/Arch-install/</div>
+      <div>Docker安装及配置</div>
+      <div>http://blog.iworkce.com/2023/11/16/docker/</div>
     </div>
     <div class="license-meta">
       
@@ -445,7 +390,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月26日</div>
+          <div>2023年11月16日</div>
         </div>
       
       
@@ -477,18 +422,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/26/owncloud-extra/" title="owncloud安装后常见配置问题">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">owncloud安装后常见配置问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/26/active-office/" title="KMS命令激活Windows/Office">
-                        <span class="hidden-mobile">KMS命令激活Windows/Office</span>
+                      <a href="/2023/11/13/build-bitwarden/" title="自建密码管理器Bitwarden">
+                        <span class="hidden-mobile">自建密码管理器Bitwarden</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
