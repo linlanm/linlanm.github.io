@@ -40,3 +40,7 @@ fullchain.pem 包括上面的服务器证书和其他证书，Nginx对应ssl\_ce
 **三、更新证书**
 
 Let’s Encrypt的证书权威且安全，就是有效期只有90天。过期前需要续时间。运行命令`sudo certbot renew`即可续时间，如果还没到过期时间，运行命令也不会有大碍。当然你可以使用命令测试`sudo certbot renew --dry-run`。可以根据需要自己写一个脚本或者cron定时更新证书。
+
+**四、常见问题及解决方法**
+**Q**:ubuntu certbot无法从“urllib3.contrib”导入名称“appengine”;
+**A**:执行命令`pip3 uninstall urllib3`卸载urllib3即可。
