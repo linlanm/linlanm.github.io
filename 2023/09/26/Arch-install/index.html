@@ -16,15 +16,15 @@
   <meta name="author" content="Lan Lin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一、准备工作 1.下载arch最新安装镜像; 2.烧录镜像至U盘（4G或8G） Linux: $ sudo dd bs&#x3D;4M if&#x3D;archlinux-2020.01.01-x86_64.iso of&#x3D;&#x2F;dev&#x2F;sdc  Windows:使用rufus,模式选择dd 二、启动到live环境 1.进入装机环境 2.验证启动模式# ls &#x2F;sys&#x2F;firmware&#x2F;efi&#x2F;efivars如果目录不为空">
+    <meta name="description" content="一、准备工作 1.下载arch最新安装镜像; 2.烧录镜像至U盘（4G或8G） Linux: $ sudo dd bs&#x3D;4M if&#x3D;archlinux-*******.iso of&#x3D;&#x2F;dev&#x2F;sdc  Windows:使用rufus,模式选择dd 二、启动到live环境 1.进入装机环境 2.验证启动模式# ls &#x2F;sys&#x2F;firmware&#x2F;efi&#x2F;efivars如果目录不为空，说明当前系统是以U">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ArchLinux安装教程">
 <meta property="og:url" content="http://blog.iworkce.com/2023/09/26/Arch-install/index.html">
 <meta property="og:site_name" content="一束阳光">
-<meta property="og:description" content="一、准备工作 1.下载arch最新安装镜像; 2.烧录镜像至U盘（4G或8G） Linux: $ sudo dd bs&#x3D;4M if&#x3D;archlinux-2020.01.01-x86_64.iso of&#x3D;&#x2F;dev&#x2F;sdc  Windows:使用rufus,模式选择dd 二、启动到live环境 1.进入装机环境 2.验证启动模式# ls &#x2F;sys&#x2F;firmware&#x2F;efi&#x2F;efivars如果目录不为空">
+<meta property="og:description" content="一、准备工作 1.下载arch最新安装镜像; 2.烧录镜像至U盘（4G或8G） Linux: $ sudo dd bs&#x3D;4M if&#x3D;archlinux-*******.iso of&#x3D;&#x2F;dev&#x2F;sdc  Windows:使用rufus,模式选择dd 二、启动到live环境 1.进入装机环境 2.验证启动模式# ls &#x2F;sys&#x2F;firmware&#x2F;efi&#x2F;efivars如果目录不为空，说明当前系统是以U">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-26T17:45:01.000Z">
-<meta property="article:modified_time" content="2023-11-17T01:23:45.109Z">
+<meta property="article:modified_time" content="2023-11-17T03:55:42.903Z">
 <meta property="article:author" content="Lan Lin">
 <meta property="article:tag" content="系统安装">
 <meta property="article:tag" content="Linux">
@@ -288,7 +288,7 @@
 <p>1.下载arch最新安装镜像;</p>
 <p>2.烧录镜像至U盘（4G或8G）</p>
 <p>Linux:</p>
-<p><code>$ sudo dd bs=4M if=archlinux-2020.01.01-x86_64.iso of=/dev/sdc</code> </p>
+<p><code>$ sudo dd bs=4M if=archlinux-*******.iso of=/dev/sdc</code> </p>
 <p>Windows:<br>使用rufus,模式选择dd</p>
 <p><strong>二、启动到live环境</strong></p>
 <p><strong>1.进入装机环境</strong></p>
@@ -315,7 +315,7 @@
 <td>剩余空间</td>
 </tr>
 <tr>
-<td>[SWAP]</td>
+<td>SWAP</td>
 <td>&#x2F;dev&#x2F;sda2</td>
 <td>Linux swap (交换空间)</td>
 <td>大于 512 MiB</td>
@@ -344,7 +344,7 @@
 <td>剩余空间</td>
 </tr>
 <tr>
-<td>[SWAP]</td>
+<td>SWAP</td>
 <td>&#x2F;dev&#x2F;sda3</td>
 <td>Linux swap (交换空间)</td>
 <td>大于 512 MiB</td>
@@ -360,7 +360,7 @@
 <p><strong>1.选择镜像</strong><br>文件 <code>/etc/pacman.d/mirrorlist</code> 定义了软件包会从哪个镜像源下载。在 LiveCD 启动的系统上，所有的镜像都被启用，并且在镜像被制作时，我们已经通过他们的同步情况和速度排序。<br>在列表中越前的镜像在下载软件包时有越高的优先权。你可以相应的修改文件 <code>/etc/pacman.d/mirrorlist</code>，并<strong>将地理位置最近的镜像源挪到文件的头部</strong>，同时你也应该考虑一些其他标准。<br>这个文件接下来还会被 <em>pacstrap</em> 拷贝到新系统里，所以请确保设置正确。<br>例：<br><code># vim /etc/pacman.d/mirrorlist</code>  </p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">Server = https:<span class="hljs-regexp">//mi</span>rrors.ustc.edu.cn<span class="hljs-regexp">/archlinux/</span><span class="hljs-variable">$repo</span><span class="hljs-regexp">/os/</span><span class="hljs-variable">$arch</span><br></code></pre></td></tr></table></figure>
 
-<p><strong>2.安装必须的软件包</strong><br><code># pacstrap /mnt base base-devel linux linux-firmware vim</code></p>
+<p><strong>2.安装必须的软件包</strong><br><code># pacstrap -K /mnt base base-devel linux linux-firmware vim</code></p>
 <p><strong>四、配置系统</strong></p>
 <p><strong>1.Fstab</strong><br>用以下命令生成fstab文件 (用 <code>-U</code> 或 <code>-L</code> 选项设置UUID 或卷标)：<br><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code><br><strong>强烈建议</strong> 在执行完以上命令后，后检查一下生成的 <code>/mnt/etc/fstab</code> 文件是否正确。</p>
 <p><strong>2.Chroot</strong><br>Change root 到新安装的系统：<br><code># arch-chroot /mnt</code></p>
@@ -384,7 +384,7 @@
 
 <p><strong>五、重启</strong></p>
 <p>输入 <code>exit</code> 或按 <code>Ctrl+d</code> 退出 chroot 环境。<br>可选用 <code>umount -R /mnt</code> 手动卸载被挂载的分区：这有助于发现任何「繁忙」的分区，并通过 <a target="_blank" rel="noopener" href="https://jlk.fjfi.cvut.cz/arch/manpages/man/fuser.1">fuser(1)</a> 查找原因。<br>最后，通过执行 <code>reboot</code> 重启系统，<em>systemd</em> 将自动卸载仍然挂载的任何分区。不要忘记移除安装介质，然后使用 root 帐户登录到新系统。</p>
-<p><strong>注意</strong>：本文章基于Arch Wiki修改，<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">原文链接</a></p>
+<p><strong>注意</strong>：本文章基于Arch Wiki修改，<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Installation_guide">原文链接</a></p>
 
                 
               </div>
