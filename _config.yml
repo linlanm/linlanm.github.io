@@ -119,13 +119,4 @@ live2d:
   mobile:
     show: true
 
-#hexo-generator-archive
-archive_generator:
-  enabled: true
-  per_page: 10
-  yearly: true
-  monthly: true
-  daily: false
-  order_by: -date
-
 #曾经沧海难为水，除却巫山不是云。取次花丛懒回顾，半缘修道半缘君。
