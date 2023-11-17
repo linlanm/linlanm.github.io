@@ -24,7 +24,7 @@
 <meta property="og:description" content="Cloudflare’s client-side software can be installed on Linux with package managers APT or YUM by following these instructions. However, keep in mind that not all packages may support all operating syst">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-27T13:52:57.000Z">
-<meta property="article:modified_time" content="2023-11-17T03:55:42.903Z">
+<meta property="article:modified_time" content="2023-11-17T07:37:58.037Z">
 <meta property="article:author" content="Lan Lin">
 <meta property="article:tag" content="Internet">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          923 字
+          869 字
         
       </span>
     
@@ -285,10 +285,11 @@
                 
                 <p>Cloudflare’s client-side software can be installed on Linux with package managers APT or YUM by following these instructions. However, keep in mind that not all packages may support all operating systems or architectures and that you can check a specific package’s page (linked from the homepage) to see what’s available. We generally support modern versions of the following distributions:</p>
 <h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><p>The supported releases are:<br>Jammy (22.04)<br>Focal (20.04)<br>Bionic (18.04)<br>Xenial (16.04)</p>
-<h1 id="Add-cloudflare-gpg-key"><a href="#Add-cloudflare-gpg-key" class="headerlink" title="Add cloudflare gpg key"></a>Add cloudflare gpg key</h1><p>curl <a target="_blank" rel="noopener" href="https://pkg.cloudflareclient.com/pubkey.gpg">https://pkg.cloudflareclient.com/pubkey.gpg</a> | sudo gpg –yes –dearmor –output &#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;cloudflare-warp-archive-keyring.gpg</p>
-<h1 id="Add-this-repo-to-your-apt-repositories"><a href="#Add-this-repo-to-your-apt-repositories" class="headerlink" title="Add this repo to your apt repositories"></a>Add this repo to your apt repositories</h1><p>echo “deb [arch&#x3D;amd64 signed-by&#x3D;&#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;cloudflare-warp-archive-keyring.gpg] <a target="_blank" rel="noopener" href="https://pkg.cloudflareclient.com/">https://pkg.cloudflareclient.com/</a> $(lsb_release -cs) main” | sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;cloudflare-client.list</p>
-<h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><p>sudo apt-get update &amp;&amp; sudo apt-get install cloudflare-warp</p>
+<h1 id="Add-cloudflare-gpg-key"><a href="#Add-cloudflare-gpg-key" class="headerlink" title="Add cloudflare gpg key"></a>Add cloudflare gpg key</h1><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">curl https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg<br></code></pre></td></tr></table></figure>
 
+<h1 id="Add-this-repo-to-your-apt-repositories"><a href="#Add-this-repo-to-your-apt-repositories" class="headerlink" title="Add this repo to your apt repositories"></a>Add this repo to your apt repositories</h1><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">echo &quot;deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main&quot; | sudo tee /etc/apt/sources.list.d/cloudflare-client.list<br></code></pre></td></tr></table></figure>
+
+<h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">sudo apt-get update &amp;&amp; sudo apt-get install cloudflare-warp<br></code></pre></td></tr></table></figure>
                 
               </div>
             

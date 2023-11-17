@@ -16,14 +16,14 @@
   <meta name="author" content="Lan Lin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.生成密钥在终端执行下列命令ssh-keygen -t rsa -C &quot;备注信息&quot;，按提示进行操作 2.将生成的公钥文件复制到服务器上 123cd .sshtouch authorized_keys               -&gt;如果ssh中存在此文件则省略此步骤cat id_rsa.pub &gt;&gt; authorized_keys   -&gt; 将id_r">
+    <meta name="description" content="在debian12（testing）上运行screenfetch报错，如下所示： 1234567891011121314151617181920~$ screenfetch&#x2F;usr&#x2F;bin&#x2F;screenfetch: 行 1851: -: 语法错误：需要操作数（错误记号是 &quot;-&quot;）         _,met$$$$$gg.           ×××××@deb-test">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSH免密登录配置">
-<meta property="og:url" content="http://blog.iworkce.com/2023/11/13/ssh-settings/index.html">
+<meta property="og:title" content="screenfetch报错&quot;&#x2F;usr&#x2F;bin&#x2F;screenfetch行1851&quot;解决方法">
+<meta property="og:url" content="http://blog.iworkce.com/2023/11/17/screenfetch-qa/index.html">
 <meta property="og:site_name" content="一束阳光">
-<meta property="og:description" content="1.生成密钥在终端执行下列命令ssh-keygen -t rsa -C &quot;备注信息&quot;，按提示进行操作 2.将生成的公钥文件复制到服务器上 123cd .sshtouch authorized_keys               -&gt;如果ssh中存在此文件则省略此步骤cat id_rsa.pub &gt;&gt; authorized_keys   -&gt; 将id_r">
+<meta property="og:description" content="在debian12（testing）上运行screenfetch报错，如下所示： 1234567891011121314151617181920~$ screenfetch&#x2F;usr&#x2F;bin&#x2F;screenfetch: 行 1851: -: 语法错误：需要操作数（错误记号是 &quot;-&quot;）         _,met$$$$$gg.           ×××××@deb-test">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-13T20:55:11.000Z">
+<meta property="article:published_time" content="2023-11-17T15:10:34.000Z">
 <meta property="article:modified_time" content="2023-11-17T07:37:58.037Z">
 <meta property="article:author" content="Lan Lin">
 <meta property="article:tag" content="Linux">
@@ -33,7 +33,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>SSH免密登录配置 - 一束阳光</title>
+  <title>screenfetch报错&#34;/usr/bin/screenfetch行1851&#34;解决方法 - 一束阳光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="SSH免密登录配置"></span>
+            <span id="subtitle" data-typed-text="screenfetch报错&#34;/usr/bin/screenfetch行1851&#34;解决方法"></span>
           
         </div>
 
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-13 20:55" pubdate>
-          2023年11月13日 晚上
+        <time datetime="2023-11-17 15:10" pubdate>
+          2023年11月17日 下午
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          672 字
+          1.5k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          6 分钟
+          13 分钟
         
       </span>
     
@@ -278,20 +278,21 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">SSH免密登录配置</h1>
+            <h1 id="seo-header">screenfetch报错&#34;/usr/bin/screenfetch行1851&#34;解决方法</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>1.生成密钥</strong><br>在终端执行下列命令<code>ssh-keygen -t rsa -C &quot;备注信息&quot;</code>，按提示进行操作</p>
-<p><strong>2.将生成的公钥文件复制到服务器上</strong></p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs rust">cd .ssh<br>touch authorized_keys               <span class="hljs-punctuation">-&gt;</span>如果ssh中存在此文件则省略此步骤<br>cat id_rsa.<span class="hljs-keyword">pub</span> &gt;&gt; authorized_keys   <span class="hljs-punctuation">-&gt;</span> 将id_rsa.<span class="hljs-keyword">pub</span>的内容追加到authorized_keys<br></code></pre></td></tr></table></figure>
+                <p>在debian12（testing）上运行screenfetch报错，如下所示：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs text">~$ screenfetch<br>/usr/bin/screenfetch: 行 1851: -: 语法错误：需要操作数（错误记号是 &quot;-&quot;）<br>         _,met$$$$$gg.           ×××××@deb-test<br>      ,g$$$$$$$$$$$$$$$P.        OS: Debian 12 bookworm<br>    ,g$$P&quot;&quot;       &quot;&quot;&quot;Y$$.&quot;.      Kernel: x86_64 Linux 6.1.0-7-amd64<br>   ,$$P&#x27;              `$$$.      Uptime: 17m<br>  &#x27;,$$P       ,ggs.     `$$b:    Packages: 2065<br>  `d$$&#x27;     ,$P&quot;&#x27;   .    $$$     Shell: bash<br>   $$P      d$&#x27;     ,    $$P     Resolution: 1920x1200<br>   $$:      $$.   -    ,d$$&#x27;     DE: KDE 5.103.0 / Plasma 5.27.2<br>   $$\;      Y$b._   _,d$P&#x27;      WM: KWin<br>   Y$$.    `.`&quot;Y$$$$P&quot;&#x27;          GTK Theme: Breeze [GTK2/3]<br>   `$$b      &quot;-.__               Icon Theme: breeze<br>    `Y$$                         Disk: 501G / 1.1T (48%)<br>     `Y$$.                       CPU: AMD Ryzen 9 5950X 16-Core @ 32x 3.4GHz<br>       `$$b.                     GPU: VMware SVGA II Adapter<br>         `Y$$b.                  RAM: -<br>            `&quot;Y$b._             <br>                `&quot;&quot;&quot;&quot;           <br>                                <br></code></pre></td></tr></table></figure>
+<p>按提示打开&#x2F;usr&#x2F;bin&#x2F;screenfetch这个脚本，可以看到报错位置的上下文是这样的：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">mem=$(free -b | awk -F &#x27;:&#x27; &#x27;NR==2&#123;print $2&#125;&#x27; | awk &#x27;&#123;print $1&quot;-&quot;$6&#125;&#x27;)<br>usedmem=$((mem / 1024 / 1024))<br></code></pre></td></tr></table></figure>
+<p>运行free -b命令，可见正常输出：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">               total        used        free      shared  buff/cache   available<br>内存：   16781590528  3409371136 11827744768   169746432  2212745216 13372219392<br>交换：    1023406080           0  1023406080<br></code></pre></td></tr></table></figure>
+<p>但是运行 free -b | awk -F ‘:’ ‘NR&#x3D;&#x3D;2{print $2}’ 就无输出了。<br>抓耳挠腮的想了一下，才发现在中文的debian系统上，free -b命令所输出内容中的冒号是中文字符，而screenfetch脚本中匹配处理的是英文字符。<br>进行如下丑陋的打补丁后，报错问题解决：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text"># 这是一个丑陋的补丁，用以解决中文系统下的符号识别问题<br># mem=$(free -b | awk -F &#x27;:&#x27; &#x27;NR==2&#123;print $2&#125;&#x27; | awk &#x27;&#123;print $1&quot;-&quot;$6&#125;&#x27;)<br>mem=$(free -b | awk -F &#x27;：&#x27; &#x27;NR==2&#123;print $2&#125;&#x27; | awk &#x27;&#123;print $1&quot;-&quot;$6&#125;&#x27;)<br>usedmem=$((mem / 1024 / 1024))<br></code></pre></td></tr></table></figure>
 
-<p><strong>3.修改配置文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/ssh/sshd_config<br><br>RSAAuthentication <span class="hljs-built_in">yes</span><br>PubkeyAuthentication <span class="hljs-built_in">yes</span><br><span class="hljs-comment"># The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2</span><br><span class="hljs-comment"># but this is overridden so installations will only check .ssh/authorized_keys</span><br>AuthorizedKeysFile      .ssh/authorized_keys<br></code></pre></td></tr></table></figure>
-<p>这里有一点很重要，在你配置密钥登录成功之前，千万不要太自信将PasswordAuthentication 设置no，否则你密钥登录不了，然后又禁止密码登录，就悲剧了。在密钥登录设置成功之后，可以将PasswordAuthentication 设置为no，禁用密码登录了，比较安全。</p>
-<p><strong>4.登录测试</strong><br>完成上述步骤后，就能够登录到远程主机而不会被提示输入密码，测试口令如下：<code>ssh remote_username@server_ip_address</code></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/niunafei/p/12635233.html">原文链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/songxi/p/17304225.html">原文链接</a></p>
 
                 
               </div>
@@ -337,8 +338,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>SSH免密登录配置</div>
-      <div>http://blog.iworkce.com/2023/11/13/ssh-settings/</div>
+      <div>screenfetch报错&#34;/usr/bin/screenfetch行1851&#34;解决方法</div>
+      <div>http://blog.iworkce.com/2023/11/17/screenfetch-qa/</div>
     </div>
     <div class="license-meta">
       
@@ -350,7 +351,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月13日</div>
+          <div>2023年11月17日</div>
         </div>
       
       
@@ -382,9 +383,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/13/build-bitwarden/" title="自建密码管理器Bitwarden">
+                      <a href="/2023/11/17/phased-updates/" title="phased_updates">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">自建密码管理器Bitwarden</span>
+                        <span class="hidden-mobile">phased_updates</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -392,8 +393,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/27/cloudflare-warp-packages/" title="Cloudflare WARP packages">
-                        <span class="hidden-mobile">Cloudflare WARP packages</span>
+                      <a href="/2023/11/16/docker/" title="Docker安装及配置">
+                        <span class="hidden-mobile">Docker安装及配置</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

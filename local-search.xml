@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>phased_updates</title>
+    <link href="/2023/11/17/phased-updates/"/>
+    <url>/2023/11/17/phased-updates/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>screenfetch报错&quot;/usr/bin/screenfetch行1851&quot;解决方法</title>
+    <link href="/2023/11/17/screenfetch-qa/"/>
+    <url>/2023/11/17/screenfetch-qa/</url>
+    
+    <content type="html"><![CDATA[<p>在debian12（testing）上运行screenfetch报错，如下所示：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs text">~$ screenfetch<br>/usr/bin/screenfetch: 行 1851: -: 语法错误：需要操作数（错误记号是 &quot;-&quot;）<br>         _,met$$$$$gg.           ×××××@deb-test<br>      ,g$$$$$$$$$$$$$$$P.        OS: Debian 12 bookworm<br>    ,g$$P&quot;&quot;       &quot;&quot;&quot;Y$$.&quot;.      Kernel: x86_64 Linux 6.1.0-7-amd64<br>   ,$$P&#x27;              `$$$.      Uptime: 17m<br>  &#x27;,$$P       ,ggs.     `$$b:    Packages: 2065<br>  `d$$&#x27;     ,$P&quot;&#x27;   .    $$$     Shell: bash<br>   $$P      d$&#x27;     ,    $$P     Resolution: 1920x1200<br>   $$:      $$.   -    ,d$$&#x27;     DE: KDE 5.103.0 / Plasma 5.27.2<br>   $$\;      Y$b._   _,d$P&#x27;      WM: KWin<br>   Y$$.    `.`&quot;Y$$$$P&quot;&#x27;          GTK Theme: Breeze [GTK2/3]<br>   `$$b      &quot;-.__               Icon Theme: breeze<br>    `Y$$                         Disk: 501G / 1.1T (48%)<br>     `Y$$.                       CPU: AMD Ryzen 9 5950X 16-Core @ 32x 3.4GHz<br>       `$$b.                     GPU: VMware SVGA II Adapter<br>         `Y$$b.                  RAM: -<br>            `&quot;Y$b._             <br>                `&quot;&quot;&quot;&quot;           <br>                                <br></code></pre></td></tr></table></figure><p>按提示打开&#x2F;usr&#x2F;bin&#x2F;screenfetch这个脚本，可以看到报错位置的上下文是这样的：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">mem=$(free -b | awk -F &#x27;:&#x27; &#x27;NR==2&#123;print $2&#125;&#x27; | awk &#x27;&#123;print $1&quot;-&quot;$6&#125;&#x27;)<br>usedmem=$((mem / 1024 / 1024))<br></code></pre></td></tr></table></figure><p>运行free -b命令，可见正常输出：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">               total        used        free      shared  buff/cache   available<br>内存：   16781590528  3409371136 11827744768   169746432  2212745216 13372219392<br>交换：    1023406080           0  1023406080<br></code></pre></td></tr></table></figure><p>但是运行 free -b | awk -F ‘:’ ‘NR&#x3D;&#x3D;2{print $2}’ 就无输出了。<br>抓耳挠腮的想了一下，才发现在中文的debian系统上，free -b命令所输出内容中的冒号是中文字符，而screenfetch脚本中匹配处理的是英文字符。<br>进行如下丑陋的打补丁后，报错问题解决：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text"># 这是一个丑陋的补丁，用以解决中文系统下的符号识别问题<br># mem=$(free -b | awk -F &#x27;:&#x27; &#x27;NR==2&#123;print $2&#125;&#x27; | awk &#x27;&#123;print $1&quot;-&quot;$6&#125;&#x27;)<br>mem=$(free -b | awk -F &#x27;：&#x27; &#x27;NR==2&#123;print $2&#125;&#x27; | awk &#x27;&#123;print $1&quot;-&quot;$6&#125;&#x27;)<br>usedmem=$((mem / 1024 / 1024))<br></code></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/songxi/p/17304225.html">原文链接</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Docker安装及配置</title>
     <link href="/2023/11/16/docker/"/>
     <url>/2023/11/16/docker/</url>
@@ -85,7 +123,7 @@
     <link href="/2023/10/27/cloudflare-warp-packages/"/>
     <url>/2023/10/27/cloudflare-warp-packages/</url>
     
-    <content type="html"><![CDATA[<p>Cloudflare’s client-side software can be installed on Linux with package managers APT or YUM by following these instructions. However, keep in mind that not all packages may support all operating systems or architectures and that you can check a specific package’s page (linked from the homepage) to see what’s available. We generally support modern versions of the following distributions:</p><h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><p>The supported releases are:<br>Jammy (22.04)<br>Focal (20.04)<br>Bionic (18.04)<br>Xenial (16.04)</p><h1 id="Add-cloudflare-gpg-key"><a href="#Add-cloudflare-gpg-key" class="headerlink" title="Add cloudflare gpg key"></a>Add cloudflare gpg key</h1><p>curl <a href="https://pkg.cloudflareclient.com/pubkey.gpg">https://pkg.cloudflareclient.com/pubkey.gpg</a> | sudo gpg –yes –dearmor –output &#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;cloudflare-warp-archive-keyring.gpg</p><h1 id="Add-this-repo-to-your-apt-repositories"><a href="#Add-this-repo-to-your-apt-repositories" class="headerlink" title="Add this repo to your apt repositories"></a>Add this repo to your apt repositories</h1><p>echo “deb [arch&#x3D;amd64 signed-by&#x3D;&#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;cloudflare-warp-archive-keyring.gpg] <a href="https://pkg.cloudflareclient.com/">https://pkg.cloudflareclient.com/</a> $(lsb_release -cs) main” | sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;cloudflare-client.list</p><h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><p>sudo apt-get update &amp;&amp; sudo apt-get install cloudflare-warp</p>]]></content>
+    <content type="html"><![CDATA[<p>Cloudflare’s client-side software can be installed on Linux with package managers APT or YUM by following these instructions. However, keep in mind that not all packages may support all operating systems or architectures and that you can check a specific package’s page (linked from the homepage) to see what’s available. We generally support modern versions of the following distributions:</p><h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><p>The supported releases are:<br>Jammy (22.04)<br>Focal (20.04)<br>Bionic (18.04)<br>Xenial (16.04)</p><h1 id="Add-cloudflare-gpg-key"><a href="#Add-cloudflare-gpg-key" class="headerlink" title="Add cloudflare gpg key"></a>Add cloudflare gpg key</h1><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">curl https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg<br></code></pre></td></tr></table></figure><h1 id="Add-this-repo-to-your-apt-repositories"><a href="#Add-this-repo-to-your-apt-repositories" class="headerlink" title="Add this repo to your apt repositories"></a>Add this repo to your apt repositories</h1><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">echo &quot;deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main&quot; | sudo tee /etc/apt/sources.list.d/cloudflare-client.list<br></code></pre></td></tr></table></figure><h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">sudo apt-get update &amp;&amp; sudo apt-get install cloudflare-warp<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
