@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>安装hexo-generator-archive插件</title>
+    <link href="/2023/11/17/hexo-generator-archive/"/>
+    <url>/2023/11/17/hexo-generator-archive/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>About &quot;apt upgrade&quot; and phased updates</title>
     <link href="/2023/11/17/phased-updates/"/>
     <url>/2023/11/17/phased-updates/</url>
