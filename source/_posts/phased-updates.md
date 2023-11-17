@@ -1,5 +1,5 @@
 ---
-title: About `apt upgrade` and phased updates
+title: About "apt upgrade" and phased updates
 date: 2023-11-17 15:23:50
 tags:
 - Linux
