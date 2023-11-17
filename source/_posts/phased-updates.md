@@ -65,7 +65,7 @@ When the software update is released, the initial subset of machines to receive 
 For more detailed information, including about how changes to phasing are timed, you can check the Ubuntu [wiki page on phased updates](https://wiki.ubuntu.com/PhasedUpdates?_ga=2.245926530.746656963.1700205676-1275121081.1694676547).
 
 **How can I find out more information about currently phased packages?**
-You can find out the phasing details of a package by using the `apt policy`` command:
+You can find out the phasing details of a package by using the `apt policy` command:
 ```text
 apt policy <package>
 ```
