@@ -19,12 +19,12 @@ The following packages have been kept back:
 ```
 If you’ve ever used combinations of packages from different releases or third party repos, you may be familiar with this message already. However, it has become a much more common occurrence due to something called “phased updates”.
 
-###What are phased updates?
+**What are phased updates?**
 Phased updates are software updates that are rolled out in stages, rather than being provided to everyone at the same time. Initially, the update is provided only to a small subset of Ubuntu machines. As the update proves to be stable, it is provided to an ever-increasing number of users until everyone has received it (i.e., when the update is “fully phased”).
 
 The good news is, you don’t need to do anything about the “packages kept back” message – you can safely ignore it. Once the update has been deemed safe for release, you will receive the update automatically.
 
-###Why is Ubuntu doing this?
+**Why is Ubuntu doing this?**
 Although updates are thoroughly tested before they get released at all, sometimes bugs can be hidden well enough to escape our attention and make it into a release – especially in highly specific use cases that we didn’t know we needed to test. This can obviously cause problems for our users, and used to be the norm before we phased updates through apt.
 
 Update phasing makes it much easier for us to detect serious breakages early on – before they have a chance to cause problems for the majority of our users. It gives us the opportunity to hold back the update until the bugs are fixed.
@@ -36,17 +36,17 @@ The phasing system makes it so that different sets of users are chosen to be the
 Note:
 It should be mentioned here that security updates are never phased.
 ```
-###Can I turn off phased updates?
+**Can I turn off phased updates?**
 That depends on how stable you need your system to be. If you just want to avoid any notices about packages being held back during apt updates, and you’re willing to be one of the first people to get updates whenever they’re released, you can turn off phased updates. Be warned, though – if an update is broken, you will almost always be in the first set of people to get it (i.e., you’re basically volunteering yourself as a guinea pig for the early update releases!). It will get rid of the “held back packages” in apt message, though.
 
 If that doesn’t sound like something you want, leave phased updates on (this is the default). You will still temporarily get the “held back packages” message, but your machine will be more protected from updates that might otherwise break it – and once the packages are ready to be safely installed on your system, they will no longer be held back.
 
-###Can I `apt upgrade` the individual packages? (and should I?)
+**Can I `apt upgrade` the individual packages? (and should I?)**
 While you can technically get around phased updates by running apt install on individual held back packages, it’s not recommended. You’re unlikely to break your machine by doing this – as long as the package is being held back due to update phasing.
 
 If you want to apt upgrade a package, you should first carefully examine the proposed changes that apt would make before you proceed. If the package update was kept back for a reason unrelated to phasing, apt may be forced to remove packages in order to complete your request, which could then cause problems elsewhere.
 
-###How do I turn off phased updates?
+**How do I turn off phased updates?**
 If you’re sure that you want to disable phased updates, reverting to the old behaviour, you can change apt’s configuration by creating a file in `/etc/apt/apt.conf.d` called `99-Phased-Updates` (if `/etc/apt/apt.conf.d/99-Phased-Updates` doesn’t already exist). In the file, simply add the following lines:
 ```text
 Update-Manager::Always-Include-Phased-Updates true;
@@ -54,17 +54,17 @@ APT::Get::Always-Include-Phased-Updates true;
 ```
 Again, please only do this if you really know what you’re doing and are absolutely sure you need to do it (for instance, if you are intentionally installing all the latest packages to help test them – and don’t mind if your system breaks). We definitely don’t recommend turning off phased updates if you’re a newer user.
 
-###Why is this suddenly happening now?
+**Why is this suddenly happening now?**
 Phased updates have been part of the update-manager on Ubuntu Desktop for quite a while (since 13.04, in fact!), but were implemented in APT in 21.04. It now works on all versions of Ubuntu (including Ubuntu Server, Raspberry Pi, and containers). Since this includes the 22.04 LTS, it’s now getting a lot more attention as a result!
 
-###How does it actually work?
+**How does it actually work?**
 Phased updates depend on a value derived from your machine’s “Machine ID”, as well as the package name and package version. The neat thing about this is that phasing is determined completely at the client end; no identifiable information (or indeed any new information at all) is ever sent to the server to achieve update phasing.
 
 When the software update is released, the initial subset of machines to receive the update first is chosen at random. Only if there are no problems detected by the first set of users will the update be made available to everyone.
 
 For more detailed information, including about how changes to phasing are timed, you can check the Ubuntu [wiki page on phased updates](https://wiki.ubuntu.com/PhasedUpdates?_ga=2.245926530.746656963.1700205676-1275121081.1694676547).
 
-###How can I find out more information about currently phased packages?
+**How can I find out more information about currently phased packages?**
 You can find out the phasing details of a package by using the `apt policy`` command:
 ```text
 apt policy <package>
