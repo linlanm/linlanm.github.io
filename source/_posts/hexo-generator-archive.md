@@ -9,11 +9,11 @@ categories:
 
 Archive generator for Hexo.
 
-**Installation**
+### Installation
 ```text
 $ npm install hexo-generator-archive --save
 ```
-**Options**
+### Options
 
 ```text
 archive_generator:
@@ -24,11 +24,12 @@ archive_generator:
   daily: false
   order_by: -date
 ```
-enabled: The default value is true, set to false if you do not want to enable the plugin
-per_page: Posts displayed per page. (0 = disable pagination)
-yearly: Generate yearly archive.
-monthly: Generate monthly archive.
-daily: Generate daily archive.
-order_by: Posts order. (Order by date descending by default)
-**License**
-MIT
+### Note
+- **enabled**: The default value is true, set to false if you do not want to enable the plugin
+- **per_page**: Posts displayed per page. (0 = disable pagination)
+- **yearly**: Generate yearly archive.
+- **monthly**: Generate monthly archive.
+- **daily**: Generate daily archive.
+- **order_by**: Posts order. (Order by date descending by default)
+
+
