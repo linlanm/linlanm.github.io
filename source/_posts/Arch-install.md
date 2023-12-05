@@ -15,7 +15,7 @@ categories:
 
 Linux:
 
-`$ sudo dd bs=4M if=archlinux-2020.01.01-x86_64.iso of=/dev/sdc` 
+`$ sudo dd bs=4M if=archlinux-*******.iso of=/dev/sdc` 
 
 Windows:  
 使用rufus,模式选择dd
@@ -51,7 +51,7 @@ c.检查网络连通性
 | 挂载点 | 分区 | 分区类型 | 建议大小 |
 | --- | --- | --- | --- |
 | /mnt | /dev/sda1 | Linux | 剩余空间 |
-| \[SWAP\] | /dev/sda2 | Linux swap (交换空间) | 大于 512 MiB |
+| SWAP | /dev/sda2 | Linux swap (交换空间) | 大于 512 MiB |
 
 **UEFI with GPT**
 
@@ -59,7 +59,7 @@ c.检查网络连通性
 | --- | --- | --- | --- |
 | /mnt/boot/efi  | /dev/sda1 | EFI 系统分区 | 260–512 MiB |
 | /mnt | /dev/sda2 | Linux x86-64 根目录 (/) | 剩余空间 |
-| \[SWAP\] | /dev/sda3 | Linux swap (交换空间) | 大于 512 MiB |
+| SWAP | /dev/sda3 | Linux swap (交换空间) | 大于 512 MiB |
 
 *   请使用 cfdisk 或 parted 修改分区表，例如 `# cfdisk /dev/sda`
 *   如果文件系统支持，交换空间也可以设在交换文件上。
@@ -92,7 +92,7 @@ Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 ```
 
 **2.安装必须的软件包**  
-`# pacstrap /mnt base base-devel linux linux-firmware vim`
+`# pacstrap -K /mnt base base-devel linux linux-firmware vim`
 
 **四、配置系统**
 
@@ -179,4 +179,4 @@ b***.***无线连接
 可选用 `umount -R /mnt` 手动卸载被挂载的分区：这有助于发现任何「繁忙」的分区，并通过 [fuser(1)](https://jlk.fjfi.cvut.cz/arch/manpages/man/fuser.1) 查找原因。  
 最后，通过执行 `reboot` 重启系统，*systemd* 将自动卸载仍然挂载的任何分区。不要忘记移除安装介质，然后使用 root 帐户登录到新系统。
 
-**注意**：本文章基于Arch Wiki修改，[原文链接](https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+**注意**：本文章基于Arch Wiki修改，[原文链接](https://wiki.archlinux.org/title/Installation_guide)

@@ -50,10 +50,10 @@ sudo apt update
 apt list -a docker-ce
 ```
 
-可用的 Docker 版本将会在第二列显示。在写作这篇文章的时候，在官方 Docker 软件源中只有一个 Docker 版本（`5:19.03.9~3-0~ubuntu-focal`）可用：
+可用的 Docker 版本将会在第二列显示。在写作这篇文章的时候，在官方 Docker 软件源中只有一个 Docker 版本（` 5:24.0.1-1~ubuntu-focal`）可用：
 
 ```text
-docker-ce/focal 5:19.03.9~3-0~ubuntu-focal amd64
+docker-ce/focal  5:24.0.1-1~ubuntu-focal amd64
 ```
 
 通过在软件包名后面添加版本`=<VERSION>`来安装指定版本：
@@ -97,7 +97,7 @@ sudo apt-mark hold docker-ce
 ```
 vim /etc/docker/daemon.json
 ```
-2.daemon.json中编辑如下
+2.daemon.json中编辑如下（使用国内镜像需要把文件后缀json修改为conf,例：`mv *.json *.conf`）
 ```
 {
     "registry-mirrors": [
@@ -114,6 +114,6 @@ systemctl restart docker
 4.执行`docker info`查看是否修改成功
 
 当配置某一个加速器地址之后，若发现拉取不到镜像，请切换到另一个加速器地址。国内各大云服务商均提供了 Docker 镜像加速服务，建议根据运行 Docker 的云平台选择对应的镜像加速服务。
-阿里云镜像[获取地址](cr.console.aliyun.com)，登陆后，左侧菜单选择“镜像加速器”就可以看到你的专属地址了。之前还有Docker官方加速器`https://registry.docker-cn.com`，现在好像已经不能使用了，可以多添加几个国内的镜像，如果有不能使用的，会切换到可以使用的镜像来拉取。
+阿里云镜像[获取地址](https://cr.console.aliyun.com)，登陆后，左侧菜单选择“镜像加速器”就可以看到你的专属地址了。之前还有Docker官方加速器`https://registry.docker-cn.com`，现在好像已经不能使用了，可以多添加几个国内的镜像，如果有不能使用的，会切换到可以使用的镜像来拉取。
 
 原文链接 1.[Docker安装](https://zhuanlan.zhihu.com/p/143156163?utm_id=0) 2.[Docker镜像配置](https://www.runoob.com/docker/docker-mirror-acceleration.html)3.[Docker镜像配置2](https://developer.aliyun.com/article/1294592)
