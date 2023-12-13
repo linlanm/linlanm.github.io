@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>移除下载镜像的“Quarantine属性”</title>
+    <link href="/2023/12/13/quarantine/"/>
+    <url>/2023/12/13/quarantine/</url>
+    
+    <content type="html"><![CDATA[<p>很多在网上下载的软件都提示要移除下载镜像的Quarantine属性，那么什么是Quarantine属性呢？</p><p>Quarantine属性通常用于描述计算机系统或网络安全领域中的安全特性，其指的是对于具有潜在威胁的文件、程序或数据进行隔离和限制访问的一种机制。</p><p>当一个文件或程序被识别为可能包含恶意代码、病毒、蠕虫等安全威胁时，系统可以将其放置在隔离区域中，以防止其进一步感染系统或网络。这个隔离区域就被称为”quarantine”，隔离期间，该文件或程序不允许执行或访问系统资源，直到被确定为安全或永久删除。</p><p>Quarantine属性可以在许多安全软件或操作系统中找到，例如防病毒软件、防火墙、操作系统的安全设置等。通过使用Quarantine属性，用户可以更好地保护他们的计算机和网络不受安全威胁的侵害。</p><p>苹果系统有一个GateKeeper保护机制（自 OSX 10.5 加入）。从互联网上下载来的文件，会被自动打上com.apple.quarantine标志，翻译过来就是免疫隔离，系统根据这个附加属性对这个文件作出限制。在安装软件的时候需要移除quarantine属性，</p><p>如何解除Quarantine属性呢？</p><p>打开实用工具里的【终端】，在终端复制粘贴输入下面的命令：</p><p><img src="https://pic.imgdb.cn/item/6579afe5c458853aef182b5f.png"></p><p>sudo xattr -r -d com.apple.quarantine+空格+在应用程序中找到App拖入终端里面即可（注意：输入代码中不要带加号）,然后把下载的镜像文件打开，把软件拖拽到终端里就在quarantine后出现文件路径。</p><p><img src="https://pic.imgdb.cn/item/6579afeac458853aef184e91.png"></p><p>拖拽进去后，然后按下回车，然后输入登录密码（输密码的时候光标是不动的，区分好大小写，输完按下回车即可）执行命令；</p><p><a href="https://zhuanlan.zhihu.com/p/611471192">原文链接</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>macOS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>macOS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>调整macOS中的SMB浏览行为</title>
     <link href="/2023/12/05/macos-smb/"/>
     <url>/2023/12/05/macos-smb/</url>
