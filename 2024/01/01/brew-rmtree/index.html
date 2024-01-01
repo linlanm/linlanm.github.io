@@ -16,24 +16,24 @@
   <meta name="author" content="Lan Lin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在debian12（testing）上运行screenfetch报错，如下所示： 1234567891011121314151617181920~$ screenfetch&#x2F;usr&#x2F;bin&#x2F;screenfetch: 行 1851: -: 语法错误：需要操作数（错误记号是 &quot;-&quot;）         _,met$$$$$gg.           ×××××@deb-test">
+    <meta name="description" content="假设现在有一个Homebrew包，然后希望删除该包和所有依赖项，但不包含也被其他包依赖的包。 安装命令1$ brew tap beeftornado&#x2F;rmtree  使用1$ brew rmtree &lt;package&gt;  将上面的&lt;package&gt;换成想要删除的包即可。 示例删除mpv这个包 1234567891011121314151617181920212223$ br">
 <meta property="og:type" content="article">
-<meta property="og:title" content="screenfetch报错&quot;&#x2F;usr&#x2F;bin&#x2F;screenfetch行1851&quot;解决方法">
-<meta property="og:url" content="http://blog.iworkce.com/2023/11/17/screenfetch-qa/index.html">
+<meta property="og:title" content="Mac下删除Homebrew包及其依赖">
+<meta property="og:url" content="http://blog.iworkce.com/2024/01/01/brew-rmtree/index.html">
 <meta property="og:site_name" content="一束阳光">
-<meta property="og:description" content="在debian12（testing）上运行screenfetch报错，如下所示： 1234567891011121314151617181920~$ screenfetch&#x2F;usr&#x2F;bin&#x2F;screenfetch: 行 1851: -: 语法错误：需要操作数（错误记号是 &quot;-&quot;）         _,met$$$$$gg.           ×××××@deb-test">
+<meta property="og:description" content="假设现在有一个Homebrew包，然后希望删除该包和所有依赖项，但不包含也被其他包依赖的包。 安装命令1$ brew tap beeftornado&#x2F;rmtree  使用1$ brew rmtree &lt;package&gt;  将上面的&lt;package&gt;换成想要删除的包即可。 示例删除mpv这个包 1234567891011121314151617181920212223$ br">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-17T15:10:34.000Z">
+<meta property="article:published_time" content="2024-01-01T23:02:31.000Z">
 <meta property="article:modified_time" content="2024-01-01T15:19:26.065Z">
 <meta property="article:author" content="Lan Lin">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="macOS">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>screenfetch报错&#34;/usr/bin/screenfetch行1851&#34;解决方法 - 一束阳光</title>
+  <title>Mac下删除Homebrew包及其依赖 - 一束阳光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="screenfetch报错&#34;/usr/bin/screenfetch行1851&#34;解决方法"></span>
+            <span id="subtitle" data-typed-text="Mac下删除Homebrew包及其依赖"></span>
           
         </div>
 
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-17 15:10" pubdate>
-          2023年11月17日 下午
+        <time datetime="2024-01-01 23:02" pubdate>
+          2024年1月1日 晚上
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.4k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          13 分钟
+          12 分钟
         
       </span>
     
@@ -278,21 +278,46 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">screenfetch报错&#34;/usr/bin/screenfetch行1851&#34;解决方法</h1>
+            <h1 id="seo-header">Mac下删除Homebrew包及其依赖</h1>
             
             
               <div class="markdown-body">
                 
-                <p>在debian12（testing）上运行screenfetch报错，如下所示：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs text">~$ screenfetch<br>/usr/bin/screenfetch: 行 1851: -: 语法错误：需要操作数（错误记号是 &quot;-&quot;）<br>         _,met$$$$$gg.           ×××××@deb-test<br>      ,g$$$$$$$$$$$$$$$P.        OS: Debian 12 bookworm<br>    ,g$$P&quot;&quot;       &quot;&quot;&quot;Y$$.&quot;.      Kernel: x86_64 Linux 6.1.0-7-amd64<br>   ,$$P&#x27;              `$$$.      Uptime: 17m<br>  &#x27;,$$P       ,ggs.     `$$b:    Packages: 2065<br>  `d$$&#x27;     ,$P&quot;&#x27;   .    $$$     Shell: bash<br>   $$P      d$&#x27;     ,    $$P     Resolution: 1920x1200<br>   $$:      $$.   -    ,d$$&#x27;     DE: KDE 5.103.0 / Plasma 5.27.2<br>   $$\;      Y$b._   _,d$P&#x27;      WM: KWin<br>   Y$$.    `.`&quot;Y$$$$P&quot;&#x27;          GTK Theme: Breeze [GTK2/3]<br>   `$$b      &quot;-.__               Icon Theme: breeze<br>    `Y$$                         Disk: 501G / 1.1T (48%)<br>     `Y$$.                       CPU: AMD Ryzen 9 5950X 16-Core @ 32x 3.4GHz<br>       `$$b.                     GPU: VMware SVGA II Adapter<br>         `Y$$b.                  RAM: -<br>            `&quot;Y$b._             <br>                `&quot;&quot;&quot;&quot;           <br>                                <br></code></pre></td></tr></table></figure>
-<p>按提示打开&#x2F;usr&#x2F;bin&#x2F;screenfetch这个脚本，可以看到报错位置的上下文是这样的：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">mem=$(free -b | awk -F &#x27;:&#x27; &#x27;NR==2&#123;print $2&#125;&#x27; | awk &#x27;&#123;print $1&quot;-&quot;$6&#125;&#x27;)<br>usedmem=$((mem / 1024 / 1024))<br></code></pre></td></tr></table></figure>
-<p>运行free -b命令，可见正常输出：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">               total        used        free      shared  buff/cache   available<br>内存：   16781590528  3409371136 11827744768   169746432  2212745216 13372219392<br>交换：    1023406080           0  1023406080<br></code></pre></td></tr></table></figure>
-<p>但是运行 free -b | awk -F ‘:’ ‘NR&#x3D;&#x3D;2{print $2}’ 就无输出了。<br>抓耳挠腮的想了一下，才发现在中文的debian系统上，free -b命令所输出内容中的冒号是中文字符，而screenfetch脚本中匹配处理的是英文字符。<br>进行如下丑陋的打补丁后，报错问题解决：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text"># 这是一个丑陋的补丁，用以解决中文系统下的符号识别问题<br># mem=$(free -b | awk -F &#x27;:&#x27; &#x27;NR==2&#123;print $2&#125;&#x27; | awk &#x27;&#123;print $1&quot;-&quot;$6&#125;&#x27;)<br>mem=$(free -b | awk -F &#x27;：&#x27; &#x27;NR==2&#123;print $2&#125;&#x27; | awk &#x27;&#123;print $1&quot;-&quot;$6&#125;&#x27;)<br>usedmem=$((mem / 1024 / 1024))<br></code></pre></td></tr></table></figure>
+                <p>假设现在有一个<code>Homebrew</code>包，然后希望删除该包和所有依赖项，但不包含也被其他包依赖的包。</p>
+<h2 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-variable">$ </span>brew tap beeftornado/rmtree<br></code></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/songxi/p/17304225.html">原文链接</a></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">$ brew rmtree &lt;<span class="hljs-keyword">package</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p>将上面的<code>&lt;package&gt;</code>换成想要删除的包即可。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>删除<code>mpv</code>这个包</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs awk">$ brew rmtree mpv<br>==&gt; Examining installed formulae required by mpv...<br> -  <span class="hljs-number">43</span> / <span class="hljs-number">43</span><br><br>Can safely be removed<br>----------------------<br>automake<br>lua<br>mpg123<br>mpv-player<span class="hljs-regexp">/mpv/</span>libass-ct<br><br>Proceed?[y/N]: y<br>==&gt; Cleaning up packages safe to remove<br><br>Uninstalling <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/Cellar/m</span>pv/<span class="hljs-number">0.9</span>.<span class="hljs-number">2</span>... (<span class="hljs-number">342</span> files, <span class="hljs-number">35</span>M)<br><br>Uninstalling <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/Cellar/</span>automake/<span class="hljs-number">1.15</span>... (<span class="hljs-number">130</span> files, <span class="hljs-number">3.2</span>M)<br><br>Uninstalling <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/Cellar/</span>libass-ct/HEAD... (<span class="hljs-number">9</span> files, <span class="hljs-number">440</span>K)<br><br>Uninstalling <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/Cellar/</span>lua/<span class="hljs-number">5.2</span>.<span class="hljs-number">4</span>... (<span class="hljs-number">81</span> files, <span class="hljs-number">1.1</span>M)<br><br>Uninstalling <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/Cellar/m</span>pg123/<span class="hljs-number">1.22</span>.<span class="hljs-number">2</span>... (<span class="hljs-number">16</span> files, <span class="hljs-number">656</span>K)<br></code></pre></td></tr></table></figure>
+
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>--force</code></td>
+<td>Overrides the dependency check for just the top-level formula you are trying to remove. If you try to remove ‘ruby’ for example, you most likely will not be able to do this because other fomulae specify this as a dependency. This option will let you remove ‘ruby’. This will NOT bypass dependency checks for the formula’s children. If ‘ruby’ depends on ‘git’, then ‘git’ will still not be removed.</td>
+</tr>
+<tr>
+<td><code>--ignore</code></td>
+<td>Ignore some dependencies from removal. This option must appear after the formulae to remove.</td>
+</tr>
+<tr>
+<td><code>--dry-run</code></td>
+<td>Does a dry-run. Goes through the whole process without actually removing anything. This gives you a chance to observe what packages would be removed and a chance to ignore them when you do it for real.</td>
+</tr>
+<tr>
+<td><code>--quiet</code></td>
+<td>No output</td>
+</tr>
+</tbody></table>
+<h2 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h2><p>软件作者给出了警告，要注意有些打包者没有正确地写好依赖。此外有些包可能此前被单独安装过，但后来又安装了依赖该包的软件，那么在卸载这个后安装的软件时也可能将之前单独安装的软件包一并卸载掉。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/beeftornado/homebrew-rmtree">原文链接</a></p>
 
                 
               </div>
@@ -311,7 +336,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/Homebrew/" class="category-chain-item">Homebrew</a>
   
   
 
@@ -326,7 +351,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+        <a href="/tags/macOS/" class="print-no-link">#macOS</a>
       
     </div>
   
@@ -338,8 +363,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>screenfetch报错&#34;/usr/bin/screenfetch行1851&#34;解决方法</div>
-      <div>http://blog.iworkce.com/2023/11/17/screenfetch-qa/</div>
+      <div>Mac下删除Homebrew包及其依赖</div>
+      <div>http://blog.iworkce.com/2024/01/01/brew-rmtree/</div>
     </div>
     <div class="license-meta">
       
@@ -351,7 +376,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月17日</div>
+          <div>2024年1月1日</div>
         </div>
       
       
@@ -383,18 +408,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/17/phased-updates/" title="About &#34;apt upgrade&#34; and phased updates">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">About &#34;apt upgrade&#34; and phased updates</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/16/docker/" title="Docker安装及配置">
-                        <span class="hidden-mobile">Docker安装及配置</span>
+                      <a href="/2023/12/22/homebrew/" title="Homebrew安装及配置">
+                        <span class="hidden-mobile">Homebrew安装及配置</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

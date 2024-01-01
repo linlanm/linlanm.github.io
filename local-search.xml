@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Mac下删除Homebrew包及其依赖</title>
+    <link href="/2024/01/01/brew-rmtree/"/>
+    <url>/2024/01/01/brew-rmtree/</url>
+    
+    <content type="html"><![CDATA[<p>假设现在有一个<code>Homebrew</code>包，然后希望删除该包和所有依赖项，但不包含也被其他包依赖的包。</p><h2 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-variable">$ </span>brew tap beeftornado/rmtree<br></code></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">$ brew rmtree &lt;<span class="hljs-keyword">package</span>&gt;<br></code></pre></td></tr></table></figure><p>将上面的<code>&lt;package&gt;</code>换成想要删除的包即可。</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>删除<code>mpv</code>这个包</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs awk">$ brew rmtree mpv<br>==&gt; Examining installed formulae required by mpv...<br> -  <span class="hljs-number">43</span> / <span class="hljs-number">43</span><br><br>Can safely be removed<br>----------------------<br>automake<br>lua<br>mpg123<br>mpv-player<span class="hljs-regexp">/mpv/</span>libass-ct<br><br>Proceed?[y/N]: y<br>==&gt; Cleaning up packages safe to remove<br><br>Uninstalling <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/Cellar/m</span>pv/<span class="hljs-number">0.9</span>.<span class="hljs-number">2</span>... (<span class="hljs-number">342</span> files, <span class="hljs-number">35</span>M)<br><br>Uninstalling <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/Cellar/</span>automake/<span class="hljs-number">1.15</span>... (<span class="hljs-number">130</span> files, <span class="hljs-number">3.2</span>M)<br><br>Uninstalling <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/Cellar/</span>libass-ct/HEAD... (<span class="hljs-number">9</span> files, <span class="hljs-number">440</span>K)<br><br>Uninstalling <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/Cellar/</span>lua/<span class="hljs-number">5.2</span>.<span class="hljs-number">4</span>... (<span class="hljs-number">81</span> files, <span class="hljs-number">1.1</span>M)<br><br>Uninstalling <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/Cellar/m</span>pg123/<span class="hljs-number">1.22</span>.<span class="hljs-number">2</span>... (<span class="hljs-number">16</span> files, <span class="hljs-number">656</span>K)<br></code></pre></td></tr></table></figure><h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><table><thead><tr><th>Option</th><th>Description</th></tr></thead><tbody><tr><td><code>--force</code></td><td>Overrides the dependency check for just the top-level formula you are trying to remove. If you try to remove ‘ruby’ for example, you most likely will not be able to do this because other fomulae specify this as a dependency. This option will let you remove ‘ruby’. This will NOT bypass dependency checks for the formula’s children. If ‘ruby’ depends on ‘git’, then ‘git’ will still not be removed.</td></tr><tr><td><code>--ignore</code></td><td>Ignore some dependencies from removal. This option must appear after the formulae to remove.</td></tr><tr><td><code>--dry-run</code></td><td>Does a dry-run. Goes through the whole process without actually removing anything. This gives you a chance to observe what packages would be removed and a chance to ignore them when you do it for real.</td></tr><tr><td><code>--quiet</code></td><td>No output</td></tr></tbody></table><h2 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h2><p>软件作者给出了警告，要注意有些打包者没有正确地写好依赖。此外有些包可能此前被单独安装过，但后来又安装了依赖该包的软件，那么在卸载这个后安装的软件时也可能将之前单独安装的软件包一并卸载掉。</p><p><a href="https://github.com/beeftornado/homebrew-rmtree">原文链接</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Homebrew</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>macOS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Homebrew安装及配置</title>
     <link href="/2023/12/22/homebrew/"/>
     <url>/2023/12/22/homebrew/</url>
