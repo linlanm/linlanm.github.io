@@ -7,12 +7,18 @@ categories:
 - Windows
 - ISO
 ---
-WEPE
+## WEPE
 
 版本：V2.3
-下载链接：[64位下载--山东大学镜像站](https://mirrors.sdu.edu.cn/software/Windows/WePE/WePE_64_V2.3.exe)
+下载链接：[64位下载--山东大学镜像站](https://mirrors.sdu.edu.cn/wepe/WePE_64_V2.3.exe)
 
-FirPE
+版本：V2.1
+下载链接：[64位下载--山东大学镜像站](https://mirrors.sdu.edu.cn/wepe/WePE_64_V2.1.exe)
+
+版本：V1.3
+下载链接：[64位下载--山东大学镜像站](https://mirrors.sdu.edu.cn/wepe/WePE_64_V1.3.exe)
+
+## FirPE
 
 版本：V1.8.2
 下载链接：[阿里云盘](https://www.aliyundrive.com/s/PrQGSRVkeHf)
