@@ -20,5 +20,5 @@ categories:
 
 ## FirPE
 
-版本：V1.8.2
+
 下载链接：[阿里云盘](https://www.aliyundrive.com/s/PrQGSRVkeHf)
