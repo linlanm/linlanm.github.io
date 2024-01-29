@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>Ubuntu2204安装PHP7.4</title>
+    <link href="/2024/01/29/php7-4/"/>
+    <url>/2024/01/29/php7-4/</url>
+    
+    <content type="html"><![CDATA[<h2 id="更新Ubuntu"><a href="#更新Ubuntu" class="headerlink" title="更新Ubuntu"></a>更新Ubuntu</h2><p>首先，更新你的Ubuntu服务器：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">sudo apt <span class="hljs-keyword">update</span> <span class="hljs-operator">&amp;&amp;</span> sudo apt upgrade<br></code></pre></td></tr></table></figure><h2 id="添加PHP存储库"><a href="#添加PHP存储库" class="headerlink" title="添加PHP存储库"></a>添加PHP存储库</h2><p>要安装PHP7.4，需要使用第三方存储库。</p><p>首先，请确保已安装以下软件包，以便可以添加存储库：</p><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">sudo</span> apt install software-properties-<span class="hljs-meta">common</span><br></code></pre></td></tr></table></figure><p>接下来，添加PHP存储库：</p><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs smali">sudo<span class="hljs-built_in"> add-apt-repository </span>ppa:ondrej/php<br></code></pre></td></tr></table></figure><p>最后，更新安装包：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br></code></pre></td></tr></table></figure><h2 id="安装PHP-7-4"><a href="#安装PHP-7-4" class="headerlink" title="安装PHP 7.4"></a>安装PHP 7.4</h2><p>添加存储库后，可以使用以下命令安装PHP 7.4：</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> apt install php7.<span class="hljs-number">4</span><br></code></pre></td></tr></table></figure><p>此命令将安装其他软件包：</p><ul><li>libapache2-mod-php7.4</li><li>libaprutil1-dbd-sqlite3</li><li>php7.4-cli</li><li>php7.4-common</li><li>php7.4-json</li><li>php7.4-opcache</li><li>php7.4-readline</li><li>等等……<br>就是这样。要检查服务器上是否已安装PHP 7.4，请运行以下命令：</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">php -v<br></code></pre></td></tr></table></figure><h2 id="安装PHP7-4模块"><a href="#安装PHP7-4模块" class="headerlink" title="安装PHP7.4模块"></a>安装PHP7.4模块</h2><p>根据你的应用程序，你可能需要其他软件包和模块。可以使用以下命令安装最常用的模块：</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> apt install php-pear php7.<span class="hljs-number">4</span>-curl php7.<span class="hljs-number">4</span>-dev php7.<span class="hljs-number">4</span>-gd php7.<span class="hljs-number">4</span>-mbstring php7.<span class="hljs-number">4</span>-zip php7.<span class="hljs-number">4</span>-mysql php7.<span class="hljs-number">4</span>-xml php7.<span class="hljs-number">4</span>-fpm<br></code></pre></td></tr></table></figure><p>就这样，你就可以在Ubuntu服务器上开始使用PHP。</p><h2 id="Nginx反代配置"><a href="#Nginx反代配置" class="headerlink" title="Nginx反代配置"></a>Nginx反代配置</h2><p>在 &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;**.conf 中增加PHP相关的配置  </p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">server</span> &#123;<br>      <span class="hljs-attribute">listen</span>       <span class="hljs-number">80</span>;<br>      <span class="hljs-attribute">server_name</span>  yourdomainname;<br>      <span class="hljs-attribute">root</span>         /var/www/html;<br>      <br>    <span class="hljs-comment">#  location / &#123;</span><br>    <span class="hljs-comment">#     root   /var/www/html;</span><br>    <span class="hljs-comment">#     index  index.html index.htm;</span><br>    <span class="hljs-comment">#  &#125;</span><br><br>      <span class="hljs-section">location</span> <span class="hljs-regexp">~ \.php$</span> &#123;<br>         <span class="hljs-attribute">include</span> snippets/fastcgi-php.conf;<br>         <span class="hljs-attribute">fastcgi_pass</span> unix:/var/run/php/php7.4-fpm.sock;<br>      &#125;<br>  &#125;<br></code></pre></td></tr></table></figure><p>其中 unix:&#x2F;var&#x2F;run&#x2F;php&#x2F;php7.4-fpm.sock 这个参数在 &#x2F;etc&#x2F;php&#x2F;7.4&#x2F;fpm&#x2F;pool.d&#x2F;<a href="http://www.conf/">www.conf</a> 文件中配置，如果想做负载均衡，也可以把监听端口配置成 IP:Port 的形式。</p><p>修改完成后，使用 nginx -t 命令，测试 nginx.conf 文件，如果正常，重启 nginx，生效。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Nginx</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Nginx</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>在Ubuntu22.04上安装Certbot</title>
+    <link href="/2024/01/29/certbot-ubuntu2204/"/>
+    <url>/2024/01/29/certbot-ubuntu2204/</url>
+    
+    <content type="html"><![CDATA[<p>在当今的数字时代，确保网站的安全性至关重要。网络安全的一个基本方面是使用SSL&#x2F;TLS证书来加密您的网站与其访问者之间传输的数据。Certbot是一个免费的开源工具，简化了获取和更新SSL&#x2F;TLS证书的过程。</p><h2 id="在-Ubuntu-22-04-LTS-Jammy-Jellyfish-上安装-Certbot"><a href="#在-Ubuntu-22-04-LTS-Jammy-Jellyfish-上安装-Certbot" class="headerlink" title="在 Ubuntu 22.04 LTS Jammy Jellyfish 上安装 Certbot"></a>在 Ubuntu 22.04 LTS Jammy Jellyfish 上安装 Certbot</h2><h3 id="第-1-步。"><a href="#第-1-步。" class="headerlink" title="第 1 步。"></a>第 1 步。</h3><p>在终端中运行以下命令，确保所有系统软件包都是最新的。</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br><span class="hljs-attribute">sudo apt upgrade</span><br></code></pre></td></tr></table></figure><h3 id="第-2-步。"><a href="#第-2-步。" class="headerlink" title="第 2 步。"></a>第 2 步。</h3><p>在 Ubuntu 22.04 上安装 Certbot。</p><p><strong>使用 Snap 包安装 Certbot</strong></p><p>安装 Certbot Snap 软件包：</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo snap install <span class="hljs-comment">--classic certbot</span><br></code></pre></td></tr></table></figure><p>创建指向 Certbot 命令的符号链接：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo ln -s <span class="hljs-regexp">/snap/</span>bin<span class="hljs-regexp">/certbot /u</span>sr<span class="hljs-regexp">/bin/</span>certbot<br></code></pre></td></tr></table></figure><p>通过运行以下命令验证 Certbot 是否已正确安装：</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">certbot <span class="hljs-comment">--version</span><br></code></pre></td></tr></table></figure><p>Certbot现在可以使用了。您可以通过运行以下命令来获取证书：</p><p>如果你的Web服务器是Apache，请使用以下命令：</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo certbot <span class="hljs-comment">--apache</span><br></code></pre></td></tr></table></figure><p>如果您使用 Nginx 作为您的 Web 服务器，请改用以下命令：</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo certbot <span class="hljs-comment">--nginx</span><br></code></pre></td></tr></table></figure><h3 id="第-3-步。"><a href="#第-3-步。" class="headerlink" title="第 3 步。"></a>第 3 步。</h3><p>证书续订配置。</p><p><strong>设置自动续订</strong></p><p>SSL&#x2F;TLS 证书的有效期有限。Certbot可以为您自动化续订过程。要设置自动续订，请添加每天运行两次的 cron 作业：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo crontab -e</span><br></code></pre></td></tr></table></figure><p>将以下行添加到 crontab 文件中：</p><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">0 </span><span class="hljs-number">0</span> * * * /<span class="hljs-keyword">usr</span>/bin/certbot renew --quiet<br></code></pre></td></tr></table></figure><p>此作业将每天检查一次即将过期的证书，并在必要时续订证书。</p><p>您可以使用以下命令手动测试续订过程：</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo certbot renew <span class="hljs-comment">--dry-run</span><br></code></pre></td></tr></table></figure><h3 id="第-4-步。"><a href="#第-4-步。" class="headerlink" title="第 4 步。"></a>第 4 步。</h3><p>验证 SSL&#x2F;TLS 证书安装。</p><p><strong>网页浏览器测试</strong></p><p>通过Web浏览器并访问您的网页，您应该会在地址栏中看到一个锁图标，表示连接安全。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>Nginx</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Nginx</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Mac下删除Homebrew包及其依赖</title>
     <link href="/2024/01/01/brew-rmtree/"/>
     <url>/2024/01/01/brew-rmtree/</url>
