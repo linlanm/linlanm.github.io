@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>更新vaultwarden服务端</title>
+    <link href="/2024/09/16/update-vw/"/>
+    <url>/2024/09/16/update-vw/</url>
+    
+    <content type="html"><![CDATA[<p>更新非常简单，您只需确保保留了已挂载的卷。如果您使用（绑定挂载路径）的方式，则只需使用 <code>pull</code> 拉取最新版本的镜像，再使用 <code>stop</code> 和 <code>rm</code> 来停止和移除当前容器，然后与之前相同的方式启动一个新的容器即可：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 拉取最新版本的镜像</span><br>docker pull vaultwarden/server:latest<br><br><span class="hljs-comment"># 停止并移除旧版本容器</span><br>docker stop vaultwarden<br>docker <span class="hljs-built_in">rm</span> vaultwarden<br><br><span class="hljs-comment"># 使用已挂载的数据启动容器</span><br>docker run -d --name vaultwarden -v /vw-data/:/data/ -p 80:80 vaultwarden/server:latest<br></code></pre></td></tr></table></figure><p>然后访问 <a href="http://localhost/">http://localhost:80</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Nginx</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Nginx</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Ubuntu2204安装PHP7.4</title>
     <link href="/2024/01/29/php7-4/"/>
     <url>/2024/01/29/php7-4/</url>
