@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>mac Monterey手动编译openssl</title>
+    <link href="/2024/10/28/openssl/"/>
+    <url>/2024/10/28/openssl/</url>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>mac Monterey 通过homebrew 安装 openssl 失败，被嫌弃系统太老，make test 测试不通过</p><h2 id="下载openssl，并解压"><a href="#下载openssl，并解压" class="headerlink" title="下载openssl，并解压"></a>下载openssl，并解压</h2><p>注意：brew安装软件时，看他下载的是什么版本，就手动下载什么版本</p><p>下载地址:</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>www.openssl.org<span class="hljs-regexp">/source/</span>openssl-<span class="hljs-number">3.4</span>.<span class="hljs-number">0</span>.tar.gz<br></code></pre></td></tr></table></figure><h2 id="配置openssl"><a href="#配置openssl" class="headerlink" title="配置openssl"></a>配置openssl</h2><p>进入解压的目录，执行命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">perl ./Configure --prefix=/usr/local/Cellar/openssl@3/3.4.0 --openssldir=/usr/local/openssl@3 --libdir=lib no-ssl3 no-ssl3-method no-zlib darwin64-x86_64-cc enable-ec_nistp_64_gcc_128<br></code></pre></td></tr></table></figure><h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><h3 id="1-编译"><a href="#1-编译" class="headerlink" title="1. 编译"></a>1. 编译</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">make<br></code></pre></td></tr></table></figure><h3 id="2-测试【可选】"><a href="#2-测试【可选】" class="headerlink" title="2. 测试【可选】"></a>2. 测试【可选】</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">make test<br></code></pre></td></tr></table></figure><h3 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo make install MANDIR=/usr/local/Cellar/openssl@3/3.4.0/share/man MANSUFFIX=ssl<br></code></pre></td></tr></table></figure><p>查看是否安装完成，新增一个终端，输入以下命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">openssl version<br></code></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">which -a openssl<br></code></pre></td></tr></table></figure><h3 id="4-brew链接openssl"><a href="#4-brew链接openssl" class="headerlink" title="4. brew链接openssl"></a>4. brew链接openssl</h3><p>使用brew链接openssl后，可使用brew管理手动安装的openssl</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">brew link openssl@3<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>macOS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>macOS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>更新vaultwarden服务端</title>
     <link href="/2024/09/16/update-vw/"/>
     <url>/2024/09/16/update-vw/</url>
@@ -179,31 +204,6 @@
       <tag>macOS</tag>
       
       <tag>SMB</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>安装hexo-generator-archive插件</title>
-    <link href="/2023/11/17/hexo-generator-archive/"/>
-    <url>/2023/11/17/hexo-generator-archive/</url>
-    
-    <content type="html"><![CDATA[<p>Archive generator for Hexo.</p><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">$ npm install hexo-generator-archive --save<br></code></pre></td></tr></table></figure><h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">archive_generator:<br>  enabled: true<br>  per_page: 10<br>  yearly: true<br>  monthly: true<br>  daily: false<br>  order_by: -date<br></code></pre></td></tr></table></figure><h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><ul><li><strong>enabled</strong>: The default value is true, set to false if you do not want to enable the plugin</li><li><strong>per_page</strong>: Posts displayed per page. (0 &#x3D; disable pagination)</li><li><strong>yearly</strong>: Generate yearly archive.</li><li><strong>monthly</strong>: Generate monthly archive.</li><li><strong>daily</strong>: Generate daily archive.</li><li><strong>order_by</strong>: Posts order. (Order by date descending by default)</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>Hexo</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Hexo</tag>
       
     </tags>
     
