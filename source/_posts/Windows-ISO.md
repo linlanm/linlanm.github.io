@@ -11,21 +11,46 @@ categories:
 
 -------
 
-版本：Windows 11 (business editions), version 22H2 (updated Sep 2023) (x64) - DVD (Chinese-Simplified)
+版本：Windows 11 (consumer editions), version 24H2 (x64) - DVD (Chinese-Simplified)
 
 校验信息：
 ```
-文件：zh-cn_windows_11_business_editions_version_22h2_updated_sep_2023_x64_dvd_6e779ec7.iso
-大小：5.69GB
-MD5：F2CC265A742209A6D736FCD622EF40A5
-SHA1：56BAFF06E93B5AB38C0EC90B187727540FAA0D1A
-SHA256：C8DB333A430A26634BC9FF87A235E7371BF81DB8EF0A0E7EA0C94CD40AC1D246
+文件：zh-cn_windows_11_consumer_editions_version_24h2_x64_dvd_bfc0d79b.iso
+大小：5.43GB
+MD5：A0EF4099B38E445BB7EE62C28F6A86AA
+SHA1：CD6F73F6624C9FD06D1AB509D56F0191CA1FCA8E
+SHA256：BD1ECBA89BC59B7B62EF12C88C4E70D456EDAC10B969ECB3299EBD458B1F0FB3
 ```
-下载链接：[ed2k](ed2k://%7Cfile%7Czh-cn_windows_11_business_editions_version_22h2_updated_sep_2023_x64_dvd_6e779ec7.iso%7C6105026560%7CE40A081905041B55452A047F43E39AF0%7C/)
+下载链接：[ed2k](ed2k://|file|zh-cn_windows_11_consumer_editions_version_24h2_x64_dvd_bfc0d79b.iso|5829044224|EF683BDE621E6BC2A96AB2ACEC626620|/)
+
+-------
+
+版本：Windows 11 Enterprise LTSC 2024 (x64) - DVD (Chinese-Simplified)
+校验信息：
+```
+文件：zh-cn_windows_11_enterprise_ltsc_2024_x64_dvd_cff9cd2d.iso
+大小：4.92GB
+MD5：1A13ADE0178082432F90DF951A88842F
+SHA1：AB7CD740E6CD495A69E3A90FCD7FB56BA0C5C62E
+SHA256：2CB21649590C8CF770CD93556596DFF4FD800F24D267A9BE9D9CE0EE9E03F5AC
+```
+下载链接：[ed2k](ed2k://%7Cfile%7Czh-cn_windows_11_enterprise_ltsc_2024_x64_dvd_cff9cd2d.iso%7C5287520256%7CD6E4FE0BA5FD8A2F22FC9C0326481791%7C/)
 
 -------
 
 **Windows 10**
+
+-------
+版本：Windows 10 (consumer editions), version 22H2 (updated Oct 2024) (x64) - DVD (Chinese-Simplified)
+校验信息：
+```
+文件：zh-cn_windows_10_consumer_editions_version_22h2_updated_oct_2024_x64_dvd_d0cfb2e9.iso
+大小：6.67GB
+MD5：79A7DFB900B395000E83E9433062982A
+SHA1：7362475FF1EC340774425F89EC9F924853697BB7
+SHA256：1DB6A58F941FB9310D963CA8B1AB59DD73846F6D9978854843E6C2ECCE10DDFC
+```
+下载链接：[ed2k](ed2k://%7Cfile%7Czh-cn_windows_10_consumer_editions_version_22h2_updated_oct_2024_x64_dvd_d0cfb2e9.iso%7C7167156224%7CCFF635F6DCD2011100864BDFD3CAF429%7C/)
 
 -------
 
