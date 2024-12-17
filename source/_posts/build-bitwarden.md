@@ -105,9 +105,10 @@ server {
 
 **6.禁止他人注册**
 由于这个bitwarden服务器是供个人使用，我们在注册完账号后，要关闭注册功能，防止他人注册。
-#### 先停止容器
+#### 先停止并删除容器
 ```
-docker stop vaultwarden
+docker stop vaultwarden 
+docker rm vaultwarden
 ```
 #### 设置环境变量不允许注册用户-e SIGNUPS_ALLOWED=false，再启动容器
 ```
