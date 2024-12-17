@@ -13,17 +13,6 @@ categories:
 
 为了保持电脑的安全性、稳定性和兼容性，Apple 建议使用与你的 Mac 兼容的最新版 macOS。macOS 更新和升级还包含最新的功能和内建 App（如 Safari 浏览器）。
 
-[使用“软件更新”](https://support.apple.com/zh-cn/102662#softwareupdate)
-
-[使用“macOS 恢复”](https://support.apple.com/zh-cn/102662#recovery)
-
-[使用 App Store](https://support.apple.com/zh-cn/102662#appstore)
-
-[使用网页浏览器](https://support.apple.com/zh-cn/102662#browser)
-
-[使用可引导的安装器](https://support.apple.com/zh-cn/102662#bootable)
-
-[如果你需要协助](https://support.apple.com/zh-cn/102662#help)
 
 ## 使用“软件更新”
 
