@@ -1,0 +1,766 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Lan Lin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="获取 AList打开 AList 下载待部署系统对应的文件。最新版的前端已经和后端打包好了，不用再下载前端文件了。 xxxx 指的是不同系统&#x2F;架构对应的名称，一般 Linux-x86&#x2F;64 为 alist-linux-amd64 手动安装如果有如下提示：是因为你的 GLIBC 版本太低，建议下载 musl 版本 123lib64&#x2F;libc.so.6: version &#96;GLIB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手动安装AList及配置反向代理">
+<meta property="og:url" content="http://blog.iworkce.com/2025/02/03/alist/index.html">
+<meta property="og:site_name" content="一束阳光">
+<meta property="og:description" content="获取 AList打开 AList 下载待部署系统对应的文件。最新版的前端已经和后端打包好了，不用再下载前端文件了。 xxxx 指的是不同系统&#x2F;架构对应的名称，一般 Linux-x86&#x2F;64 为 alist-linux-amd64 手动安装如果有如下提示：是因为你的 GLIBC 版本太低，建议下载 musl 版本 123lib64&#x2F;libc.so.6: version &#96;GLIB">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-03T12:31:36.000Z">
+<meta property="article:modified_time" content="2025-02-03T04:50:54.753Z">
+<meta property="article:author" content="Lan Lin">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Nginx">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>手动安装AList及配置反向代理 - 一束阳光</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.iworkce.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>一束阳光</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://pic.imgdb.cn/item/652a640bc458853aef538c27.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="手动安装AList及配置反向代理"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-03 12:31" pubdate>
+          2025年2月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          36 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">手动安装AList及配置反向代理</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="获取-AList"><a href="#获取-AList" class="headerlink" title="获取 AList"></a><strong>获取 AList</strong></h2><p>打开 <a target="_blank" rel="noopener" href="https://github.com/Xhofe/alist/releases">AList</a> 下载待部署系统对应的文件。最新版的前端已经和后端打包好了，不用再下载前端文件了。</p>
+<p>xxxx 指的是不同系统&#x2F;架构对应的名称，一般 Linux-x86&#x2F;64 为 alist-linux-amd64</p>
+<p>手动安装如果有如下提示：是因为<a target="_blank" rel="noopener" href="https://alist.nn.ci/zh/faq/why.html#lib64-libc-so-6-version-glibc-2-28-not-found-required-by-alist-%E6%88%96%E8%80%85-accept-function-not-implemented">你的 GLIBC 版本太低</a>，建议下载 musl 版本</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">lib64<span class="hljs-regexp">/libc.so.6: version `GLIBC_2.28&#x27; not found (required by ./</span>alist)  <br><span class="hljs-comment">#或者</span><br>accept: <span class="hljs-keyword">function</span> not implemented<br></code></pre></td></tr></table></figure>
+
+<p>当你看到 <code>start server@0.0.0.0:5244</code> 的输出，之后没有报错，说明操作成功。 第一次运行时会输出初始密码。程序默认监听 5244 端口。 现在打开 <code>http://ip:5244</code> 可以看到登录页面，WebDAV 请参阅 <a target="_blank" rel="noopener" href="https://alist.nn.ci/zh/guide/webdav.html">WebDav</a>。</p>
+<h2 id="手动运行"><a href="#手动运行" class="headerlink" title="手动运行"></a><strong>手动运行</strong></h2><p>v3.25.0以上版本将密码改成加密方式存储的hash值，无法直接反算出密码，如果忘记了密码只能通过重新 <strong><code>随机生成</code></strong> 或者 <strong><code>手动设置</code></strong></p>
+<p><strong>以Linux系统为例</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 解压下载的文件，得到可执行文件：</span><br>tar -zxvf alist-xxxx.tar.gz<br><span class="hljs-comment"># 授予程序执行权限：</span><br><span class="hljs-built_in">chmod</span> +x alist<br><span class="hljs-comment"># 运行程序</span><br>./alist server<br><br><span class="hljs-comment"># 获得管理员信息 以下两个不同版本，新版本也有随机生成和手动设置</span><br><span class="hljs-comment"># 低于v3.25.0版本</span><br>./alist admin<br><br><span class="hljs-comment"># 高于v3.25.0版本</span><br><span class="hljs-comment"># 随机生成一个密码</span><br>./alist admin random<br><span class="hljs-comment"># 手动设置一个密码 `NEW_PASSWORD`是指你需要设置的密码</span><br>./alist admin <span class="hljs-built_in">set</span> NEW_PASSWORD<br></code></pre></td></tr></table></figure>
+
+<h2 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a><strong>守护进程</strong></h2><p><strong>以Linux系统为例</strong><br>使用任意方式编辑 <code>/usr/lib/systemd/system/alist.service</code> 并添加如下内容，其中 path_alist 为 AList 所在的路径</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Description</span>=alist<br><span class="hljs-attr">After</span>=network.target<br> <br><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Type</span>=simple<br><span class="hljs-attr">WorkingDirectory</span>=path_alist<br><span class="hljs-attr">ExecStart</span>=path_alist/alist server<br><span class="hljs-attr">Restart</span>=<span class="hljs-literal">on</span>-failure<br> <br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=multi-user.target<br></code></pre></td></tr></table></figure>
+
+<p>然后，执行 <code>systemctl daemon-reload</code> 重载配置，现在你可以使用这些命令来管理程序：</p>
+<ul>
+<li>启动: <code>systemctl start alist</code></li>
+<li>关闭: <code>systemctl stop alist</code></li>
+<li>配置开机自启: <code>systemctl enable alist</code></li>
+<li>取消开机自启: <code>systemctl disable alist</code></li>
+<li>状态: <code>systemctl status alist</code></li>
+<li>重启: <code>systemctl restart alist</code></li>
+</ul>
+<p>守护进程不配置? <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1rF41197Qv?t=187.0"><strong>视频教程</strong></a></p>
+<h2 id="相关信息"><a href="#相关信息" class="headerlink" title="相关信息"></a><strong>相关信息</strong></h2><p>对于所有平台，您可以使用以下命令来静默启动、停止和重新启动。 （v3.4.0 及更高版本）</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-comment"># 携带`--force-bin-dir`参数启动服务</span><br>alist <span class="hljs-literal">start</span><br><span class="hljs-comment"># 通过pid停止服务</span><br>alist <span class="hljs-literal">stop</span><br><span class="hljs-comment"># 通过pid重启服务</span><br>alist restart<br></code></pre></td></tr></table></figure>
+
+<h2 id="如何更新"><a href="#如何更新" class="headerlink" title="如何更新"></a><strong>如何更新</strong></h2><p>下载新版Alist，把之前的替换了即可。</p>
+<ul>
+<li>启动: <code>systemctl start alist</code></li>
+<li>关闭: <code>systemctl stop alist</code></li>
+<li>状态: <code>systemctl status alist</code></li>
+<li>重启: <code>systemctl restart alist</code></li>
+</ul>
+<h2 id="获取密码"><a href="#获取密码" class="headerlink" title="获取密码"></a><strong>获取密码</strong></h2><p>需要进入脚本安装AList的目录文件夹內执行如下命令</p>
+<h4 id="低于v3-25-0版本"><a href="#低于v3-25-0版本" class="headerlink" title="低于v3.25.0版本"></a>低于v3.25.0版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./alist admin<br></code></pre></td></tr></table></figure>
+
+<h4 id="高于v3-25-0版本"><a href="#高于v3-25-0版本" class="headerlink" title="高于v3.25.0版本"></a>高于v3.25.0版本</h4><p>3.25.0以上版本将密码改成加密方式存储的hash值，无法直接反算出密码，如果忘记了密码只能通过重新 <strong><code>随机生成</code></strong> 或者 <strong><code>手动设置</code></strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 随机生成一个密码</span><br>./alist admin random<br><span class="hljs-comment"># 手动设置一个密码,`NEW_PASSWORD`是指你需要设置的密码</span><br>./alist admin <span class="hljs-built_in">set</span> NEW_PASSWORD<br></code></pre></td></tr></table></figure>
+
+<h2 id="一直在加载怎么办"><a href="#一直在加载怎么办" class="headerlink" title="一直在加载怎么办?"></a><strong>一直在加载怎么办?</strong></h2><p>挂载了一些网盘但是不能用了重启了一下AList，发现进不去 网页提示：<code>获取设置失败：请稍后，正在加载存储</code>怎么办？</p>
+<ol>
+<li>等待几分钟</li>
+<li>通过使用命令将<code>失效的/无法启动的</code>存储停止运行</li>
+</ol>
+<p><strong>以Linux系统为例</strong><br>如果通过命令停止 必须先进入你AList所在的文件夹输入命令<br>如果我们不知道是那个存储原因导致的，可以通过命令列出所有的存储</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./alist storage list<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs routeros">[root@OPSD-g8xXordx3B9f alist]# ./alist storage list<br><span class="hljs-built_in">INFO</span>[2023-11-23 17:54:10] reading<span class="hljs-built_in"> config </span>file: data/config.json<br><span class="hljs-built_in">INFO</span>[2023-11-23 17:54:10] load<span class="hljs-built_in"> config </span><span class="hljs-keyword">from</span> env with prefix: ALIST_<br><span class="hljs-built_in">INFO</span>[2023-11-23 17:54:10] init logrus<span class="hljs-built_in">..</span>.<br><span class="hljs-built_in">INFO</span>[2023-11-23 17:54:10] Found 2 storages<br>┌─────────────────────────────────────────────────────────────────┐<br>│ ID    Driver            Mount Path                      Enabled │<br>│─────────────────────────────────────────────────────────────────│<br>│ 1     S3                /R2                             <span class="hljs-literal">true</span>    │<br>│ 2     UrlTree           /233                            <span class="hljs-literal">true</span>    │<br>└─────────────────────────────────────────────────────────────────┘<br></code></pre></td></tr></table></figure>
+
+<p>输入查询命令后我们会进入另一种模式无法输入，如果添加的存储过多可以通过键盘的 ↑ 和 ↓ 来往下翻，等找到后可以按<code>Ctrl+C</code>退出</p>
+<p>例如我们是因为 <code>233</code> 这个存储停止的，我们就输入命令来停止，然后在 重启一下AList就可以了</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">.<span class="hljs-regexp">/alist storage disable /</span><span class="hljs-number">233</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros">[root@OPSD-g8xXordx3B9f alist]# ./alist storage <span class="hljs-built_in">disable</span> /233<br><span class="hljs-built_in">INFO</span>[2023-11-23 17:54:52] reading<span class="hljs-built_in"> config </span>file: data/config.json<br><span class="hljs-built_in">INFO</span>[2023-11-23 17:54:52] load<span class="hljs-built_in"> config </span><span class="hljs-keyword">from</span> env with prefix: ALIST_<br><span class="hljs-built_in">INFO</span>[2023-11-23 17:54:52] init logrus<span class="hljs-built_in">..</span>.<br><span class="hljs-built_in">INFO</span>[2023-11-23 17:54:52] Storage with mount path [/233] have been disabled<br></code></pre></td></tr></table></figure>
+
+<h2 id="设置反向代理"><a href="#设置反向代理" class="headerlink" title="设置反向代理"></a><strong>设置反向代理</strong></h2><p><a target="_blank" rel="noopener" href="https://i.nn.ci/">Andy Hsu</a>2022年9月11日GuideInstallGuide大约 2 分钟</p>
+<p>程序默认监听 5244 端口。如有修改，请一并修改下列配置中的端口号。如果你使用反向代理，建议你设置<a target="_blank" rel="noopener" href="https://alist.nn.ci/zh/config/configuration.html#site_url">site_url</a>，以帮助alist更好的工作。</p>
+<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a><strong>nginx</strong></h2><p>在网站配置文件的 server 字段中添加</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">location</span> / &#123;<br>  <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;<br>  <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-Proto <span class="hljs-variable">$scheme</span>;<br>  <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$http_host</span>;<br>  <span class="hljs-attribute">proxy_set_header</span> X-Real-IP <span class="hljs-variable">$remote_addr</span>;<br>  <span class="hljs-attribute">proxy_set_header</span> Range <span class="hljs-variable">$http_range</span>;<br>	<span class="hljs-attribute">proxy_set_header</span> If-Range <span class="hljs-variable">$http_if_range</span>;<br>  <span class="hljs-attribute">proxy_redirect</span> <span class="hljs-literal">off</span>;<br>  <span class="hljs-attribute">proxy_pass</span> http://127.0.0.1:5244;<br>  <span class="hljs-comment"># the max size of file to upload</span><br>  <span class="hljs-attribute">client_max_body_size</span> <span class="hljs-number">20000m</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果需要使用HTTP&#x2F;3，需要将对应<code>HOST</code>行修改为：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>:<span class="hljs-variable">$server_port</span>;<br></code></pre></td></tr></table></figure>
+
+<p>这样修改后的配置同时也可以兼容HTTP&#x2F;2及更低版本的请求。</p>
+<p><strong>注意</strong></p>
+<p>如果使用宝塔面板，请务必删除以下默认配置</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs coq">- location ~ ^/(\.user.ini|<span class="hljs-type">\.htaccess</span>|<span class="hljs-type">\.git</span>|<span class="hljs-type">\.svn</span>|<span class="hljs-type">\.project</span>|<span class="hljs-type">LICENSE</span>|<span class="hljs-type">README</span>.md<br>- location ~ .\*\.(gif|<span class="hljs-type">jpg</span>|<span class="hljs-type">jpeg</span>|<span class="hljs-type">png</span>|<span class="hljs-type">bmp</span>|<span class="hljs-type">swf</span>)$<br>- location ~ .\*\.(js|<span class="hljs-type">css</span>)?$<br></code></pre></td></tr></table></figure>
+
+<p>并在<code>/www/server/nginx/conf/proxy.conf</code>中或对应网站配置文件中设置禁用Nginx缓存，否则默认配置下访问较大文件时Nginx会先尝试将远程文件缓存至本机，导致播放失败</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">proxy_cache</span> cache_one; <span class="hljs-comment"># 删除这一行</span><br><span class="hljs-attribute">proxy_max_temp_file_size</span> <span class="hljs-number">0</span>; <span class="hljs-comment">#加上这一行</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a><strong>Apache</strong></h2><p>在 VirtualHost 字段下添加配置项 ProxyPass，如：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-section">&lt;VirtualHost *<span class="hljs-number">:80</span>&gt;</span><br>    <span class="hljs-attribute">ServerName</span> myapp.example.com<br>    <span class="hljs-attribute">ServerAdmin</span> webmaster@example.com<br>    <span class="hljs-attribute">DocumentRoot</span> /www/myapp/public<br><br>    <span class="hljs-attribute">AllowEncodedSlashes</span> NoDecode<br>    <span class="hljs-attribute">ProxyPreserveHost</span> <span class="hljs-literal">On</span><br>    <span class="hljs-attribute">ProxyPass</span> <span class="hljs-string">&quot;/&quot;</span> <span class="hljs-string">&quot;http://127.0.0.1:5244/&quot;</span> nocanon<br>    <span class="hljs-attribute">ProxyPassReverse</span> <span class="hljs-string">&quot;/&quot;</span> <span class="hljs-string">&quot;http://127.0.0.1:5244/&quot;</span> nocanon<br><span class="hljs-section">&lt;/VirtualHost&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Caddy"><a href="#Caddy" class="headerlink" title="Caddy"></a><strong>Caddy</strong></h2><p>在 Caddyfile 文件下添加 reverse_proxy，如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css">:<span class="hljs-number">80</span> &#123;<br>  reverse_proxy <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">5244</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果部署在 443 端口正常使用的服务器上且使用域名进行访问，建议使用这种配置让 Caddy 自动申请证书：</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">example.com &#123;<br><span class="hljs-title">  reverse_proxy 127.0.0.1:</span><span class="hljs-number">5244</span><br>&#125;<br><br>将 `example.com` 替换为你自己解析后的域名。<br><br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://alist.nn.ci/zh/guide/install/manual.html">原文链接</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Linux/Nginx/" class="category-chain-item">Nginx</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/Nginx/" class="print-no-link">#Nginx</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>手动安装AList及配置反向代理</div>
+      <div>http://blog.iworkce.com/2025/02/03/alist/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Lan Lin</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/12/17/macos/" title="如何下载和安装 macOS">
+                        <span class="hidden-mobile">如何下载和安装 macOS</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
