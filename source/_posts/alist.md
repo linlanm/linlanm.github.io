@@ -2,8 +2,8 @@
 title: 手动安装AList及配置反向代理
 date: 2025-02-03 12:31:36
 tags:
-- Nginx
 - Linux
+- Nginx
 categories:
 - Linux
 - Nginx
