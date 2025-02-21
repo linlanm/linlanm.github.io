@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>使用Fail2Ban动态封禁IP</title>
+    <link href="/2025/02/21/fail2ban/"/>
+    <url>/2025/02/21/fail2ban/</url>
+    
+    <content type="html"><![CDATA[<p><code>Fail2Ban</code> 可以动态封禁多次尝试登录失败的 IP。</p><h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><ol><li>**安装 <code>Fail2Ban</code>**：</li></ol><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">sudo apt <span class="hljs-keyword">install</span> fail2ban<br></code></pre></td></tr></table></figure><ol start="2"><li>**配置 <code>Fail2Ban</code>**：<br>编辑配置文件 <code>/etc/fail2ban/jail.local</code>：</li></ol><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo vim <span class="hljs-regexp">/etc/</span>fail2ban/jail.local<br></code></pre></td></tr></table></figure><p>添加以下内容：</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[sshd]</span><br><span class="hljs-attr">enabled</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">maxretry</span> = <span class="hljs-number">3</span><br><span class="hljs-attr">bantime</span> = <span class="hljs-number">3600</span><br></code></pre></td></tr></table></figure><ol start="3"><li>**重启 <code>Fail2Ban</code>**：<br>重启 <code>Fail2Ban</code> 以应用配置：</li></ol><pre><code class="hljs">sudo systemctl restart fail2ban</code></pre><ol start="4"><li><strong>验证配置</strong>：<br>查看封禁的 IP：</li></ol><pre><code class="hljs">sudo fail2ban-client status sshd</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>Nginx</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Nginx</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>手动安装AList及配置反向代理</title>
     <link href="/2025/02/03/alist/"/>
     <url>/2025/02/03/alist/</url>
