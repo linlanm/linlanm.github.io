@@ -13,7 +13,7 @@ categories:
 
 ### 步骤：
 
-1.  **安装 `Fail2Ban`**：
+1.  **安装 `Fail2Ban`**
     
 
 ```   
@@ -21,7 +21,7 @@ sudo apt install fail2ban
 ```
 
     
-2.  **配置 `Fail2Ban`**：  
+2.  **配置 `Fail2Ban`**  
 编辑配置文件 `/etc/fail2ban/jail.local`：
     
 ```
@@ -35,12 +35,12 @@ enabled = true
 maxretry = 3
 bantime = 3600
 ``` 
-3.  **重启 `Fail2Ban`**：  
+3.  **重启 `Fail2Ban`**   
 重启 `Fail2Ban` 以应用配置：   
 ```  
 sudo systemctl restart fail2ban
 ```    
-4.  **验证配置**：  
+4.  **验证配置**  
 查看封禁的 IP：
 ```  
 sudo fail2ban-client status sshd
