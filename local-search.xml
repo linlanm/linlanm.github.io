@@ -121,12 +121,16 @@
     
     <categories>
       
+      <category>Linux</category>
+      
       <category>Nginx</category>
       
     </categories>
     
     
     <tags>
+      
+      <tag>Linux</tag>
       
       <tag>Nginx</tag>
       
@@ -146,12 +150,16 @@
     
     <categories>
       
+      <category>Linux</category>
+      
       <category>Nginx</category>
       
     </categories>
     
     
     <tags>
+      
+      <tag>Linux</tag>
       
       <tag>Nginx</tag>
       
@@ -379,6 +387,8 @@
     
     <categories>
       
+      <category>Linux</category>
+      
       <category>Nginx</category>
       
     </categories>
@@ -386,9 +396,9 @@
     
     <tags>
       
-      <tag>Nginx</tag>
+      <tag>Linux</tag>
       
-      <tag>安全</tag>
+      <tag>Nginx</tag>
       
     </tags>
     
@@ -713,9 +723,9 @@
     
     <categories>
       
-      <category>Nginx</category>
-      
       <category>Linux</category>
+      
+      <category>Nginx</category>
       
     </categories>
     
