@@ -2,8 +2,10 @@
 title: 常用装机软件下载
 date: 2023-10-01 20:56:15
 tags:
+- Windows
 - Application
 categories:
+- Windows
 - Application
 ---
 ### **Windows**

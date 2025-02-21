@@ -3,7 +3,9 @@ title: Mac下删除Homebrew包及其依赖
 date: 2024-01-01 23:02:31
 tags:
 - macOS
+- Homebrew
 categories:
+- macOS
 - Homebrew
 ---
 
