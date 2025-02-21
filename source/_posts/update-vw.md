@@ -2,8 +2,10 @@
 title: 更新vaultwarden服务端
 date: 2024-09-16 13:47:49
 tags:
+- Linux
 - Nginx
 categories:
+- Linux
 - Nginx
 ---
 

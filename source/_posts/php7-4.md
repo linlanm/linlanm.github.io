@@ -2,8 +2,10 @@
 title: Ubuntu2204安装PHP7.4
 date: 2024-01-29 23:05:26
 tags:
+- Linux
 - Nginx
 categories:
+- Linux
 - Nginx
 ---
 
