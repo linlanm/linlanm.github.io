@@ -208,6 +208,8 @@
     
     <categories>
       
+      <category>macOS</category>
+      
       <category>Homebrew</category>
       
     </categories>
@@ -216,6 +218,8 @@
     <tags>
       
       <tag>macOS</tag>
+      
+      <tag>Homebrew</tag>
       
     </tags>
     
@@ -362,14 +366,18 @@
     
     <categories>
       
-      <category>容器</category>
+      <category>Linux</category>
+      
+      <category>Docker</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>容器</tag>
+      <tag>Linux</tag>
+      
+      <tag>Docker</tag>
       
     </tags>
     
@@ -441,12 +449,16 @@
     
     <categories>
       
+      <category>Linux</category>
+      
       <category>Internet</category>
       
     </categories>
     
     
     <tags>
+      
+      <tag>Linux</tag>
       
       <tag>Internet</tag>
       
@@ -542,12 +554,16 @@
     
     <categories>
       
+      <category>Windows</category>
+      
       <category>Application</category>
       
     </categories>
     
     
     <tags>
+      
+      <tag>Windows</tag>
       
       <tag>Application</tag>
       
