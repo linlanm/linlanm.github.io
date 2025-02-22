@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Ubuntu启用ESM</title>
+    <link href="/2025/02/22/ubuntu-esm/"/>
+    <url>/2025/02/22/ubuntu-esm/</url>
+    
+    <content type="html"><![CDATA[<p>2021年04月，Ubuntu 16.04 LTS（Xenial Xerus）停止为期5年的标准支持维护，Ubuntu 16.04 LTS后续将过渡到扩展安全维护（ESM）的阶段。您可以参考本文的操作，通过Ubuntu订阅服务（UA-I）为Ubuntu 16.04实例获取ESM更新支持。</p><h2 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h2><p>当Ubuntu 16.04 LTS处于扩展安全维护（ESM）阶段时，您可以通过Ubuntu订阅服务（UA-I）内的扩展安全维护（ESM），继续获取基础操作系统、关键软件包和基础设置组件的安全更新。更多信息，请参见<a href="https://ubuntu.com/advantage">Ubuntu Advantage for Infrastructure</a>以及<a href="https://ubuntu.com/security/esm">Extended Security Maintenance</a>。</p><p>如果您需要在Ubuntu 16.04实例中继续获取操作系统的安全更新，请参见以下操作步骤。</p><h2 id="步骤一：在Ubuntu官网订阅UA-I服务"><a href="#步骤一：在Ubuntu官网订阅UA-I服务" class="headerlink" title="步骤一：在Ubuntu官网订阅UA-I服务"></a>步骤一：在Ubuntu官网订阅UA-I服务</h2><ol><li><p>在本地主机，访问<a href="https://ubuntu.com/">Ubuntu官网</a>。</p></li><li><p>在顶部菜单栏，单击<strong>Sign in</strong>。</p><p>您需要使用Ubuntu账号登录，如果您没有Ubuntu账号，需要根据实际的页面提示完成注册并登录Ubuntu官网。</p></li><li><p>访问<a href="https://ubuntu.com/pro/subscribe">Subscription</a>页面，然后单击<strong>Register</strong>。</p></li><li><p>在<strong>Free Personal Token</strong>区域，获取并自行保存Token值。</p></li></ol><h2 id="步骤二：在Ubuntu-16-04实例中添加UA-I并进行安全更新"><a href="#步骤二：在Ubuntu-16-04实例中添加UA-I并进行安全更新" class="headerlink" title="步骤二：在Ubuntu 16.04实例中添加UA-I并进行安全更新"></a>步骤二：在Ubuntu 16.04实例中添加UA-I并进行安全更新</h2><ol><li><p>远程连接Ubuntu 16.04实例。</p><p>具体操作，请参见<a href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-a-password-or-key">通过密码或密钥认证登录Linux实例</a>。</p></li><li><p>依次运行以下命令，安装最新的Ubuntu Advantage（UA）客户端。</p><ol><li><p>从软件仓库源中更新软件包信息。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt update<br></code></pre></td></tr></table></figure></li><li><p>安装UA客户端。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt install ubuntu-advantage-tools<br></code></pre></td></tr></table></figure></li></ol></li><li><p>运行<strong>步骤一</strong>中保存的Token值。</p><p>命令格式如下所示，您需要将<code>&lt;token&gt;</code>替换为实际保存的Token值。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo ua attach &lt;token&gt;<br></code></pre></td></tr></table></figure></li><li><p>（可选）运行以下命令，启用ESM。</p><p>如果您不确定ESM是否启用，可以运行以下命令确保ESM已启用。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo ua enable esm-infra<br></code></pre></td></tr></table></figure></li><li><p>依次运行以下命令，更新并升级软件包。</p><ol><li><p>从软件仓库源中更新软件包信息。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt update<br></code></pre></td></tr></table></figure></li><li><p>升级软件包。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt upgrade <br></code></pre></td></tr></table></figure></li></ol></li></ol><p><a href="https://help.aliyun.com/zh/ecs/user-guide/security-updates-after-the-end-of-support-and-maintenance-for-ubuntu-16-04-lts">原文链接</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>使用Fail2Ban动态封禁IP</title>
     <link href="/2025/02/21/fail2ban/"/>
     <url>/2025/02/21/fail2ban/</url>
