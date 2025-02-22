@@ -714,6 +714,8 @@
       
       <category>Linux</category>
       
+      <category>Nginx</category>
+      
     </categories>
     
     
@@ -850,6 +852,8 @@
     <categories>
       
       <category>Linux</category>
+      
+      <category>Nginx</category>
       
     </categories>
     
