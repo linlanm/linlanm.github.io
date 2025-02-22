@@ -40,7 +40,7 @@
       
       <category>Linux</category>
       
-      <category>Nginx</category>
+      <category>SSH</category>
       
     </categories>
     
@@ -49,7 +49,7 @@
       
       <tag>Linux</tag>
       
-      <tag>Nginx</tag>
+      <tag>SSH</tag>
       
     </tags>
     
@@ -451,12 +451,16 @@
       
       <category>Linux</category>
       
+      <category>SSH</category>
+      
     </categories>
     
     
     <tags>
       
       <tag>Linux</tag>
+      
+      <tag>SSH</tag>
       
     </tags>
     
