@@ -3,8 +3,10 @@ title: SSH免密登录配置
 date: 2023-11-13 20:55:11
 tags:
 - Linux
+- SSH
 categories:
 - Linux
+- SSH
 ---
 
 **1.生成密钥**

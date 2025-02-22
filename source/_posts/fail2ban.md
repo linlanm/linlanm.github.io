@@ -3,10 +3,10 @@ title: 使用Fail2Ban动态封禁IP
 date: 2025-02-21 22:26:24
 tags:
 - Linux
-- Nginx
+- SSH
 categories:
 - Linux
-- Nginx
+- SSH
 ---
 
 `Fail2Ban` 可以动态封禁多次尝试登录失败的 IP。
