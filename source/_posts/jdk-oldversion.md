@@ -2,6 +2,11 @@
 title: 下载旧版本JDK
 date: 2023-10-16 19:42:58
 tags:
+- Windows
+- Applications
+categories:
+- Windows
+- Applications
 ---
 
 一、打开Oracle Java下载[链接](https://www.oracle.com/cn/java/technologies/downloads/)

@@ -15,7 +15,7 @@ MySQL所使用的 SQL 语言是用于访问数据库的最常用标准化语言�
 
 **安装环境**：Windows 10 Pro
 
-## 1.下载zip安装包：
+## 1.下载zip安装包
 进入官网下载社区版本，下载地址https://dev.mysql.com/downloads/
 ![](https://pic.imgdd.cc/item/6801f00e218de299cab289e7.png)
 
