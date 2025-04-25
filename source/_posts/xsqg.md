@@ -1,9 +1,9 @@
 ---
 title: 先生，千古
 date: 2021-05-22 20:07:58
-tags:
+tags: 
 - 随记
-categories:
+categories: 
 - 随记
 ---
 

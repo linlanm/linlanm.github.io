@@ -1,10 +1,10 @@
 ---
 title: 下载旧版本JDK
 date: 2023-10-16 19:42:58
-tags:
+tags: 
 - Windows
 - Application
-categories:
+categories: 
 - Windows
 - Application
 ---
