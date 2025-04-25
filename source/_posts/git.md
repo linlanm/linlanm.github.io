@@ -2,6 +2,9 @@
 title: git常用命令
 date: 2023-10-16 21:14:17
 tags:
+- Linux
+categories:
+- Linux
 ---
 
 ## 新建
