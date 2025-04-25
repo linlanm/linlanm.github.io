@@ -1,12 +1,7 @@
 ---
 title: 安装绿色版MySQL
 date: 2025-04-25 14:44:34
-tags:
-- Windows
-- Database
-categories:
-- Windows
-- Database
+
 ---
 
 ## 背景信息
