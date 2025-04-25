@@ -74,7 +74,12 @@ hexo generate
 2.  将生成的`public`文件夹中的内容推送到这个仓库。首先，初始化本地仓库：
     
     ```bash
-    cd publicgit initgit remote add origin https://github.com/your-username/your-username.github.io.gitgit add .git commit -m "First commit"git push -u origin master
+    cd public
+    git init
+    git remote add origin https://github.com/your-username/your-username.github.io.git
+    git add .
+    git commit -m "First commit"
+    git push -u origin master
     ```
     
     注意：从2021年1月开始，GitHub默认分支名称变为`main`，如果你使用的是新账户或新仓库，请使用`git push -u origin main`。
