@@ -16,25 +16,24 @@
   <meta name="author" content="Lan Lin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在当今的数字时代，确保网站的安全性至关重要。网络安全的一个基本方面是使用SSL&#x2F;TLS证书来加密您的网站与其访问者之间传输的数据。Certbot是一个免费的开源工具，简化了获取和更新SSL&#x2F;TLS证书的过程。 在 Ubuntu 22.04 LTS Jammy Jellyfish 上安装 Certbot第 1 步。在终端中运行以下命令，确保所有系统软件包都是最新的。 12sudo">
+    <meta name="description" content="⚠️注意：卸载 snapd 会删掉 snap‑firefox，之后需要手动装 deb 版火狐；软件中心也会受影响。适用于 24.04 &#x2F; 26.04。  步骤 1：先删除所有已安装 snap 应用12# 查看全部snapsnap list  1234# 删除除snapd以外全部snap包sudo snap remove --purge $(snap list | awk &amp;#x27;N">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Ubuntu22.04上安装Certbot">
-<meta property="og:url" content="http://blog.iworkce.com/2024/01/29/certbot-ubuntu2204/index.html">
+<meta property="og:title" content="Ubuntu禁用snap">
+<meta property="og:url" content="http://blog.iworkce.com/2026/09/04/ubuntu-snap/index.html">
 <meta property="og:site_name" content="一束阳光">
-<meta property="og:description" content="在当今的数字时代，确保网站的安全性至关重要。网络安全的一个基本方面是使用SSL&#x2F;TLS证书来加密您的网站与其访问者之间传输的数据。Certbot是一个免费的开源工具，简化了获取和更新SSL&#x2F;TLS证书的过程。 在 Ubuntu 22.04 LTS Jammy Jellyfish 上安装 Certbot第 1 步。在终端中运行以下命令，确保所有系统软件包都是最新的。 12sudo">
+<meta property="og:description" content="⚠️注意：卸载 snapd 会删掉 snap‑firefox，之后需要手动装 deb 版火狐；软件中心也会受影响。适用于 24.04 &#x2F; 26.04。  步骤 1：先删除所有已安装 snap 应用12# 查看全部snapsnap list  1234# 删除除snapd以外全部snap包sudo snap remove --purge $(snap list | awk &amp;#x27;N">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-29T22:47:14.000Z">
+<meta property="article:published_time" content="2026-09-04T12:03:55.000Z">
 <meta property="article:modified_time" content="2026-09-04T04:09:35.593Z">
 <meta property="article:author" content="Lan Lin">
 <meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Nginx">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>在Ubuntu22.04上安装Certbot - 一束阳光</title>
+  <title>Ubuntu禁用snap - 一束阳光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="在Ubuntu22.04上安装Certbot"></span>
+            <span id="subtitle" data-typed-text="Ubuntu禁用snap"></span>
           
         </div>
 
@@ -211,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-29 22:47" pubdate>
-          2024年1月29日 晚上
+        <time datetime="2026-09-04 12:03" pubdate>
+          2026年9月4日 中午
         </time>
       </span>
     
@@ -223,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          823 字
+          1.3k 字
         
       </span>
     
@@ -234,7 +233,7 @@
         
         
         
-          7 分钟
+          11 分钟
         
       </span>
     
@@ -279,48 +278,49 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">在Ubuntu22.04上安装Certbot</h1>
+            <h1 id="seo-header">Ubuntu禁用snap</h1>
             
             
               <div class="markdown-body">
                 
-                <p>在当今的数字时代，确保网站的安全性至关重要。网络安全的一个基本方面是使用SSL&#x2F;TLS证书来加密您的网站与其访问者之间传输的数据。Certbot是一个免费的开源工具，简化了获取和更新SSL&#x2F;TLS证书的过程。</p>
-<h2 id="在-Ubuntu-22-04-LTS-Jammy-Jellyfish-上安装-Certbot"><a href="#在-Ubuntu-22-04-LTS-Jammy-Jellyfish-上安装-Certbot" class="headerlink" title="在 Ubuntu 22.04 LTS Jammy Jellyfish 上安装 Certbot"></a>在 Ubuntu 22.04 LTS Jammy Jellyfish 上安装 Certbot</h2><h3 id="第-1-步。"><a href="#第-1-步。" class="headerlink" title="第 1 步。"></a>第 1 步。</h3><p>在终端中运行以下命令，确保所有系统软件包都是最新的。</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br><span class="hljs-attribute">sudo apt upgrade</span><br></code></pre></td></tr></table></figure>
+                <blockquote>
+<p>⚠️注意：卸载 snapd 会删掉 snap‑firefox，之后需要手动装 deb 版火狐；软件中心也会受影响。适用于 24.04 &#x2F; 26.04。</p>
+</blockquote>
+<h2 id="步骤-1：先删除所有已安装-snap-应用"><a href="#步骤-1：先删除所有已安装-snap-应用" class="headerlink" title="步骤 1：先删除所有已安装 snap 应用"></a>步骤 1：先删除所有已安装 snap 应用</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment"># 查看全部snap</span><br><span class="hljs-attribute">snap</span> list<br></code></pre></td></tr></table></figure>
 
-<h3 id="第-2-步。"><a href="#第-2-步。" class="headerlink" title="第 2 步。"></a>第 2 步。</h3><p>在 Ubuntu 22.04 上安装 Certbot。</p>
-<p><strong>使用 Snap 包安装 Certbot</strong></p>
-<p>安装 Certbot Snap 软件包：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo snap install <span class="hljs-comment">--classic certbot</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># 删除除snapd以外全部snap包</span><br>sudo snap <span class="hljs-built_in">remove</span> --purge $(snap list | awk <span class="hljs-string">&#x27;NR&gt;1 &amp;&amp; $1!=&quot;snapd&quot; &#123;print $1&#125;&#x27;</span>)<br><span class="hljs-comment"># 最后删除snapd自身snap</span><br>sudo snap <span class="hljs-built_in">remove</span> --purge snapd<br></code></pre></td></tr></table></figure>
 
-<p>创建指向 Certbot 命令的符号链接：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo ln -s <span class="hljs-regexp">/snap/</span>bin<span class="hljs-regexp">/certbot /u</span>sr<span class="hljs-regexp">/bin/</span>certbot<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>执行完 <code>snap list</code> 提示：<code>No snaps are installed yet.</code> 才算清空。</p>
+</blockquote>
+<h2 id="步骤-2：停止并屏蔽-snapd-systemd-服务"><a href="#步骤-2：停止并屏蔽-snapd-systemd-服务" class="headerlink" title="步骤 2：停止并屏蔽 snapd systemd 服务"></a>步骤 2：停止并屏蔽 snapd systemd 服务</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sudo systemctl stop snapd<span class="hljs-selector-class">.service</span> snapd<span class="hljs-selector-class">.socket</span> snapd<span class="hljs-selector-class">.seeded</span><span class="hljs-selector-class">.service</span><br>sudo systemctl disable <span class="hljs-attr">--now</span> snapd<span class="hljs-selector-class">.service</span> snapd<span class="hljs-selector-class">.socket</span> snapd<span class="hljs-selector-class">.seeded</span><span class="hljs-selector-class">.service</span><br>sudo systemctl <span class="hljs-attribute">mask</span> snapd<br></code></pre></td></tr></table></figure>
 
-<p>通过运行以下命令验证 Certbot 是否已正确安装：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">certbot <span class="hljs-comment">--version</span><br></code></pre></td></tr></table></figure>
+<h2 id="步骤-3：apt-卸载-snapd-deb-包"><a href="#步骤-3：apt-卸载-snapd-deb-包" class="headerlink" title="步骤 3：apt 卸载 snapd deb 包"></a>步骤 3：apt 卸载 snapd deb 包</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo apt purge -y snapd snap-confine gnome-software-plugin-snap<br>sudo apt autoremove <span class="hljs-comment">--purge</span><br></code></pre></td></tr></table></figure>
 
-<p>Certbot现在可以使用了。您可以通过运行以下命令来获取证书：</p>
-<p>如果你的Web服务器是Apache，请使用以下命令：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo certbot <span class="hljs-comment">--apache</span><br></code></pre></td></tr></table></figure>
+<h2 id="步骤-4：清理残留目录"><a href="#步骤-4：清理残留目录" class="headerlink" title="步骤 4：清理残留目录"></a>步骤 4：清理残留目录</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo rm -rf <span class="hljs-regexp">/snap /</span>var<span class="hljs-regexp">/snap /</span>var<span class="hljs-regexp">/lib/</span>snapd <span class="hljs-regexp">/var/</span>cache/snapd<br>rm -rf ~/snap<br></code></pre></td></tr></table></figure>
 
-<p>如果您使用 Nginx 作为您的 Web 服务器，请改用以下命令：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo certbot <span class="hljs-comment">--nginx</span><br></code></pre></td></tr></table></figure>
+<h2 id="步骤-5：【最重要】阻止-apt-偷偷重装-snapd"><a href="#步骤-5：【最重要】阻止-apt-偷偷重装-snapd" class="headerlink" title="步骤 5：【最重要】阻止 apt 偷偷重装 snapd"></a>步骤 5：【最重要】阻止 apt 偷偷重装 snapd</h2><p>创建 apt 屏蔽规则，防止升级 &#x2F; 装软件时自动拉回 snapdGitHub：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs gradle">sudo tee <span class="hljs-regexp">/etc/</span>apt<span class="hljs-regexp">/preferences.d/</span>nosnap.pref &lt;&lt;<span class="hljs-string">&#x27;EOF&#x27;</span><br><span class="hljs-keyword">Package</span>: snapd<br>Pin: release a=*<br>Pin-Priority: -<span class="hljs-number">10</span><br><br><span class="hljs-keyword">Package</span>: snap-confine<br>Pin: release a=*<br>Pin-Priority: -<span class="hljs-number">10</span><br>EOF<br></code></pre></td></tr></table></figure>
 
-<h3 id="第-3-步。"><a href="#第-3-步。" class="headerlink" title="第 3 步。"></a>第 3 步。</h3><p>证书续订配置。</p>
-<p><strong>设置自动续订</strong></p>
-<p>SSL&#x2F;TLS 证书的有效期有限。Certbot可以为您自动化续订过程。要设置自动续订，请添加每天运行两次的 cron 作业：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo crontab -e</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br></code></pre></td></tr></table></figure>
 
-<p>将以下行添加到 crontab 文件中：</p>
-<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">0 </span><span class="hljs-number">0</span> * * * /<span class="hljs-keyword">usr</span>/bin/certbot renew --quiet<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>此时 <code>sudo apt install snapd</code> 会直接提示包不可安装。</p>
+</blockquote>
+<h2 id="步骤-6：替换-Firefox（deb-版本）"><a href="#步骤-6：替换-Firefox（deb-版本）" class="headerlink" title="步骤 6：替换 Firefox（deb 版本）"></a>步骤 6：替换 Firefox（deb 版本）</h2><p>Ubuntu 默认 firefox deb 是空包装，会拉 snap。需要添加 Mozilla 官方源安装真正 deb 版 firefox：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment"># 删除旧空包</span><br><span class="hljs-attribute">sudo</span> apt purge firefox<br></code></pre></td></tr></table></figure>
 
-<p>此作业将每天检查一次即将过期的证书，并在必要时续订证书。</p>
-<p>您可以使用以下命令手动测试续订过程：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo certbot renew <span class="hljs-comment">--dry-run</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs smali"><span class="hljs-comment"># 添加Mozilla APT源</span><br>sudo<span class="hljs-built_in"> add-apt-repository </span>ppa:mozillateam/ppa<br>sudo apt update<br>sudo apt install firefox<br></code></pre></td></tr></table></figure>
 
-<h3 id="第-4-步。"><a href="#第-4-步。" class="headerlink" title="第 4 步。"></a>第 4 步。</h3><p>验证 SSL&#x2F;TLS 证书安装。</p>
-<p><strong>网页浏览器测试</strong></p>
-<p>通过Web浏览器并访问您的网页，您应该会在地址栏中看到一个锁图标，表示连接安全。</p>
+<h2 id="验证是否彻底禁用"><a href="#验证是否彻底禁用" class="headerlink" title="验证是否彻底禁用"></a>验证是否彻底禁用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">which</span> snap<br><span class="hljs-comment"># 无输出说明成功</span><br>systemctl status snapd<br><span class="hljs-comment"># 显示 masked</span><br>apt install snapd<br><span class="hljs-comment"># 提示包不可安装</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="如果只是临时禁用，不想彻底删除（不推荐）"><a href="#如果只是临时禁用，不想彻底删除（不推荐）" class="headerlink" title="如果只是临时禁用，不想彻底删除（不推荐）"></a>如果只是临时禁用，不想彻底删除（不推荐）</h2><p>仅停止屏蔽服务，不删包：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">sudo systemctl <span class="hljs-attribute">mask</span> snapd<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>缺点：apt 升级很可能把服务恢复回来，治标不治本。</p>
+</blockquote>
 
                 
               </div>
@@ -342,13 +342,6 @@
   <a href="/categories/Linux/" class="category-chain-item">Linux</a>
   
   
-    <span>></span>
-    
-  <a href="/categories/Linux/Nginx/" class="category-chain-item">Nginx</a>
-  
-  
-
-  
 
       </span>
     
@@ -363,8 +356,6 @@
       
         <a href="/tags/Linux/" class="print-no-link">#Linux</a>
       
-        <a href="/tags/Nginx/" class="print-no-link">#Nginx</a>
-      
     </div>
   
 </div>
@@ -375,8 +366,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>在Ubuntu22.04上安装Certbot</div>
-      <div>http://blog.iworkce.com/2024/01/29/certbot-ubuntu2204/</div>
+      <div>Ubuntu禁用snap</div>
+      <div>http://blog.iworkce.com/2026/09/04/ubuntu-snap/</div>
     </div>
     <div class="license-meta">
       
@@ -388,7 +379,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年1月29日</div>
+          <div>2026年9月4日</div>
         </div>
       
       
@@ -420,18 +411,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/01/29/php7-4/" title="Ubuntu2204安装PHP7.4">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Ubuntu2204安装PHP7.4</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/01/01/brew-rmtree/" title="Mac下删除Homebrew包及其依赖">
-                        <span class="hidden-mobile">Mac下删除Homebrew包及其依赖</span>
+                      <a href="/2026/04/02/adb/" title="ADB 命令大全（分类速查版）">
+                        <span class="hidden-mobile">ADB 命令大全（分类速查版）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
