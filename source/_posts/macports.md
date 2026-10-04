@@ -25,9 +25,12 @@ xcode-select --install
 
 ## 2\. 下载对应系统的 MacPorts pkg 安装包
 
-官网：[https://www.macports.org/install.php](https://www.macports.org/install.php)The MacPor... 选择你的 macOS 版本：
+官网：[https://www.macports.org/install.php](https://www.macports.org/install.php)
+选择你的 macOS 版本：
 
-*   Sequoia (15) / Sonoma (14) / Ventura (13) / Monterey (12) … 下载 `.pkg` 安装包，双击一路下一步安装。
+*   Sequoia (15) / Sonoma (14) / Ventura (13) / Monterey (12) … 
+
+下载 `.pkg` 安装包，双击一路下一步安装。
 
 > 安装程序会自动配置环境变量（`/opt/local/bin`），**安装完成必须新开终端窗口**，环境变量才生效。
 
