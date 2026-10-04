@@ -15,7 +15,7 @@
       
       <category>macOS</category>
       
-      <category>Homebrew</category>
+      <category>MacPorts</category>
       
     </categories>
     
@@ -24,7 +24,7 @@
       
       <tag>macOS</tag>
       
-      <tag>Homebrew</tag>
+      <tag>MacPorts</tag>
       
     </tags>
     
