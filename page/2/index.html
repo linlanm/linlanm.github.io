@@ -226,6 +226,76 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2024/09/16/update-vw/" target="_self">
+          更新vaultwarden服务端
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/09/16/update-vw/" target="_self">
+        <div>
+          更新非常简单，您只需确保保留了已挂载的卷。如果您使用（绑定挂载路径）的方式，则只需使用 pull 拉取最新版本的镜像，再使用 stop 和 rm 来停止和移除当前容器，然后与之前相同的方式启动一个新的容器即可： 123456789# 拉取最新版本的镜像docker pull vaultwarden/server:latest# 停止并移除旧版本容器docker stop vaultwardendo
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-09-16 13:47" pubdate>
+              2024-09-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Linux/Nginx/" class="category-chain-item">Nginx</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+              <a href="/tags/Nginx/">#Nginx</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2024/01/29/php7-4/" target="_self">
           Ubuntu2204安装PHP7.4
         </a>
@@ -471,6 +541,13 @@
   <a href="/categories/macOS/" class="category-chain-item">macOS</a>
   
   
+    <span>></span>
+    
+  <a href="/categories/macOS/Homebrew/" class="category-chain-item">Homebrew</a>
+  
+  
+
+  
 
       </span>
     
@@ -484,6 +561,8 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/macOS/">#macOS</a>
+            
+              <a href="/tags/Homebrew/">#Homebrew</a>
             
           </div>
         
@@ -807,76 +886,6 @@
               <a href="/tags/Linux/">#Linux</a>
             
               <a href="/tags/Docker/">#Docker</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/11/13/build-bitwarden/" target="_self">
-          自建密码管理器Bitwarden
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/11/13/build-bitwarden/" target="_self">
-        <div>
-          1.前期准备软件安装：docker nginx certbot 2.docker镜像拉取 1docker pull vaultwarden/server 3.启动docker镜像 1docker run -d --name vaultwarden -v /vw-data/:/data/ -p 8080:80 vaultwarden/server:latest 4.配置nginx(示例文件) 123
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-11-13 21:19" pubdate>
-              2023-11-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Linux/Nginx/" class="category-chain-item">Nginx</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux/">#Linux</a>
-            
-              <a href="/tags/Nginx/">#Nginx</a>
             
           </div>
         
