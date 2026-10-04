@@ -3,10 +3,10 @@ title: MacPorts安装及配置
 date: 2026-10-04 22:53:42
 tags:
 - macOS
-- Homebrew
+- MacPorts
 categories:
 - macOS
-- Homebrew
+- MacPorts
 ---
 
 > MacPorts 是 macOS 的包管理器，和 Homebrew 并列；**安装前必须先装好 Xcode Command Line Tools**
