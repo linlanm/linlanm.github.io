@@ -3,8 +3,10 @@ title: Homebrew安装及配置
 date: 2023-12-22 00:24:57
 tags:
 - macOS
+- Homebrew
 categories:
 - macOS
+- Homebrew
 ---
 
 ### 首次安装 Homebrew / Linuxbrew
