@@ -202,7 +202,7 @@ export PATH="$PNPM_HOME:$PATH"
 没有的话手动加上再 `source ~/.zshrc`
 
 
-### 3.pnpm install Error: ERR\_PNPM\_PNPM\_ENGINE\_NO\_NATIVE\_BINARY
+### 3."pnpm install Error: ERR\_PNPM\_PNPM\_ENGINE\_NO\_NATIVE\_BINARY"
 
 报错根源：
 你是 **Intel Mac（darwin-x64）**，**pnpm 11 独立版（@pnpm/exe）没有 Intel Mac 的二进制包**，官方直接砍掉了，所以项目里 `packageManager` 指定了 pnpm@11，pnpm 尝试自动下载 @pnpm/exe 就炸了pnpm。
@@ -281,7 +281,7 @@ curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=12 sh -
 2.  长期：brew install pnpm 或者 装 pnpm12
 
 
-### 4.脚本执行 `git rev-parse HEAD` 返回退出码 **128**
+### 4."脚本执行 `git rev-parse HEAD` 返回退出码 **128**"
 脚本执行 `git rev-parse HEAD` 返回退出码 **128**，含义：
 
 > 当前目录**不是一个 git 仓库，或者 git 仓库没有任何 commit（空仓库）**
