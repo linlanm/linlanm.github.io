@@ -128,7 +128,160 @@ echo $PATH
 npm config set registry https://registry.npmmirror.com
 ```
 
-### 2.脚本执行 `git rev-parse HEAD` 返回退出码 **128**
+### 2.“npm error     at async /opt/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:638:20 *** npm error permissions of the file and its containing directories, or try running npm error the command again as root/Administrator.“
+
+你的 node 是装在 `/opt/local`（macports），这个目录属于 root，普通用户没有写入权限，所以 `npm install -g` 直接报错 EACCES。
+
+> ❌ **不推荐直接 sudo npm install -g pnpm**，会埋下一堆权限坑，后面各种诡异报错。
+
+#### ✅ 方案 1（首选，最简单，推荐）：pnpm 官方独立安装脚本
+
+它直接装到你家目录 `~/Library/pnpm`，完全避开 `/opt/local` 权限问题：
+
+```
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+```
+
+脚本会自动写入 zsh 配置。 执行完：
+
+```
+source ~/.zshrc
+pnpm -v
+```
+
+能输出版本号就成功了。
+
+> 如果国内下载慢，可以用镜像版：
+
+```
+curl -fsSL https://get.pnpm.io/install.sh | env PNPM_DIST_URL=https://registry.npmmirror.com/pnpm | sh -
+```
+
+#### ✅ 方案 2：brew 安装（如果你有 homebrew）
+
+```
+brew install pnpm
+```
+
+#### ✅ 方案 3：如果你坚持想用 npm 全局装（改 npm 全局目录，一劳永逸解决所有 npm 全局 EACCES）
+
+```
+# 1. 创建用户目录存放全局包
+mkdir ~/.npm-global
+# 2. 修改npm全局安装路径
+npm config set prefix '~/.npm-global'
+# 3. 写入zshrc
+echo 'export PATH="$HOME/.npm-global/bin:$PATH"' >> ~/.zshrc
+# 4. 生效
+source ~/.zshrc
+# 现在再安装就不会有权限报错
+npm install -g pnpm
+```
+
+#### ✅ 方案 4：用 nvm 管理 node（根治这类权限问题，长期开发强烈建议）
+
+macports /pkg 直接装 node 很容易出现 `/opt/local`、`/usr/local` 权限问题，换成 nvm，所有 node 版本、全局包全部在用户目录，再也不会 EACCES。
+
+* * *
+
+#### 小排查
+
+装好之后如果还是 command not found：
+
+```
+cat ~/.zshrc | grep PNPM_HOME
+```
+
+正常会看到两行：
+
+```
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+```
+
+没有的话手动加上再 `source ~/.zshrc`
+
+
+### 3.pnpm install Error: ERR\_PNPM\_PNPM\_ENGINE\_NO\_NATIVE\_BINARY
+
+报错根源：
+你是 **Intel Mac（darwin-x64）**，**pnpm 11 独立版（@pnpm/exe）没有 Intel Mac 的二进制包**，官方直接砍掉了，所以项目里 `packageManager` 指定了 pnpm@11，pnpm 尝试自动下载 @pnpm/exe 就炸了pnpm。
+
+> 一句话：**pnpm v11 独立 exe 不支持 Intel Mac**，M 芯片没问题，Intel 不行。
+
+#### 方案 A（最快临时绕过，直接跑）
+
+项目里强制忽略版本锁定，用你本地装好的 pnpm：
+
+```
+pnpm with current install
+```
+
+或者一次性环境变量：
+
+```
+PNPM_PM_ON_FAIL=ignore pnpm install
+```
+
+永久忽略：在项目根新建 / 编辑 `pnpm-workspace.yaml`
+
+```
+pmOnFail: ignore
+```
+
+⚠️ 缺点：项目要求的 pnpm 版本约束失效，适合本地开发，不要提交到公共仓库。
+
+#### 方案 B（推荐，Intel Mac 稳定可用）
+
+#### 方式 1：Homebrew 安装（优先）
+
+```
+brew install pnpm
+```
+
+brew 装的是 node 版 pnpm（不是 @pnpm/exe 独立包），可以在 Intel Mac 正常跑，不受这个限制pnpm。
+
+#### 方式 2：用 npm 装普通版 pnpm（不是 @pnpm/exe）
+
+> 注意：是 `pnpm` 包，不是 `@pnpm/exe` 先用 nvm 管理 node（避开 /opt/local 权限坑），然后：
+
+```
+npm install -g pnpm
+```
+
+这个版本依赖本机 node，**不需要独立二进制，Intel Mac 可以正常运行**。
+
+#### 方式 3：升级 pnpm 12（12 重新支持 Intel Mac 独立二进制）pnpm
+
+```
+curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=12 sh -
+```
+
+> pnpm12 是 Rust 重写，重新提供 darwin-x64 原生包，Intel Mac 可以用独立版。
+
+#### 方案 C：改项目 package.json（根治）
+
+打开 `package.json`，找到类似：
+
+```
+"packageManager": "pnpm@11.28.5"
+```
+
+改成 pnpm 12，或者直接删掉这一行，就不会自动拉 @pnpm/exe。
+
+#### 补充说明
+
+*   `@pnpm/exe` = 打包了 node 的独立可执行文件，v11 不给 Intel Mac 做这个包了（Node SEA 在 x64 macOS 上会段错误）
+*   不带 exe 的普通 `pnpm` npm 包：只是 cli 源码，跑在你本机 node 上，Intel Mac 一直可用
+*   你之前的 `curl install.sh` 装的就是 @pnpm/exe 独立版，Intel Mac 11 版本踩坑是必然
+
+#### 推荐顺序
+
+1.  先用 `pnpm with current install` 把项目装起来
+2.  长期：brew install pnpm 或者 装 pnpm12
+
+
+### 4.脚本执行 `git rev-parse HEAD` 返回退出码 **128**
 脚本执行 `git rev-parse HEAD` 返回退出码 **128**，含义：
 
 > 当前目录**不是一个 git 仓库，或者 git 仓库没有任何 commit（空仓库）**
@@ -212,8 +365,5 @@ git init && git add . && git commit -m "build-temp"
 
 * * *
 
-#### 补充
-
-这个是项目构建脚本的硬依赖，**不是 pnpm、node 版本问题**，和前面的 pnpm engine 报错无关。
 
 [原文链接](https://github.com/deepseek-ai/deepseek-harness/blob/master/README.zh.md)
